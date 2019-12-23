@@ -19,17 +19,17 @@ Although I tried to calculate all possible failures can happen, but if something
 
 ## Installation
 
-Clone the repository into `~/.dotfiles/`:
+1. Clone the repository into `~/.dotfiles/`:
 
-```shell
-$ git clone --depth=1 https://github.com/vuong-cuong-phoenix/dotfiles.git $HOME/.dotfiles
-```
+    ```shell
+    git clone --depth=1 https://github.com/vuong-cuong-phoenix/dotfiles.git $HOME/.dotfiles
+    ```
 
-Run this command:
+2. Run this command:
 
-```shell
-$ ./install.sh
-```
+    ```shell
+    ./install.sh
+    ```
 
 -   The installation will backup config file if it is exists and is not linked to the correct place. All backup files are under `./BACKUP/<CURRENT DATE_TIME>/`
 -   If you haven't install `oh-my-zsh` before, then after the first time installation of it, you need to **run the command above again** to get effect of configurations.
