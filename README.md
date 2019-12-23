@@ -51,7 +51,13 @@ Although I tried to calculate all possible failures can happen, but if something
 -   **zsh**
     -   .zprofile: [~/.zprofile](https://github.com/vuong-cuong-phoenix/dotfiles/blob/master/shell/.zprofile)
     -   .zshrc: [~/.zshrc](https://github.com/vuong-cuong-phoenix/dotfiles/blob/master/shell/.zshrc)
-    -   **oh-my-zsh** (_~/.oh-my-zsh_)
-        -   zsh-autosuggestions (_~/.oh-my-zsh/custom/plugins/zsh-autosuggestions_)
-        -   zsh-syntax-highlighting (_~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting_)
-        -   powerlevel10k (_~/.oh-my-zsh/custom/themes/powerlevel10k_)
+    -   **oh-my-zsh**: `~/.oh-my-zsh`
+        -   zsh-autosuggestions: `~/.oh-my-zsh/custom/plugins/zsh-autosuggestions`
+        -   zsh-syntax-highlighting: `~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting`
+        -   powerlevel10k: `~/.oh-my-zsh/custom/themes/powerlevel10k`
+
+## Known Issues
+
+-   **Issue**: Cannot find **Hack Nerd Font** in **Gnome-Terminal**.  
+    **Solved**: By default, **Gnome-Terminal** only shows _monospace-fonts_.  
+    To choose **Hack Nerd Font** as the default font for **Gnome-Terminal**, you need to install `dconf-editor`, then open it, find `/org/gnome/terminal/legacy/profiles:/<profiles-id>/font` and then change **_Custom value_** to `Hack Nerd Font <font-size>`
