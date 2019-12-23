@@ -240,6 +240,28 @@ link_file() {
 
     return $return_status
 }
+
+check_and_download() {
+    local package=$1
+    local directory=$2
+    local download_command=$3
+
+    if [ -d "$2" ]; then
+        print_wtabs 2 "FOUND '$1'"
+    else
+        $3
+
+        if [ -d "$2" ]; then
+            print_wtabs 2 "Installing '$1'" "SUCCEED"
+        else
+            print_wtabs 2 "Installing '$1'" "FAILED"
+
+            return 1
+        fi
+    fi
+
+    return 0
+}
 ################################################################################################
 #                               install_and_config $1 $2 $3 $4 $5...
 # Desc: Link all the config files ($3, $4, $5...) of package $2. 
@@ -319,22 +341,24 @@ post_install_zsh() {
 
     # Configure 'oh-my-zsh'
     printf "\t'oh-my-zsh'\n"
-    if [ -d "$HOME/.oh-my-zsh" ]; then
-        print_wtabs 2 "FOUND 'oh-my-zsh'"
-    else
-        sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-        # Check again if 'sh' and 'curl' goes wrong
-        if [ -d "$HOME/.oh-my-zsh" ]; then
-            print_wtabs 2 "Installing 'oh-my-zsh'" "SUCCEED"
-        else
-            print_wtabs 2 "Installing 'oh-my-zsh'" "FAILED"
-
-            return 1
-        fi
+    check_and_download "oh-my-zsh" "$HOME/.oh-my-zsh" "sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)""
+    if [ $? -eq 1 ]; then
+        return 1
     fi
 
-    printf "\t'powerlevel10k'\n"
+    printf "\t'zsh-autosuggestions' for 'oh-my-zsh'\n"
+    check_and_download "zsh-autosuggestions" "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions" "git clone "https://github.com/zsh-users/zsh-autosuggestions" "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions""
+    if [ $? -eq 1 ]; then
+        return 1
+    fi 
+
+    printf "\t'zsh-syntax-highlighting' for 'oh-my-zsh'\n"
+    check_and_download "zsh-syntax-highlighting" "$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting" "git clone "https://github.com/zsh-users/zsh-syntax-highlighting.git" "$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting""
+    if [ $? -eq 1 ]; then
+        return 1
+    fi
+    
+    printf "\t'powerlevel10k' for 'oh-my-zsh'\n"
     # Install 'Powerlevel10k' for 'oh-my-zsh'
     if [ -d "$HOME/.oh-my-zsh/custom/themes/powerlevel10k" ]; then
         print_wtabs 2 "FOUND 'powerlevel10k'"
