@@ -19,9 +19,15 @@ Although I tried to calculate all possible failures can happen, but if something
 
 ## Installation
 
+Clone the repository into `~/.dotfiles/`:
+
+```shell
+$ git clone --depth=1 https://github.com/vuong-cuong-phoenix/dotfiles.git $HOME/.dotfiles
+```
+
 Run this command:
 
-```
+```shell
 $ ./install.sh
 ```
 
@@ -32,7 +38,7 @@ $ ./install.sh
 
 -   **git**
     -   .gitconfig.static: [~/.gitconfig.static](https://github.com/vuong-cuong-phoenix/dotfiles/blob/master/git/.gitconfig.static)
-    -   .gitignore.static: [~/.dotfiles/git/.gitignore](https://github.com/vuong-cuong-phoenix/dotfiles/blob/master/git/.gitignore.static)
+    -   .gitignore.static: [~/.dotfiles/git/.gitignore.static](https://github.com/vuong-cuong-phoenix/dotfiles/blob/master/git/.gitignore.static)
         > Global .gitignore for every git projects.
 -   **curl**
 -   **unzip**
