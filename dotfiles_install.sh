@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 tabs 4
 
 
@@ -215,10 +215,11 @@ link_file() {
     # Check if $target_file exists
     if [ -e "$target_file" ]; then
         # Check if $target_file is already linked to $source_file
-        if [ "$(readlink "$3")" = "$2" ]; then
+        if [ "$(readlink "$target_file")" = "$source_file" ]; then
             print_wtabs 2 "'$3' is already linked correctly!"
             return -1
         else
+            printf "\t\t$target_file found.\n"
             backup_file "$target_file" "$BACKUP_DIR/$config_type"
             
             if [ $? -eq 0 ]; then
