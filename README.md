@@ -28,6 +28,7 @@ Although I tried to calculate all possible failures can happen, but if something
 2. Run this command:
 
     ```shell
+    cd $HOME/.dotfiles
     ./install.sh
     ```
 

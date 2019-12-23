@@ -196,9 +196,9 @@ link_file() {
             backup_file "$target_file" "$BACKUP_DIR/$config_type"
             
             if [ $? -eq 0 ]; then
-                print_wtabs 2 "Backing up to '$BACKUP_DIR/$config_type/'" "SUCCEED"
+                print_wtabs 2 "Backing up to 'BACKUP/$config_type/'" "SUCCEED"
             else
-                print_wtabs 2 "Backing up to '$BACKUP_DIR/$config_type/'" "FAILED"
+                print_wtabs 2 "Backing up to 'BACKUP/$config_type/'" "FAILED"
             fi
         fi
     fi

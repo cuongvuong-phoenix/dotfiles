@@ -14,7 +14,15 @@ printf "\toh-my-zsh\n"
 if [ -d "$HOME/.oh-my-zsh" ]; then
     print_wtabs 2 "FOUND 'oh-my-zsh'"
 else
-    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    execute_quietly "command -v curl"
+    if [ $? -eq 0 ]; then
+        sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    fi
+
+    execute_quietly "command -v wget"
+    if [ $? -eq 0 ]; then
+        sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+    fi
 
     if [ -d "$HOME/.oh-my-zsh" ]; then
         print_wtabs 2 "Installing 'oh-my-zsh'" "SUCCEED"
