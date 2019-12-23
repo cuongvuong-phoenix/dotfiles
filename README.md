@@ -13,7 +13,6 @@ Although I tried to calculate all possible failures can happen, but if something
 -   bash shell
 -   git
 -   _(Optional)_: Install these requirements if you want to get the best experience.
-    -   [Hack Nerd Font](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.0.0/Hack.zip)
     -   Breeze Theme:
     -   Dark-Solarized Theme:
 
@@ -34,6 +33,7 @@ Although I tried to calculate all possible failures can happen, but if something
 
 -   The installation will backup config file if it is exists and is not linked to the correct place. All backup files are under `./BACKUP/<CURRENT DATE_TIME>/`
 -   If you haven't install `oh-my-zsh` before, then after the first time installation of it, you need to **run the command above again** to get effect of configurations.
+-   Install [Hack Nerd Font](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.0.0/Hack.zip) and set it as default font for your Terminal.
 
 ## List of Packages and Configurations
 

@@ -26,22 +26,32 @@ if [ $? -eq 0 ]; then
 fi
 
 echo $SEPERATED_BAR
+
 # Install 'cURL'
 install_and_config "" curl
 
 echo $SEPERATED_BAR
+
+# Install 'wget'
+install_and_config "" wget
+
+echo $SEPERATED_BAR
+
 # Install 'unzip'
 install_and_config "" unzip
 
 echo $SEPERATED_BAR
+
 # Install and configure 'bash' shell
 install_and_config shell bash .bash_profile .bashrc
 
 echo $SEPERATED_BAR
+
 # Install and configure 'vim' editor
 install_and_config editor vim .vimrc
 
 echo $SEPERATED_BAR
+
 # Install and configure 'zsh' shell
 install_and_config shell zsh .zprofile .zshrc
 if [ $? -eq 0 ]; then

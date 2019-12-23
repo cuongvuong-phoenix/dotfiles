@@ -3,12 +3,6 @@
 source "$HOME/.dotfiles/framework.sh"
 
 printf "Configuring extras for 'zsh'\n"
-# Set 'zsh' as default SHELL
-if [ ! "$SHELL" = "$(command -v zsh)" ]; then
-    printf "Set 'zsh' as your default shell!\n"
-    chsh -s $(command -v zsh)
-fi
-
 # Configure 'oh-my-zsh'
 printf "\toh-my-zsh\n"
 if [ -d "$HOME/.oh-my-zsh" ]; then
