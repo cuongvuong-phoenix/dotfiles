@@ -219,15 +219,15 @@ check_and_download() {
     local directory=$2
     local download_command=$3
 
-    if [ -d "$2" ]; then
-        print_wtabs 2 "FOUND '$1'"
+    if [ -d "$directory" ]; then
+        print_wtabs 2 "FOUND '$package'"
     else
-        $3
+        $download_command
 
-        if [ -d "$2" ]; then
-            print_wtabs 2 "Installing '$1'" "SUCCEED"
+        if [ -d "$directory" ]; then
+            print_wtabs 2 "Installing '$package'" "SUCCEED"
         else
-            print_wtabs 2 "Installing '$1'" "FAILED"
+            print_wtabs 2 "Installing '$package'" "FAILED"
             return 1
         fi
     fi

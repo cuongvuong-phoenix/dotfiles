@@ -11,9 +11,17 @@ fi
 
 # Configure 'oh-my-zsh'
 printf "\toh-my-zsh\n"
-check_and_download "oh-my-zsh" "$HOME/.oh-my-zsh" "sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)""
-if [ $? -eq 1 ]; then
-    exit 1
+if [ -d "$HOME/.oh-my-zsh" ]; then
+    print_wtabs 2 "FOUND 'oh-my-zsh'"
+else
+    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+    if [ -d "$HOME/.oh-my-zsh" ]; then
+        print_wtabs 2 "Installing 'oh-my-zsh'" "SUCCEED"
+    else
+        print_wtabs 2 "Installing 'oh-my-zsh'" "FAILED"
+        exit 1
+    fi
 fi
 
 printf "\tzsh-autosuggestions\n"
