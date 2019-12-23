@@ -45,6 +45,5 @@ fi
 
 printf "Successfully installed and configured 'oh-my-zsh' for 'zsh'.\n"
 printf "To get the best experience on 'zsh', you should install 'Hack Nerd Font' and change Terminal's theme to 'Breeze':\n"
-printf "\tHack Nerd Font: https://github.com/ryanoasis/nerd-fonts/releases/download/v2.0.0/Hack.zip\n"
 
 exit 0

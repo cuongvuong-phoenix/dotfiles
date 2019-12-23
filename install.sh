@@ -50,4 +50,4 @@ fi
 
 echo $SEPERATED_BAR
 
-printf "Successfully installed and configured all dotfiles avaiable!\n"
+printf "Successfully installed and configured all dotfiles!\n"

@@ -4,6 +4,6 @@
 	branch = auto
 [core]
 	autocrlf = input
-	excludesfile = "$HOME/.dotfiles/git/.gitignore"
+	excludesfile = "$HOME/.dotfiles/git/.gitignore.static"
 [apply]
 	whitespace = nowarn
