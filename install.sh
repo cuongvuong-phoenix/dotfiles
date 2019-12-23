@@ -13,6 +13,7 @@ tabs 4
 # Tested on:
 #           - Arch Linux
 #           - MX Linux
+#           - Ubuntu
 
 
 #--                                     MAIN
