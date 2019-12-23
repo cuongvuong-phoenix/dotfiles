@@ -22,12 +22,12 @@ Although I tried to calculate all possible failures can happen, but if something
 
     ```shell
     git clone --depth=1 https://github.com/vuong-cuong-phoenix/dotfiles.git $HOME/.dotfiles
+    cd $HOME/.dotfiles
     ```
 
 2. Run this command:
 
     ```shell
-    cd $HOME/.dotfiles
     ./install.sh
     ```
 
