@@ -1,0 +1,9 @@
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+[core]
+	autocrlf = input
+	excludesfile = "$HOME/.dotfiles/git/.gitignore"
+[apply]
+	whitespace = nowarn

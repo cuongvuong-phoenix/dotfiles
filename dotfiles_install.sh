@@ -216,7 +216,7 @@ link_file() {
     if [ -e "$target_file" ]; then
         # Check if $target_file is already linked to $source_file
         if [ "$(readlink "$3")" = "$2" ]; then
-            print_wtabs 2 "'$3' is already linked!" "SUCCEED"
+            print_wtabs 2 "'$3' is already linked correctly!"
             return -1
         else
             backup_file "$target_file" "$BACKUP_DIR/$config_type"
@@ -319,7 +319,7 @@ post_install_zsh() {
     # Configure 'oh-my-zsh'
     printf "\t'oh-my-zsh'\n"
     if [ -d "$HOME/.oh-my-zsh" ]; then
-        print_wtabs 2 "FOUND 'oh-my-zsh'" "SUCCEED"
+        print_wtabs 2 "FOUND 'oh-my-zsh'"
     else
         sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
@@ -336,7 +336,7 @@ post_install_zsh() {
     printf "\t'powerlevel10k'\n"
     # Install 'Powerlevel10k' for 'oh-my-zsh'
     if [ -d "$HOME/.oh-my-zsh/custom/themes/powerlevel10k" ]; then
-        print_wtabs 2 "FOUND 'powerlevel10k'" "SUCCEED"
+        print_wtabs 2 "FOUND 'powerlevel10k'"
     else
         git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$HOME/.oh-my-zsh/custom/themes/powerlevel10k"
         
@@ -356,6 +356,16 @@ post_install_zsh() {
     return 0
 }
 #--                                     MAIN
+# Install 'git'
+install_and_config git git ".gitconfig.static"
+ 
+# Configure .gitconfig
+execute_quietly "command -v git"
+if [ $? -eq 0 ]; then
+    git config --global include.path "$HOME/.gitconfig.static"
+fi
+
+echo $SEPERATED_BAR
 # Install 'cURL'
 install_and_config "" curl
 
@@ -379,6 +389,3 @@ if [ $? -eq 0 ]; then
 fi
 
 echo $SEPERATED_BAR
-
-
-
