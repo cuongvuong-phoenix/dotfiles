@@ -2,6 +2,8 @@
 
 My personal **config files for Linux**.
 
+![Demo Image](https://github.com/vuong-cuong-phoenix/dotfiles/blob/master/images/demo.png)
+
 The installation will not just **_symbolically link all config files to the right place_** but also **_install some packages with appropriate Package Manager_** of your distros.
 
 Although I tried to calculate all possible failures can happen, but if something goes wrong, you might need to manually install packages or link config files again.

@@ -1,10 +1,5 @@
 #!/bin/bash
 
-source "$HOME/.dotfiles/framework.sh"
-
-tabs 4
-
-
 # @author: vuong-cuong-phoenix
 # @email: vuongcuong.phoenix@gmail.com
 # @github: https://github.com/vuong-cuong-phoenix/
@@ -12,9 +7,13 @@ tabs 4
 # This is the main setup for Linux distributions.
 # Tested on:
 #           - Arch Linux
-#           - MX Linux
+#           - Debian
 #           - Ubuntu
+#           - MX Linux
+#           - Kali Linux
 
+
+source "$HOME/.dotfiles/framework.sh"
 
 #--                                     MAIN
 # Install 'git'

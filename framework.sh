@@ -1,5 +1,6 @@
 #!/bin/bash
 
+tabs 4
 
 # CHECK 'tput'
 if ! command -v tput > /dev/null 2>&1; then
