@@ -39,7 +39,7 @@ Although I tried to calculate all possible failures can happen, but if something
 
 -   **git**
     -   _~~.gitconfig.static: [~/.gitconfig.static](https://github.com/vuong-cuong-phoenix/dotfiles/blob/master/git/.gitconfig.static)~~ (Deprecated)_
-    -   .gitignore_global: [~/.dotfiles/git/.gitignore_global](https://github.com/vuong-cuong-phoenix/dotfiles/blob/master/git/.gitignore_global)
+    -   .gitignore_global: [~/.gitignore_global](https://github.com/vuong-cuong-phoenix/dotfiles/blob/master/git/.gitignore_global)
 -   **curl**
 -   **unzip**
 -   **bash**
