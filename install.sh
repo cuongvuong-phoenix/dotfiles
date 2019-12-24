@@ -61,4 +61,5 @@ fi
 
 echo $SEPERATED_BAR
 
-printf "Successfully installed and configured all dotfiles!\n"
+printf "END 'dotfiles' installation.\n"
+printf "You should check for what packages or configs failed and you might need to manually install it again.\n"
