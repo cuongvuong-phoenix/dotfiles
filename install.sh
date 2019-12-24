@@ -68,7 +68,7 @@ fi
 
 echo $SEPERATED_BAR
 
-printf "${BOLD}${GREEN}END dotfiles installation.\n"
+printf "${BOLD}${GREEN}COMPLETED dotfiles installation.\n"
 printf "${NORMAL}"
 printf "${BOLD}${LIME_YELLOW}You should check for what packages or configs ${RED}failed${LIME_YELLOW} and you might need to manually install it again.\n"
 printf "${NORMAL}"
