@@ -10,7 +10,7 @@ Although I tried to calculate all possible failures can happen, but if something
 
 ## Requirements
 
-**IMPORTANT**: If you come from a fresh distrobution, you need to **update** (*e.g:* `sudo apt update`,...) and **upgrade** (*e.g:* `sudo apt upgrade`,...) all the packages in your distro, then install requirements and follow the instruction below.
+**IMPORTANT**: If you come from a fresh distro, you need to **update** (*e.g:* `sudo apt update`,...) and **upgrade** (*e.g:* `sudo apt upgrade`,...) all the packages first, then install requirements and follow the instruction below.
 -   git.
 -   bash shell.
 -   [tput](https://command-not-found.com/tput).
