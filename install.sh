@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# @author: vuong-cuong-phoenix
+# @author: Vuong Chi Cuong
 # @email: vuongcuong.phoenix@gmail.com
 # @github: https://github.com/vuong-cuong-phoenix/
 
