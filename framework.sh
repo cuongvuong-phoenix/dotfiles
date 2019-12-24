@@ -189,10 +189,10 @@ link_file() {
     if [ -e "$target_file" ]; then
         # Check if $target_file is already linked to $source_file
         if [ "$(readlink "$target_file")" = "$source_file" ]; then
-            print_wtabs 2 "'$3' is already linked correctly!"
+            print_wtabs 2 "'$target_file' is already linked correctly!"
             return -1
         else
-            printf "\t\t$target_file found.\n"
+            printf "\t\tFOUND $target_file.\n"
             backup_file "$target_file" "$BACKUP_DIR/$config_type"
             
             if [ $? -eq 0 ]; then
@@ -213,14 +213,20 @@ link_file() {
 
     return $return_status
 }
-
+################################################################################################
+#                                   check_and_download() $1 $2 $3
+# Desc: Check if package/config $1 is already installed by checking if directory $2 exists.
+#       If not, then download it by running the command $3 and check it again to verify.
+# Arguments:    $1: package's name.
+#               $2: package's directory to check.
+#               $3: download command.
 check_and_download() {
     local package=$1
     local directory=$2
     local download_command=$3
 
     if [ -d "$directory" ]; then
-        print_wtabs 2 "FOUND '$package'"
+        print_wtabs 2 "FOUND '$package'."
     else
         $download_command
 
