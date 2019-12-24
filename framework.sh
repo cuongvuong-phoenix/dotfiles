@@ -1,5 +1,31 @@
 #!/bin/bash
 
+
+# CHECK 'tput'
+if ! command -v tput > /dev/null 2>&1; then
+    printf "You must have 'tput' installed before running this script. Find how to install it here:\n"
+    printf "https://command-not-found.com/tput"
+
+    exit 1
+fi
+
+# Font colors
+NORMAL=$(tput sgr0)
+BOLD=$(tput bold)
+BLINK=$(tput blink)
+REVERSE=$(tput smso)
+UNDERLINE=$(tput smul)
+BLACK=$(tput setaf 0)
+RED=$(tput setaf 1)
+GREEN=$(tput setaf 2)
+YELLOW=$(tput setaf 3)
+LIME_YELLOW=$(tput setaf 190)
+POWDER_BLUE=$(tput setaf 153)
+BLUE=$(tput setaf 4)
+MAGENTA=$(tput setaf 5)
+CYAN=$(tput setaf 6)
+WHITE=$(tput setaf 7)
+
 declare -a ALL_PM=(
     # deb
     apt
@@ -34,7 +60,7 @@ fi
 REPO_URL=https://github.com/vuong-cuong-phoenix/dotfiles
 MAIN_DIR="$HOME/.dotfiles"
 
-CURRENT_TIME=$(date +"%F")
+CURRENT_TIME=$(date +"%F_%T")
 
 mkdir -p "$MAIN_DIR/BACKUP/$CURRENT_TIME" > /dev/null 2>&1
 BACKUP_DIR="$MAIN_DIR/BACKUP/$CURRENT_TIME"
@@ -100,13 +126,15 @@ package_install() {
             system_execute "slackpkg install $1"
         ;;
         *)
-            printf "Cannot find your Package Manager! Add it in 'install.sh'-> \$ALL_PM, package_install() and run it again!\n"
+            printf "${RED}Cannot find your Package Manager! Add in ${UNDERLINE}install.sh${NORMAL}${RED}-> ${UNDERLINE}\$ALL_PM${NORMAL}${RED}, ${UNDERLINE}package_install()${NORMAL}${RED} and run it again!\n"
+            printf "${NORMAL}"
             return 2
         ;;
     esac
 
     return $?
 }
+
 ################################################################################################
 #                                   print_wtabs() $1 $2 $3
 # Desc: Print $2 on the most-left of screen and $3 on the most-right of screen with $1 of tabs. 
@@ -114,21 +142,33 @@ package_install() {
 # Arguments:    $1: number of tabs.
 #               $2: left string to print at left-justified of the screen.
 #               $3: right string to print at right-justified of the screen.
+#               $4: status of progression
+#               $5: color offset to calculate PROGRESS_BAR's length
 print_wtabs() {
     local num_tab=$1
     local left=$2
-    local right=$3
+    local status=$3
+    local color_offset=$4
+    local right=$5
 
     for i in $(seq 1 $num_tab); do
         printf "\t"
     done
 
-    if [ -z $right ]; then
+    if [ -z $status ]; then
         printf "%s\n" "$left"
+        printf "${NORMAL}"
     else
-        printf "%s %s %s\n" "$left" "${PROGRESS_BAR:$(( ${#left} + ${#right} + 2 + 4 * 2 * $num_tab ))}" "$right"
+        if [ $status -eq 0 ]; then
+            printf "%s ${GREEN}%s %s\n" "$left" "${PROGRESS_BAR:$(( ${#left} + ${#right} + 2 + 4 * 2 * $num_tab - $color_offset ))}" "$right"
+            printf "${NORMAL}"
+        else
+            printf "%s ${RED}%s %s\n" "$left" "${PROGRESS_BAR:$(( ${#left} + ${#right} + 2 + 4 * 2 * $num_tab - $color_offset ))}" "$right"
+            printf "${NORMAL}"
+        fi
     fi
 }
+
 ################################################################################################
 #                           ask_for_confirmation() $1 $2 $3 $4 $5
 # Desc: Ask for confirmation of $1. The allow string to confirm is $2, $3, $4 and $5.
@@ -138,6 +178,7 @@ print_wtabs() {
 #               $4: short string to confirm "REFUSE".
 #               $5: alternative string to confirm "REFUSE".
 ask_for_confirmation() {
+    local ask_string=$1
     local short_agree=$2
     local alter_agree=$3
     local short_refuse=$4
@@ -146,7 +187,9 @@ ask_for_confirmation() {
     local answer
 
     while :; do
-        printf "$1 [$2/$4]: "
+        printf "$ask_string ${NORMAL}[$short_agree/$short_refuse]: "
+        printf "${NORMAL}"
+
         read answer
         answer=$(echo "$answer" | tr "[:upper:]" "[:lower:]")
 
@@ -155,10 +198,13 @@ ask_for_confirmation() {
         elif [ "$answer" = "$short_refuse" -o "$answer" = "$alter_refuse" ]; then
             return 1
         else
-            printf "Wrong command! Please type again!\n"
+            printf "${LIME_YELLOW}Wrong command! Please type again!\n"
+            printf "${NORMAL}"
         fi
     done
 }
+
+
 ################################################################################################
 #                                   backup_file() $1 $2
 # Desc: Backup file $1 to directory $2.
@@ -189,16 +235,18 @@ link_file() {
     if [ -e "$target_file" ]; then
         # Check if $target_file is already linked to $source_file
         if [ "$(readlink "$target_file")" = "$source_file" ]; then
-            print_wtabs 2 "'$target_file' is already linked correctly!"
+            print_wtabs 2 "${BLUE}$target_file ${GREEN}is already linked correctly!"
             return -1
         else
-            printf "\t\tFOUND $target_file.\n"
+            printf "\t\t${GREEN}FOUND ${BLUE}$target_file.\n"
+            printf "${NORMAL}"
+
             backup_file "$target_file" "$BACKUP_DIR/$config_type"
             
             if [ $? -eq 0 ]; then
-                print_wtabs 2 "Backing up to 'BACKUP/$config_type/'" "SUCCEED"
+                print_wtabs 2 "${LIME_YELLOW}Backing up to ${BLUE}BACKUP/$CURRENT_TIME/$config_type/" 0 $(( ${#LIME_YELLOW} + ${#BLUE} )) "SUCCEED"
             else
-                print_wtabs 2 "Backing up to 'BACKUP/$config_type/'" "FAILED"
+                print_wtabs 2 "${LIME_YELLOW}Backing up to ${BLUE}BACKUP/$CURRENT_TIME/$config_type/" 1 $(( ${#LIME_YELLOW} + ${#BLUE} )) "FAILED"
             fi
         fi
     fi
@@ -206,9 +254,9 @@ link_file() {
     execute_quietly "ln -fs "$source_file" "$target_file""
     return_status=$?
     if [ $return_status -eq 0 ]; then
-        print_wtabs 2 "Linking to '$target_file'" "SUCCEED"
+        print_wtabs 2 "${LIME_YELLOW}Linking to ${BLUE}$target_file" 1 $(( ${#LIME_YELLOW} + ${#BLUE} )) "SUCCEED"
     else
-        print_wtabs 2 "Linking to '$target_file'" "FAILED"
+        print_wtabs 2 "${LIME_YELLOW}Linking to ${BLUE}$target_file" 0 $(( ${#LIME_YELLOW} + ${#BLUE} )) "FAILED"
     fi
 
     return $return_status
@@ -226,14 +274,14 @@ check_and_download() {
     local download_command=$3
 
     if [ -d "$directory" ]; then
-        print_wtabs 2 "FOUND '$package'."
+        print_wtabs 2 "${GREEN}FOUND ${BLUE}$package."
     else
         $download_command
 
         if [ -d "$directory" ]; then
-            print_wtabs 2 "Installing '$package'" "SUCCEED"
+            print_wtabs 2 "${LIME_YELLOW}Installing ${BLUE}$package" 0 $(( ${#LIME_YELLOW} + ${#BLUE} )) "SUCCEED"
         else
-            print_wtabs 2 "Installing '$package'" "FAILED"
+            print_wtabs 2 "${LIME_YELLOW}Installing ${BLUE}$package" 1 $(( ${#LIME_YELLOW} + ${#BLUE} )) "FAILED"
             return 1
         fi
     fi
@@ -254,25 +302,28 @@ install_and_config() {
 
     shift
     if ! command -v "$package" > /dev/null 2>&1; then
-        printf "'$package' is not installed => "
-        ask_for_confirmation "Would you like to install '$package' now?" "y" "yes" "n" "no"
+        printf "${BOLD}${YELLOW}'$package' ${NORMAL}${YELLOW}is not installed => "
+        printf "${NORMAL}"
+
+        ask_for_confirmation "${YELLOW}Would you like to install ${BOLD}${YELLOW}$package ${NORMAL}${YELLOW}now?" "y" "yes" "n" "no"
 
         if [ $? -eq 0 ]; then
             package_install $package
 
             if [ $? -eq 0 ]; then
-                print_wtabs 2 "Installing '$package'" "SUCCEED"
+                print_wtabs 2 "${LIME_YELLOW}Installing ${BOLD}${YELLOW}$package" 0 $(( ${#LIME_YELLOW} + ${#BOLD} + ${#YELLOW} )) "SUCCEED"
 
                 until [ $# = 1 ]; do
                     shift
-                    printf "\t$1\n"
+                    printf "\t${BOLD}${YELLOW}$1\n"
+                    printf "${NORMAL}"
                     
                     link_file "$config_type" "$MAIN_DIR/$config_type/$1" "$HOME/$1" 
                 done
 
                 return_status=0
             else
-                print_wtabs 2 "Installing '$package'" "FAILED"
+                print_wtabs 2 "${LIME_YELLOW}Installing ${BLUE}$package" 1 $(( ${#LIME_YELLOW} + ${#BLUE} )) "FAILED"
                 return_status=1
             fi
         else
@@ -281,15 +332,18 @@ install_and_config() {
 
     else
         if [ -z "$config_type" ]; then
-            printf "'$package' found.\n"
+            printf "${BOLD}${YELLOW}$package ${NORMAL}${YELLOW}found.\n"
+            printf "${NORMAL}"
         
             return 0
         else
-            printf "'$package' found => Start configuring now...\n"
+            printf "${BOLD}${YELLOW}$package ${NORMAL}${YELLOW}found => Start configuring now...\n"
+            printf "${NORMAL}"
             
             until [ $# = 1 ]; do
                 shift
-                printf "\t$1\n"
+                printf "\t${BOLD}${YELLOW}$1\n"
+                printf "${NORMAL}"
                 
                 link_file "$config_type" "$MAIN_DIR/$config_type/$1" "$HOME/$1" 
             done
@@ -299,10 +353,12 @@ install_and_config() {
     fi
 
     if [ $return_status -eq 0 ]; then
-        printf "Successfully installed and configured '$package'\n"
+        printf "${BOLD}${GREEN}Successfully installed and configured ${UNDERLINE}$package\n"
+        printf "${NORMAL}"
         return 0
     else
-        printf "Failed to install or configure '$package'\n"
+        printf "${BOLD}${RED}Failed to install or configure ${UNDERLINE}$package\n"
+        printf "${NORMAL}"
         return 1
     fi
 }
