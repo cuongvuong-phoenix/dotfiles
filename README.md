@@ -16,8 +16,12 @@ Although I tried to calculate all possible failures can happen, but you may need
 -   bash shell.
 -   [tput](https://command-not-found.com/tput).
 -   _(Optional)_: Install these requirements if you want to get the best experience:
-    -   Breeze Theme.
-    -   Dark-Solarized Theme.
+    -   Themes:
+        -   Breeze Theme.
+        -   Symphonic Theme.
+        -   Brogrammer Theme.
+        -   XTerm.
+        -   Obsidian Theme.
 
 ## Installation
 
