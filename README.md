@@ -6,11 +6,12 @@ My personal **config files for Linux**.
 
 The installation will not just **_symbolically link all config files to the right place_** but also **_install some packages with appropriate Package Manager_** of your distros.
 
-Although I tried to calculate all possible failures can happen, but if something goes wrong, you might need to manually install packages or link config files again.
+Although I tried to calculate all possible failures can happen, but you may need to manually install packages or link config files again if something goes wrong.
 
 ## Requirements
 
-**IMPORTANT**: If you come from a fresh distro, you need to **update** (*e.g:* `sudo apt update`,...) and **upgrade** (*e.g:* `sudo apt upgrade`,...) all the packages first, then install requirements and follow the instruction below.
+**IMPORTANT**: If you come from a fresh distro, you'll need to **update** (_e.g:_ `sudo apt update`,...) and **upgrade** (_e.g:_ `sudo apt upgrade`,...) all the packages first, then install requirements and follow the instruction below.
+
 -   git.
 -   bash shell.
 -   [tput](https://command-not-found.com/tput).
@@ -33,9 +34,9 @@ Although I tried to calculate all possible failures can happen, but if something
     ./install.sh
     ```
 
--   The installation will backup config file if it is exists and is not linked to the correct place. All backup files are under `./BACKUP/<CURRENT DATE_TIME>/`
--   If you haven't install `oh-my-zsh` before, then after the first time installation of it, you need to **run the command above again** to get effect of configurations.
--   Install any [Nerd Font](https://github.com/ryanoasis/nerd-fonts/releases/) and set it as default font for your Terminal.
+-   The installation will backup config file if it is exists and is not linked to the correct place. All backup files are under `./BACKUP/<CURRENT DATE_TIME>/`.
+-   If you haven't install `oh-my-zsh` before, then after the first time installation of it, you'll need to **run the command above again** to get effect of configurations.
+-   Install any [Nerd Font](https://github.com/ryanoasis/nerd-fonts) and set it as default font for your Terminal.
 
 ## List of Packages and Configurations
 
@@ -61,4 +62,4 @@ Although I tried to calculate all possible failures can happen, but if something
 
 -   **(Solved)** Cannot find **Hack Nerd Font** in **Gnome-Terminal**.  
     **==>** By default, **Gnome-Terminal** only shows _monospace-fonts_.  
-    To choose **Hack Nerd Font** as the default font for **Gnome-Terminal**, you need to install `dconf-editor`, then open it, find `/org/gnome/terminal/legacy/profiles:/<profiles-id>/font` and then change **_Custom value_** to `<font-name> <font-size>` (*e.g:* `Hack Nerd Font 14`)
+    To choose **Hack Nerd Font** as the default font for **Gnome-Terminal**, you need to install `dconf-editor`, then open it, find `/org/gnome/terminal/legacy/profiles:/<profiles-id>/font` and then change **_Custom value_** to `<font-name> <font-size>` (_e.g:_ `Hack Nerd Font 14`)
