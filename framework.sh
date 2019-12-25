@@ -255,9 +255,9 @@ link_file() {
     execute_quietly "ln -fs "$source_file" "$target_file""
     return_status=$?
     if [ $return_status -eq 0 ]; then
-        print_wtabs 2 "${LIME_YELLOW}Linking to ${BLUE}$target_file" 1 $(( ${#LIME_YELLOW} + ${#BLUE} )) "SUCCEED"
+        print_wtabs 2 "${LIME_YELLOW}Linking to ${BLUE}$target_file" 0 $(( ${#LIME_YELLOW} + ${#BLUE} )) "SUCCEED"
     else
-        print_wtabs 2 "${LIME_YELLOW}Linking to ${BLUE}$target_file" 0 $(( ${#LIME_YELLOW} + ${#BLUE} )) "FAILED"
+        print_wtabs 2 "${LIME_YELLOW}Linking to ${BLUE}$target_file" 1 $(( ${#LIME_YELLOW} + ${#BLUE} )) "FAILED"
     fi
 
     return $return_status
