@@ -1,6 +1,7 @@
-#!                                  ENVIROMENT VARIABLES
+################################################################################################
+#                                       ENVIROMENTS VARIABLES
 # Java
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
+export JAVA_HOME=/usr/lib/jvm/default
 
 # Hadoop
 export HADOOP_HOME=/usr/local/hadoop
@@ -12,9 +13,6 @@ export HADOOP_MAPRED_HOME=$HADOOP_HOME
 
 export PATH=${HADOOP_HOME}/bin:${HADOOP_HOME}/sbin:$PATH
 
-# Dart-sass
-export PATH="/usr/local/lib/dart-sass:$PATH"
-
 # IBus
 export GTK_IM_MODULE=ibus
 export QT_IM_MODULE=ibus
@@ -23,6 +21,7 @@ export XMODIFIERS=@im=ibus
 export QT4_IM_MODULE=ibus
 # Dành cho những phần mềm dùng thư viện đồ họa clutter
 export CLUTTER_IM_MODULE=ibus
+################################################################################################
 
 # TERMINAL
 export TERMINAL=/usr/bin/konsole
@@ -140,6 +139,7 @@ source $ZSH/oh-my-zsh.sh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 # [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
+################################################################################################
 #                                               CUSTOMIZE
 prompt_context() {}
 POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
