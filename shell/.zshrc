@@ -1,17 +1,21 @@
 ################################################################################################
 #                                       ENVIROMENTS VARIABLES
 # Java
-export JAVA_HOME=/usr/lib/jvm/default
+export JAVA_HOME="/usr/lib/jvm/default"
+
+# Flutter
+export FLUTTER_HOME="${HOME}/Developments/flutter"
+export PATH="${PATH}:${FLUTTER_HOME}/bin"
 
 # Hadoop
-export HADOOP_HOME=/usr/local/hadoop
-export HADOOP_COMMON_HOME=$HADOOP_HOME
-export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop/
-export HADOOP_HDFS_HOME=$HADOOP_HOME
-export HADOOP_YARN_HOME=$HADOOP_HOME
-export HADOOP_MAPRED_HOME=$HADOOP_HOME
+export HADOOP_HOME="/usr/local/hadoop"
+export HADOOP_COMMON_HOME="${HADOOP_HOME}"
+export HADOOP_CONF_DIR="${HADOOP_HOME}/etc/hadoop/"
+export HADOOP_HDFS_HOME="${HADOOP_HOME}"
+export HADOOP_YARN_HOME="${HADOOP_HOME}"
+export HADOOP_MAPRED_HOME="${HADOOP_HOME}"
 
-export PATH=${HADOOP_HOME}/bin:${HADOOP_HOME}/sbin:$PATH
+export PATH="${HADOOP_HOME}/bin:${HADOOP_HOME}/sbin:${PATH}"
 
 # IBus
 export GTK_IM_MODULE=ibus
@@ -21,6 +25,11 @@ export XMODIFIERS=@im=ibus
 export QT4_IM_MODULE=ibus
 # Dành cho những phần mềm dùng thư viện đồ họa clutter
 export CLUTTER_IM_MODULE=ibus
+################################################################################################
+#                                           UTILITIES
+# Choose Vim as default editor
+export EDITOR=vim
+
 ################################################################################################
 
 # TERMINAL
