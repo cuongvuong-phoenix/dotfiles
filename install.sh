@@ -60,7 +60,7 @@ install_and_config editor vim .vimrc
 echo $SEPERATED_BAR
 
 # Install and configure 'zsh' shell
-install_and_config shell zsh .zprofile .zshrc
+install_and_config shell zsh .zprofile .zshrc .dir_colors
 if [ $? -eq 0 ]; then
     $MAIN_DIR/post_install_zsh.sh
 fi

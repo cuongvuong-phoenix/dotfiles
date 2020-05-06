@@ -61,6 +61,7 @@ Although I tried to calculate all possible failures can happen, but you may need
         -   zsh-autosuggestions: `~/.oh-my-zsh/custom/plugins/zsh-autosuggestions`
         -   zsh-syntax-highlighting: `~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting`
         -   powerlevel10k: `~/.oh-my-zsh/custom/themes/powerlevel10k`
+    -   DIR_COLORS: [~/.dir_colors](https://github.com/vuong-cuong-phoenix/dotfiles/blob/master/shell/.dir_colors)
 
 ## Known Issues
 

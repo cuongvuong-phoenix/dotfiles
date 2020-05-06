@@ -7,6 +7,10 @@ export JAVA_HOME="/usr/lib/jvm/default"
 export FLUTTER_HOME="${HOME}/Developments/flutter"
 export PATH="${PATH}:${FLUTTER_HOME}/bin"
 
+# Golang
+export GOPATH="${HOME}/go"
+export PATH="${PATH}:${GOPATH//://bin:}/bin"
+
 # Hadoop
 export HADOOP_HOME="/usr/local/hadoop"
 export HADOOP_COMMON_HOME="${HADOOP_HOME}"
@@ -30,6 +34,8 @@ export CLUTTER_IM_MODULE=ibus
 # Choose Vim as default editor
 export EDITOR=vim
 
+# Use '.dir_colors' as default
+eval "$(dircolors -b ~/.dir_colors)"
 ################################################################################################
 
 # TERMINAL
