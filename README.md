@@ -28,7 +28,7 @@ Although I tried to calculate all possible failures can happen, but you may need
 1. Clone the repository into `~/.dotfiles/`:
 
     ```shell
-    git clone --depth=1 https://github.com/vuong-cuong-phoenix/dotfiles.git $HOME/.dotfiles
+    git clone --depth=1 git@github.com:vuong-cuong-phoenix/dotfiles.git $HOME/.dotfiles
     cd $HOME/.dotfiles
     ```
 
