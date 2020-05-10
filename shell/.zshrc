@@ -21,6 +21,13 @@ export HADOOP_MAPRED_HOME="${HADOOP_HOME}"
 
 export PATH="${HADOOP_HOME}/bin:${HADOOP_HOME}/sbin:${PATH}"
 
+# Anaconda
+export PATH="${PATH}:/home/bimbal/Developments/miniconda3/bin"
+
+# Yarn
+export PATH="$(yarn global bin):${PATH}"
+
+
 # IBus
 export GTK_IM_MODULE=ibus
 export QT_IM_MODULE=ibus
@@ -36,6 +43,9 @@ export EDITOR=vim
 
 # Use '.dir_colors' as default
 eval "$(dircolors -b ~/.dir_colors)"
+
+# Best options for 'ntfs-3g'
+# ntfs-3g nosuid,nodev,nofail,windows_names,big_writes,utf8,uid=1000,gid=1000,umask=0022,x-gvfs-show
 ################################################################################################
 
 # TERMINAL
@@ -175,4 +185,4 @@ POWERLEVEL9K_VCS_GIT_ICON='\uF408 '
 POWERLEVEL9K_VCS_GIT_GITHUB_ICON='\uF408 '
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 POWERLEVEL9K_SHORTEN_STRATEGY="truncate_beginning"
-#                                                   2
+###
