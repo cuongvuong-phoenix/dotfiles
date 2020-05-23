@@ -54,8 +54,8 @@ install_and_config terminal tmux .tmux.conf
 
 echo $SEPERATED_BAR
 
-# Install and configure 'vim' editor
-install_and_config "" nvim
+# Install and configure 'nvim' editor
+install_and_config editor nvim .vimrc
 
 echo $SEPERATED_BAR
 
