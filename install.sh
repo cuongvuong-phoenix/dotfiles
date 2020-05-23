@@ -49,13 +49,18 @@ install_and_config "" unzip
 
 echo $SEPERATED_BAR
 
-# Install and configure 'bash' shell
-install_and_config shell bash .bash_profile .bashrc
+# Install and configure 'tmux'
+install_and_config terminal tmux .tmux.conf
 
 echo $SEPERATED_BAR
 
 # Install and configure 'vim' editor
-install_and_config editor vim .vimrc
+install_and_config "" nvim
+
+echo $SEPERATED_BAR
+
+# Install and configure 'bash' shell
+install_and_config shell bash .bash_profile .bashrc
 
 echo $SEPERATED_BAR
 

@@ -1,5 +1,7 @@
 ################################################################################################
 #                                       ENVIROMENTS VARIABLES
+# FZF
+export FZF_DEFAULT_COMMAND="rg --files --follow --hidden"
 # Java
 export JAVA_HOME="/usr/lib/jvm/default"
 
@@ -22,7 +24,7 @@ export HADOOP_MAPRED_HOME="${HADOOP_HOME}"
 export PATH="${HADOOP_HOME}/bin:${HADOOP_HOME}/sbin:${PATH}"
 
 # Anaconda
-export PATH="${PATH}:/home/bimbal/Developments/miniconda3/bin"
+export PATH="${PATH}:${HOME}/Developments/miniconda3/bin"
 
 # Yarn
 export PATH="$(yarn global bin):${PATH}"
@@ -168,7 +170,6 @@ source $ZSH/oh-my-zsh.sh
 #                                               CUSTOMIZE
 prompt_context() {}
 POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
-TERM=xterm-256color
 
 #                                                   1
 POWERLEVEL9K_MODE="nerdfont-complete"
@@ -186,3 +187,18 @@ POWERLEVEL9K_VCS_GIT_GITHUB_ICON='\uF408 '
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 POWERLEVEL9K_SHORTEN_STRATEGY="truncate_beginning"
 ###
+
+###                                              ALIAS
+alias vim=nvim
+################################################################################################
+export TERM=xterm-256color
+####                                             TMUX
+# if which tmux >/dev/null 2>&1; then
+#    # if no session is started, start a new session
+#    test -z ${TMUX} && tmux
+#
+#    # when quitting tmux, try to attach
+#    while test -z ${TMUX}; do
+#        tmux attach || break
+#    done
+# fi
