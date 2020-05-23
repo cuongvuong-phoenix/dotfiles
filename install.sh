@@ -54,7 +54,7 @@ install_and_config terminal tmux .tmux.conf
 
 echo $SEPERATED_BAR
 
-# Install and configure 'nvim' editor
+# Install and configure 'vim/neovim' editor
 install_and_config "" nvim 
 ln -fs ${HOME}/.config/nvim/configs/02.settings.vim ${HOME}/.vimrc
 
