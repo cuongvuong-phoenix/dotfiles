@@ -52,8 +52,10 @@ Although I tried to calculate all possible failures can happen, but you may need
 -   **bash**
     -   .bash_profile: [~/.bash_profile](https://github.com/vuong-cuong-phoenix/dotfiles/blob/master/shell/.bash_profile)
     -   .bashrc: [~/.bashrc](https://github.com/vuong-cuong-phoenix/dotfiles/blob/master/shell/.bashrc)
--   **vim**
-    -   .vimrc: [~/.vimrc](https://github.com/vuong-cuong-phoenix/dotfiles/blob/master/editor/.vimrc)
+-   **Tmux**
+    -   .tmux.conf: [~/.tmux.conf](https://github.com/vuong-cuong-phoenix/dotfiles/blob/master/terminal/.tmux.conf)
+-   **nvim**
+    -   [Full config](https://github.com/vuong-cuong-phoenix/neovim-config)
 -   **zsh**
     -   .zprofile: [~/.zprofile](https://github.com/vuong-cuong-phoenix/dotfiles/blob/master/shell/.zprofile)
     -   .zshrc: [~/.zshrc](https://github.com/vuong-cuong-phoenix/dotfiles/blob/master/shell/.zshrc)
