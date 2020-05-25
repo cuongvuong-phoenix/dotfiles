@@ -84,9 +84,13 @@ kwin4_effect_fadingpopupsEnabled=false
 kwin4_effect_maximizeEnabled=false
 kwin4_effect_squashEnabled=false
 magiclampEnabled=true
+minimizeallEnabled=false
+movewindowandfocustodesktopEnabled=true
 presentwindowsEnabled=false
 screenedgeEnabled=false
 slidingpopupsEnabled=false
+synchronizeskipswitcherEnabled=false
+videowallEnabled=false
 windowgeometryEnabled=false
 zoomEnabled=false
 

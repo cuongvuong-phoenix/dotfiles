@@ -42,6 +42,10 @@ Although I tried to calculate all possible failures can happen, but you may need
 -   If you haven't install `oh-my-zsh` before, then after the first time installation of it, you'll need to **run the command above again** to get effect of configurations.
 -   Install any [Nerd Font](https://github.com/ryanoasis/nerd-fonts) and set it as default font for your Terminal.
 
+3. (Optional) Add Scripts:
+
+-   (KDE) Move Window and focust to Desktop
+
 ## List of Packages and Configurations
 
 -   **git**
