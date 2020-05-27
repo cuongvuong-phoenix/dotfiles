@@ -1,56 +1,12 @@
 ################################################################################################
-#                                       ENVIROMENTS VARIABLES
-# FZF
-export FZF_DEFAULT_COMMAND="rg --files --follow --hidden"
-# Java
-export JAVA_HOME="/usr/lib/jvm/default"
+#                                           SCRIPTS
+### Neofetch
+if command -v neofetch > /dev/null 2>&1; then
+    neofetch
+fi
 
-# Flutter
-export FLUTTER_HOME="${HOME}/Developments/flutter"
-export PATH="${PATH}:${FLUTTER_HOME}/bin"
-
-# Golang
-export GOPATH="${HOME}/go"
-export PATH="${PATH}:${GOPATH//://bin:}/bin"
-
-# Hadoop
-export HADOOP_HOME="/usr/local/hadoop"
-export HADOOP_COMMON_HOME="${HADOOP_HOME}"
-export HADOOP_CONF_DIR="${HADOOP_HOME}/etc/hadoop/"
-export HADOOP_HDFS_HOME="${HADOOP_HOME}"
-export HADOOP_YARN_HOME="${HADOOP_HOME}"
-export HADOOP_MAPRED_HOME="${HADOOP_HOME}"
-
-export PATH="${HADOOP_HOME}/bin:${HADOOP_HOME}/sbin:${PATH}"
-
-# Anaconda
-export PATH="${PATH}:${HOME}/Developments/miniconda3/bin"
-
-# Yarn
-export PATH="$(yarn global bin):${PATH}"
-
-
-# IBus
-export GTK_IM_MODULE=ibus
-export QT_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
-# Dành cho những phần mềm dựa trên qt4
-export QT4_IM_MODULE=ibus
-# Dành cho những phần mềm dùng thư viện đồ họa clutter
-export CLUTTER_IM_MODULE=ibus
 ################################################################################################
-#                                           UTILITIES
-# Choose Vim as default editor
-export EDITOR=vim
-
-# Use '.dir_colors' as default
-eval "$(dircolors -b ~/.dir_colors)"
-
-# Best options for 'ntfs-3g'
-# ntfs-3g nosuid,nodev,nofail,windows_names,big_writes,utf8,uid=1000,gid=1000,umask=0022,x-gvfs-show
-################################################################################################
-
-# TERMINAL
+#                                           TERMINAL
 export TERMINAL=/usr/bin/konsole
 
 # If you come from bash you might have to change your $PATH.
@@ -188,11 +144,68 @@ POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 POWERLEVEL9K_SHORTEN_STRATEGY="truncate_beginning"
 ###
 
+################################################################################################
 ###                                              ALIAS
 alias vim=nvim
+
 ################################################################################################
-export TERM=xterm-256color
+#                                       ENVIROMENTS VARIABLES
+# FZF
+export FZF_DEFAULT_COMMAND="rg --files --follow --hidden"
+# Java
+export JAVA_HOME="/usr/lib/jvm/default"
+
+# Flutter
+export FLUTTER_HOME="${HOME}/Developments/flutter"
+export PATH="${PATH}:${FLUTTER_HOME}/bin"
+
+# Golang
+export GOPATH="${HOME}/go"
+export PATH="${PATH}:${GOPATH//://bin:}/bin"
+
+# Hadoop
+export HADOOP_HOME="/usr/local/hadoop"
+export HADOOP_COMMON_HOME="${HADOOP_HOME}"
+export HADOOP_CONF_DIR="${HADOOP_HOME}/etc/hadoop/"
+export HADOOP_HDFS_HOME="${HADOOP_HOME}"
+export HADOOP_YARN_HOME="${HADOOP_HOME}"
+export HADOOP_MAPRED_HOME="${HADOOP_HOME}"
+
+export PATH="${HADOOP_HOME}/bin:${HADOOP_HOME}/sbin:${PATH}"
+
+# Anaconda
+export PATH="${PATH}:${HOME}/Developments/miniconda3/bin"
+
+# Yarn
+export PATH="$(yarn global bin):${PATH}"
+
+# IBus
+export GTK_IM_MODULE=ibus
+export QT_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+# Dành cho những phần mềm dựa trên qt4
+export QT4_IM_MODULE=ibus
+# Dành cho những phần mềm dùng thư viện đồ họa clutter
+export CLUTTER_IM_MODULE=ibus
+
+################################################################################################
+#                                           UTILITIES
+# Choose Vim as default editor
+export EDITOR=vim
+
+# Use '.dir_colors' as default
+eval "$(dircolors -b ~/.dir_colors)"
+
+# Pipenv
+eval $(pipenv --completion)
+
+# Best options for 'ntfs-3g'
+# ntfs-3g nosuid,nodev,nofail,windows_names,big_writes,utf8,uid=1000,gid=1000,umask=0022,x-gvfs-show
+
+################################################################################################
 ####                                             TMUX
+export TERM=xterm-256color
+
 # if which tmux >/dev/null 2>&1; then
 #    # if no session is started, start a new session
 #    test -z ${TMUX} && tmux

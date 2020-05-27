@@ -52,9 +52,6 @@ Top=None
 TopLeft=None
 TopRight=None
 
-[ModifierOnlyShortcuts]
-Meta=org.kde.lattedock,/Latte,org.kde.LatteDock,activateLauncherMenu
-
 [MouseBindings]
 CommandActiveTitlebar1=Raise
 CommandActiveTitlebar2=Nothing
