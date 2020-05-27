@@ -68,6 +68,8 @@ Although I tried to calculate all possible failures can happen, but you may need
         -   zsh-syntax-highlighting: `~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting`
         -   powerlevel10k: `~/.oh-my-zsh/custom/themes/powerlevel10k`
     -   DIR_COLORS: [~/.dir_colors](https://github.com/vuong-cuong-phoenix/dotfiles/blob/master/shell/.dir_colors)
+-   **firefox**
+    -   `export GTK_USE_PORTAL=1` to `/etc/profile.d/mozilla-common-sh`
 
 ## Known Issues
 
