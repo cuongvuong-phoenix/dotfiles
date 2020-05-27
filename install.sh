@@ -7,6 +7,7 @@
 # This is the main setup for Linux distributions.
 # Tested on:
 #           - Arch Linux
+#           - Manjaro
 #           - Debian
 #           - Ubuntu
 #           - MX Linux
