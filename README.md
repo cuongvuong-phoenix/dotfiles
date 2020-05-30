@@ -93,7 +93,7 @@ Although I tried to calculate all possible failures can happen, but you may need
 
     -   `export GTK_USE_PORTAL=1` to `/etc/profile.d/mozilla-common-sh`
 
--   _**OPTIONALS**_ (You may want to manually install and configs these things):
+-   _**OPTIONAL**_ (You may want to manually install and configs these things):
     -   **neofetch**
         -   Auto run with zsh. (configs in `~/.zshrc`).
 
