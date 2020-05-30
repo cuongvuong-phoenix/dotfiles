@@ -1,6 +1,6 @@
 # Dotfiles
 
-My personal **config files for Linux** (Now support for **macOS**!).
+My personal **config files for Linux** (Now support **macOS**).
 
 ![Demo Image](https://github.com/vuong-cuong-phoenix/dotfiles/blob/master/images/demo.png)
 
