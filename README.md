@@ -45,9 +45,10 @@ Although I tried to calculate all possible failures can happen, but you may need
 -   If you haven't install `oh-my-zsh` before, then after the first time installation of it, you'll need to **run the command above again** to get effect of configurations.
 -   Install any [Nerd Font](https://github.com/ryanoasis/nerd-fonts) and set it as default font for your Terminal.
 
-3. (Optional) Add Scripts:
+3. (Optional) Scripts:
 
--   (KDE) Move Window and focust to Desktop
+-   **KDE**: If you are using _KDE_ desktop enviroment, install these scripts:
+    -   [Move Window and focust to Desktop](https://store.kde.org/p/1296654)
 
 ## List of Packages and Configurations
 
