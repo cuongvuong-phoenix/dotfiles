@@ -3,30 +3,37 @@
 # @author: Vuong Chi Cuong
 # @email: vuongcuong.phoenix@gmail.com
 # @github: https://github.com/vuong-cuong-phoenix/
-
+# @repo: https://github.com/vuong-cuong-phoenix/dotfiles
+#   Feel free to open issues on my github repo.
+#
+#
 # This is the main setup for Linux distributions.
+#
 # Tested on:
-#           - macOS Catalina (10.15.4)
 #           - Arch Linux
 #           - Manjaro
 #           - Debian
 #           - Ubuntu
+#           - Fedora
+#           - openSUSE
 #           - MX Linux
 #           - Kali Linux
 #           - Pop!_OS
 
 
-source "$HOME/.dotfiles/framework.sh"
+
+#---------------------------------------- ENVIROMENT ----------------------------------------
+MAIN_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" > /dev/null 2>&1 && pwd)"
+
+source "${MAIN_DIR}/framework.sh"
 
 #---------------------------------------- MAIN ----------------------------------------
 # Install 'git'
-# install_and_config git git ".gitconfig.static" ".gitignore_global"
 install_and_config git git ".gitignore_global"
  
 # Configure .gitconfig
 execute_quietly "command -v git"
 if [ $? -eq 0 ]; then
-    # git config --global include.path "$HOME/.gitconfig.static"
     git config --global color.diff auto
     git config --global color.status auto
     git config --global color.branch auto
@@ -95,6 +102,9 @@ if command -v firefox > /dev/null 2>&1; then
     fi
 
     printf "${NORMAL}"
+
+else
+    printf "${BOLD}${YELLOW}firefox ${NORMAL} not found."
 fi
 
 echo $SEPERATED_BAR
@@ -102,5 +112,5 @@ echo $SEPERATED_BAR
 #---------------------------------------- END ----------------------------------------
 printf "${BOLD}${GREEN}COMPLETED dotfiles installation.\n"
 printf "${NORMAL}"
-printf "${BOLD}${LIME_YELLOW}You should check for what packages or configs ${RED}failed${LIME_YELLOW} and you might need to manually install it again.\n"
+printf "${BOLD}${LIME_YELLOW}You should check for any packages/configs ${RED}FAILED${LIME_YELLOW} and you might need to manually install it again.\n"
 printf "${NORMAL}"

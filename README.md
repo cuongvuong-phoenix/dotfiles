@@ -1,14 +1,27 @@
 # Dotfiles
 
-My personal **config files for Linux** (Now support **macOS**).
+My personal **config files for Linux**.
 
 ![Demo Image](https://github.com/vuong-cuong-phoenix/dotfiles/blob/master/images/demo.png)
 
-The installation will not just **_symbolically link all config files to the right place_** but also **_install some packages with appropriate Package Manager_** of your distros.
+## Table of Contents
 
-All configs/enviroment in `~/.zshrc` is mine (indentified by comments `#---- XYZ ----`). You can custom your configs/enviroments by change from these.
+    1.  [Introduction](#introduction)
+    2.  [Requirements](#requirements)
+    3.  [Installation](#installation)
+    4.  [List of Packages and Configurations](#list-of-packages-and-configurations)
+    5.  [List Distro support](list-distro-support)
+    6.  [Common Issues](common-issues)
+
+## Introduction
+
+This is a installation for setting up packages and configurate settings through **_dotfiles_**.
+
+The installation will not just **_symbolically link all config files to the right place_** but also **_install some packages by appropriate Package Manager_** of your distros.
 
 Although I tried to calculate all possible failures can happen, but you may need to manually install packages or link config files again if something goes wrong.
+
+<u>**_Note_**</u>: All configs/enviroment in `~/.zshrc` (indentified by comments `#---- XYZ ----`) is specified for my usage. You can custom to fit your needs.
 
 ## Requirements
 
@@ -16,7 +29,7 @@ Although I tried to calculate all possible failures can happen, but you may need
 
 -   **bash shell**.
 -   [**tput**](https://command-not-found.com/tput).
--   **git**. (You can download this repo as _zip_ and then the installation will install **git** for you).
+-   **git**. (You can download this repo as _**zip**_ and then the installation will install **git** for you).
 
 ## Installation
 
@@ -77,9 +90,21 @@ Although I tried to calculate all possible failures can happen, but you may need
 
     -   `export GTK_USE_PORTAL=1` to `/etc/profile.d/mozilla-common-sh`
 
--   _**Optionals**_ (You may want to manually install and configs these things):
+-   _**OPTIONALS**_ (You may want to manually install and configs these things):
     -   **neofetch**
         -   Auto run with zsh. (configs in `~/.zshrc`).
+
+## List Distro support
+
+-   [x] **Arch Linux**
+-   [x] **Manjaro**
+-   [x] **Debian**
+-   [x] **Ubuntu**
+-   [x] **Fedora**
+-   [x] **openSUSE**
+-   [x] **MX Linux**
+-   [x] **Kali Linux**
+-   [x] **Pop!\_OS**
 
 ## Common Issues
 

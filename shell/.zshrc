@@ -132,9 +132,6 @@ POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 POWERLEVEL9K_SHORTEN_STRATEGY="truncate_beginning"
 ###
 
-#---------------------------------------- TERMINAL ----------------------------------------
-# export TERMINAL=/usr/bin/konsole
-
 #---------------------------------------- ALIAS ---------------------------------------- 
 alias vim=nvim
 

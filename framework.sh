@@ -1,5 +1,14 @@
 #!/bin/bash
 
+# @author: Vuong Chi Cuong
+# @email: vuongcuong.phoenix@gmail.com
+# @github: https://github.com/vuong-cuong-phoenix/
+# @repo: https://github.com/vuong-cuong-phoenix/dotfiles
+#   Feel free to open an issue on my github repo.
+
+
+
+#---------------------------------------- ENVIROMENT ----------------------------------------
 tabs 4
 
 # CHECK 'tput'
@@ -27,21 +36,33 @@ MAGENTA=$(tput setaf 5)
 CYAN=$(tput setaf 6)
 WHITE=$(tput setaf 7)
 
+# REPO_URL=https://github.com/vuong-cuong-phoenix/dotfiles
+MAIN_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" > /dev/null 2>&1 && pwd)"
+
+CURRENT_TIME=$(date +"%F_%T")
+
+mkdir -p "$MAIN_DIR/BACKUP/$CURRENT_TIME" > /dev/null 2>&1
+BACKUP_DIR="$MAIN_DIR/BACKUP/$CURRENT_TIME"
+
 declare -a ALL_PM=(
     # macOS
     brew
-    # deb
+    # deb (Debian & Ubuntu-based)
     apt
-    # rpm
+    # rpm (openSUSE)
     zypp
+    # rpm (CentOS)
     yum
+    # rpm (Fedora)
+    dnf
+    # rpm (Magela)
     urpmi
     # Arch Linux
     pacman
     # Solus
     eopkg
     # Gentoo
-    portage
+    emerge
     # SlackWare
     slackpkg
 )
@@ -59,14 +80,6 @@ IS_ROOT=1
 if [ $(id -u) -eq 0 ]; then
     IS_ROOT=0
 fi
-
-REPO_URL=https://github.com/vuong-cuong-phoenix/dotfiles
-MAIN_DIR="$HOME/.dotfiles"
-
-CURRENT_TIME=$(date +"%F_%T")
-
-mkdir -p "$MAIN_DIR/BACKUP/$CURRENT_TIME" > /dev/null 2>&1
-BACKUP_DIR="$MAIN_DIR/BACKUP/$CURRENT_TIME"
 
 #--                                     ULTILIES
 NUM_COLUMNS=$(( $( tput cols ) ))
@@ -116,6 +129,9 @@ package_install() {
         yum)
             system_execute "yum install $1"
         ;;
+        dnf)
+            system_execute "dnf install $1"
+        ;;
         urpmi)
             system_execute "urpmi $1"
         ;;
@@ -125,7 +141,7 @@ package_install() {
         eopkg)
             system_execute "eopkg install $1"
         ;;
-        portage)
+        emerge)
             system_execute "emerge $1"
         ;;
         slackpkg)
