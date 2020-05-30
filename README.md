@@ -2,22 +2,25 @@
 
 My personal **config files for Linux**.
 
-![Demo Image](https://github.com/vuong-cuong-phoenix/dotfiles/blob/master/images/demo.png)
-
 ## Table of Contents
 
-    1.  [Introduction](#introduction)
-    2.  [Requirements](#requirements)
-    3.  [Installation](#installation)
-    4.  [List of Packages and Configurations](#list-of-packages-and-configurations)
-    5.  [List Distro support](list-distro-support)
-    6.  [Common Issues](common-issues)
+1. [Introduction](#introduction)
+
+2. [Requirements](#requirements)
+
+3. [Installation](#installation)
+
+4. [List of Packages and Configurations](#list-of-packages-and-configurations)
+
+5. [List Distro support](#list-distro-support)
+
+6. [Common Issues](#common-issues)
 
 ## Introduction
 
-This is a installation for setting up packages and configurate settings through **_dotfiles_**.
+![Demo Image](https://github.com/vuong-cuong-phoenix/dotfiles/blob/master/images/demo.png)
 
-The installation will not just **_symbolically link all config files to the right place_** but also **_install some packages by appropriate Package Manager_** of your distros.
+This installation will not just **_symbolically link all config files to the right place_** but also **_install some packages by appropriate Package Manager_** of your distros.
 
 Although I tried to calculate all possible failures can happen, but you may need to manually install packages or link config files again if something goes wrong.
 
@@ -96,15 +99,15 @@ Although I tried to calculate all possible failures can happen, but you may need
 
 ## List Distro support
 
--   [x] **Arch Linux**
--   [x] **Manjaro**
--   [x] **Debian**
--   [x] **Ubuntu**
--   [x] **Fedora**
--   [x] **openSUSE**
--   [x] **MX Linux**
--   [x] **Kali Linux**
--   [x] **Pop!\_OS**
+-   [x] Arch Linux
+-   [x] Manjaro
+-   [x] Debian
+-   [x] Ubuntu
+-   [x] Fedora
+-   [x] openSUSE
+-   [x] MX Linux
+-   [x] Kali Linux
+-   [x] Pop!\_OS
 
 ## Common Issues
 
