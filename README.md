@@ -92,7 +92,7 @@ Although I tried to calculate all possible failures can happen, but you may need
     ['b1dcc9dd-5262-4d8d-a863-c897e6d979b9', 'd2a064f8-146d-45b5-8da7-d7e2f34da77e']
     ```
 
-    -   Set font for that profile:
+    -   Set font for that profile (example):
 
     ```shell
     $ gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/ font 'Hack Nerd Font 14'
