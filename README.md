@@ -6,6 +6,8 @@ My personal **config files for Linux**.
 
 The installation will not just **_symbolically link all config files to the right place_** but also **_install some packages with appropriate Package Manager_** of your distros.
 
+All configs/enviroment in `~/.zshrc` is mine (indentified by comments `###### XXX`). You can custom your configs/enviroments by change these.
+
 Although I tried to calculate all possible failures can happen, but you may need to manually install packages or link config files again if something goes wrong.
 
 ## Requirements
@@ -16,26 +18,27 @@ Although I tried to calculate all possible failures can happen, but you may need
 -   bash shell.
 -   [tput](https://command-not-found.com/tput).
 -   _(Optional)_: Install these requirements if you want to get the best experience:
-    -   Themes:
+    -   Terminal themes:
         -   Breeze Theme.
         -   Symphonic Theme.
         -   Brogrammer Theme.
         -   XTerm.
         -   Obsidian Theme.
+        -   ... (Dark themes)
 
 ## Installation
 
 1. Clone the repository into `~/.dotfiles/`:
 
     ```shell
-    git clone --depth=1 git@github.com:vuong-cuong-phoenix/dotfiles.git $HOME/.dotfiles
-    cd $HOME/.dotfiles
+    $ git clone --depth=1 git@github.com:vuong-cuong-phoenix/dotfiles.git $HOME/.dotfiles
+    $ cd $HOME/.dotfiles
     ```
 
 2. Run this command:
 
     ```shell
-    ./install.sh
+    $ ./install.sh
     ```
 
 -   The installation will backup config file if it is exists and is not linked to the correct place. All backup files are under `./BACKUP/<CURRENT DATE_TIME>/`.
@@ -73,6 +76,24 @@ Although I tried to calculate all possible failures can happen, but you may need
 
 ## Known Issues
 
--   **(Solved)** Cannot find **Hack Nerd Font** in **Gnome-Terminal**.  
+-   **(Solved)** Cannot find **Nerd Font** in **Gnome-Terminal**.  
     **==>** By default, **Gnome-Terminal** only shows _monospace-fonts_.  
-    To choose **Hack Nerd Font** as the default font for **Gnome-Terminal**, you need to install `dconf-editor`, then open it, find `/org/gnome/terminal/legacy/profiles:/<profiles-id>/font` and then change **_Custom value_** to `<font-name> <font-size>` (_e.g:_ `Hack Nerd Font 14`)
+    To choose **Nerd Font** as the default font for **Gnome-Terminal**, you need to install `dconf-editor`, then open it, find `/org/gnome/terminal/legacy/profiles:/<profiles-id>/font` and then change **_Custom value_** to `<font-name> <font-size>` (_e.g:_ `Hack Nerd Font 14`). Or you can just run following commands:
+
+    -   Find profile id:
+
+    ```shell
+    $ gsettings get org.gnome.Terminal.ProfilesList list
+    ```
+
+    Then you should see your profile's id list (example):
+
+    ```shell
+    ['b1dcc9dd-5262-4d8d-a863-c897e6d979b9', 'd2a064f8-146d-45b5-8da7-d7e2f34da77e']
+    ```
+
+    -   Set font for that profile:
+
+    ```shell
+    $ gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/ font 'Hack Nerd Font 14'
+    ```
