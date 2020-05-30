@@ -6,7 +6,7 @@ My personal **config files for Linux**.
 
 The installation will not just **_symbolically link all config files to the right place_** but also **_install some packages with appropriate Package Manager_** of your distros.
 
-All configs/enviroment in `~/.zshrc` is mine (indentified by comments `###### XXX`). You can custom your configs/enviroments by change these.
+All configs/enviroment in `~/.zshrc` is mine (indentified by comments `#---- XYZ ----`). You can custom your configs/enviroments by change these.
 
 Although I tried to calculate all possible failures can happen, but you may need to manually install packages or link config files again if something goes wrong.
 

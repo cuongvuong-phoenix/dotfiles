@@ -1,14 +1,3 @@
-################################################################################################
-#                                           SCRIPTS
-### Neofetch
-if command -v neofetch > /dev/null 2>&1; then
-    neofetch
-fi
-
-################################################################################################
-#                                           TERMINAL
-export TERMINAL=/usr/bin/konsole
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -122,8 +111,7 @@ source $ZSH/oh-my-zsh.sh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 # [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
-################################################################################################
-#                                               CUSTOMIZE
+#---------------------------------------- ZSH THEME ---------------------------------------- 
 prompt_context() {}
 POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
 
@@ -144,14 +132,22 @@ POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 POWERLEVEL9K_SHORTEN_STRATEGY="truncate_beginning"
 ###
 
-################################################################################################
-###                                              ALIAS
+#---------------------------------------- SCRIPTS ---------------------------------------- 
+# Neofetch
+if command -v neofetch > /dev/null 2>&1; then
+    neofetch
+fi
+
+#---------------------------------------- TERMINAL ----------------------------------------
+# export TERMINAL=/usr/bin/konsole
+
+#---------------------------------------- ALIAS ---------------------------------------- 
 alias vim=nvim
 
-################################################################################################
-#                                       ENVIROMENTS VARIABLES
+#---------------------------------------- ENVIROMENTS VARIABLES ---------------------------------------- 
 # FZF
 export FZF_DEFAULT_COMMAND="rg --files --follow --hidden"
+
 # Java
 export JAVA_HOME="/usr/lib/jvm/default"
 
@@ -188,8 +184,7 @@ export QT4_IM_MODULE=ibus
 # Dành cho những phần mềm dùng thư viện đồ họa clutter
 export CLUTTER_IM_MODULE=ibus
 
-################################################################################################
-#                                           UTILITIES
+#---------------------------------------- UTILITIES ---------------------------------------- 
 # Choose Vim as default editor
 export EDITOR=vim
 
@@ -202,8 +197,7 @@ eval $(pipenv --completion)
 # Best options for 'ntfs-3g'
 # ntfs-3g nosuid,nodev,nofail,windows_names,big_writes,utf8,uid=1000,gid=1000,umask=0022,x-gvfs-show
 
-################################################################################################
-####                                             TMUX
+#---------------------------------------- TMUX ---------------------------------------- 
 export TERM=xterm-256color
 
 # if which tmux >/dev/null 2>&1; then
