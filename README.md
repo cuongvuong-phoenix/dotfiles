@@ -59,7 +59,7 @@ Although I tried to calculate all possible failures can happen, but you may need
 -   **bash**
     -   .bash_profile: [~/.bash_profile](https://github.com/vuong-cuong-phoenix/dotfiles/blob/master/shell/.bash_profile)
     -   .bashrc: [~/.bashrc](https://github.com/vuong-cuong-phoenix/dotfiles/blob/master/shell/.bashrc)
--   **Tmux**
+-   **tmux**
     -   .tmux.conf: [~/.tmux.conf](https://github.com/vuong-cuong-phoenix/dotfiles/blob/master/terminal/.tmux.conf)
 -   **nvim**
     -   [Full config](https://github.com/vuong-cuong-phoenix/neovim-config)
@@ -72,7 +72,12 @@ Although I tried to calculate all possible failures can happen, but you may need
         -   powerlevel10k: `~/.oh-my-zsh/custom/themes/powerlevel10k`
     -   DIR_COLORS: [~/.dir_colors](https://github.com/vuong-cuong-phoenix/dotfiles/blob/master/shell/.dir_colors)
 -   **firefox**
+
     -   `export GTK_USE_PORTAL=1` to `/etc/profile.d/mozilla-common-sh`
+
+-   _**(Optionals)**_
+    -   **neofetch**
+        -   Auto run with zsh. (configs in `~/.zshrc`).
 
 ## Known Issues
 
