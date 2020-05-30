@@ -51,11 +51,11 @@ declare -a ALL_PM=(
     apt
     # rpm (openSUSE)
     zypp
-    # rpm (CentOS)
-    yum
     # rpm (Fedora)
     dnf
-    # rpm (Magela)
+    # rpm (CentOS)
+    yum
+    # rpm (Magela, Mandriva)
     urpmi
     # Arch Linux
     pacman
@@ -65,6 +65,10 @@ declare -a ALL_PM=(
     emerge
     # SlackWare
     slackpkg
+    # Void Linux
+    xbps
+    # FreeBSD
+    pkg
 )
 
 unset CURRENT_PM
@@ -126,11 +130,11 @@ package_install() {
         zypp)
             system_execute "zypper install $1"
         ;;
-        yum)
-            system_execute "yum install $1"
-        ;;
         dnf)
             system_execute "dnf install $1"
+        ;;
+        yum)
+            system_execute "yum install $1"
         ;;
         urpmi)
             system_execute "urpmi $1"
@@ -146,6 +150,12 @@ package_install() {
         ;;
         slackpkg)
             system_execute "slackpkg install $1"
+        ;;
+        xbps)
+            system_execute "xbps-install $1"
+        ;;
+        pkg)
+            system_execute "pkg install $1"
         ;;
         *)
             printf "${RED}Cannot find your Package Manager! Add in ${UNDERLINE}install.sh${NORMAL}${RED}-> ${UNDERLINE}\$ALL_PM${NORMAL}${RED}, ${UNDERLINE}package_install()${NORMAL}${RED} and run it again!\n"

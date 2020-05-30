@@ -12,7 +12,7 @@ My personal **config files for Linux**.
 
 4. [List of Packages and Configurations](#list-of-packages-and-configurations)
 
-5. [List Distro support](#list-distro-support)
+5. [List Distros support](#list-distros-support)
 
 6. [Common Issues](#common-issues)
 
@@ -97,7 +97,9 @@ Although I tried to calculate all possible failures could happen, you still migh
     -   **neofetch**
         -   Auto run with zsh. (configs in `~/.zshrc`).
 
-## List Distro support
+## List Distros support
+
+#### Tested:
 
 -   [x] Arch Linux
 -   [x] Manjaro
@@ -108,6 +110,17 @@ Although I tried to calculate all possible failures could happen, you still migh
 -   [x] MX Linux
 -   [x] Kali Linux
 -   [x] Pop!\_OS
+
+#### Untested but still support:
+
+-   [ ] macOS
+-   [ ] Solus
+-   [ ] Slackware
+-   [ ] Gentoo
+-   [ ] CentOS
+-   [ ] Mandriva
+-   [ ] Void Linux
+-   [ ] FreeBSD
 
 ## Common Issues
 
