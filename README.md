@@ -1,6 +1,6 @@
 # Dotfiles
 
-My personal **config files for Linux**.
+My personal **config files for Linux** (Now support for **macOS**!).
 
 ![Demo Image](https://github.com/vuong-cuong-phoenix/dotfiles/blob/master/images/demo.png)
 
@@ -81,7 +81,7 @@ Although I tried to calculate all possible failures can happen, but you may need
     -   **neofetch**
         -   Auto run with zsh. (configs in `~/.zshrc`).
 
-## Known Issues
+## Common Issues
 
 -   **(Solved)** Cannot find **Nerd Font** in **Gnome-Terminal**.  
     **==>** By default, **Gnome-Terminal** only shows _monospace-fonts_.  

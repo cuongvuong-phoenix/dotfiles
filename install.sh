@@ -6,6 +6,7 @@
 
 # This is the main setup for Linux distributions.
 # Tested on:
+#           - macOS Catalina (10.15.4)
 #           - Arch Linux
 #           - Manjaro
 #           - Debian
