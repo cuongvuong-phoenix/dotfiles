@@ -14,17 +14,9 @@ Although I tried to calculate all possible failures can happen, but you may need
 
 **IMPORTANT**: If you come from a fresh distro, you'll need to **update** (_e.g:_ `sudo apt update`,...) and **upgrade** (_e.g:_ `sudo apt upgrade`,...) all the packages first, then install requirements and follow the instruction below.
 
--   bash shell.
+-   **bash shell**.
 -   [**tput**](https://command-not-found.com/tput).
 -   **git**. (You can download this repo as _zip_ and then the installation will install **git** for you).
--   **_(Optional)_**: Install these requirements if you want to get the best experience:
-    -   Terminal themes:
-        -   Breeze Theme.
-        -   Symphonic Theme.
-        -   Brogrammer Theme.
-        -   XTerm.
-        -   Obsidian Theme.
-        -   ... _(Dark themes)_
 
 ## Installation
 
@@ -45,10 +37,19 @@ Although I tried to calculate all possible failures can happen, but you may need
 -   If you haven't install `oh-my-zsh` before, then after the first time installation of it, you'll need to **run the command above again** to get effect of configurations.
 -   Install any [Nerd Font](https://github.com/ryanoasis/nerd-fonts) and set it as default font for your Terminal.
 
-3. (Optional) Scripts:
+3. **_OPTIONAL_** (You may want to manually install these things to get the best experiment):
 
--   **KDE**: If you are using _KDE_ desktop enviroment, install these scripts:
+-   **KDE** (If you are using _KDE_ desktop enviroment, install these scripts):
+
     -   [Move Window and focust to Desktop](https://store.kde.org/p/1296654)
+
+-   **Terminal themes**:
+    -   Breeze Theme.
+    -   Symphonic Theme.
+    -   Brogrammer Theme.
+    -   XTerm.
+    -   Obsidian Theme.
+    -   ... _(Any Dark themes)_
 
 ## List of Packages and Configurations
 
@@ -76,7 +77,7 @@ Although I tried to calculate all possible failures can happen, but you may need
 
     -   `export GTK_USE_PORTAL=1` to `/etc/profile.d/mozilla-common-sh`
 
--   _**(Optionals)**_
+-   _**Optionals**_ (You may want to manually install and configs these things):
     -   **neofetch**
         -   Auto run with zsh. (configs in `~/.zshrc`).
 

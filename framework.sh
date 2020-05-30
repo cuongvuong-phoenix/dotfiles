@@ -28,6 +28,8 @@ CYAN=$(tput setaf 6)
 WHITE=$(tput setaf 7)
 
 declare -a ALL_PM=(
+    # macOS
+    brew
     # deb
     apt
     # rpm
@@ -102,6 +104,9 @@ package_install() {
     local install_command
 
     case $CURRENT_PM in
+        brew)
+            system_execute "brew install $1"
+        ;;
         apt)
             system_execute "apt-get install $1"
         ;;

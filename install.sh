@@ -12,11 +12,12 @@
 #           - Ubuntu
 #           - MX Linux
 #           - Kali Linux
+#           - Pop!_OS
 
 
 source "$HOME/.dotfiles/framework.sh"
 
-#--                                     MAIN
+#---------------------------------------- MAIN ----------------------------------------
 # Install 'git'
 # install_and_config git git ".gitconfig.static" ".gitignore_global"
 install_and_config git git ".gitignore_global"
@@ -97,6 +98,7 @@ fi
 
 echo $SEPERATED_BAR
 
+#---------------------------------------- END ----------------------------------------
 printf "${BOLD}${GREEN}COMPLETED dotfiles installation.\n"
 printf "${NORMAL}"
 printf "${BOLD}${LIME_YELLOW}You should check for what packages or configs ${RED}failed${LIME_YELLOW} and you might need to manually install it again.\n"
