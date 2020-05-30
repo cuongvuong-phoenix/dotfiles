@@ -14,17 +14,17 @@ Although I tried to calculate all possible failures can happen, but you may need
 
 **IMPORTANT**: If you come from a fresh distro, you'll need to **update** (_e.g:_ `sudo apt update`,...) and **upgrade** (_e.g:_ `sudo apt upgrade`,...) all the packages first, then install requirements and follow the instruction below.
 
--   git.
 -   bash shell.
--   [tput](https://command-not-found.com/tput).
--   _(Optional)_: Install these requirements if you want to get the best experience:
+-   [**tput**](https://command-not-found.com/tput).
+-   **git**. (You can download this repo as _zip_ and then the installation will install **git** for you).
+-   **_(Optional)_**: Install these requirements if you want to get the best experience:
     -   Terminal themes:
         -   Breeze Theme.
         -   Symphonic Theme.
         -   Brogrammer Theme.
         -   XTerm.
         -   Obsidian Theme.
-        -   ... (Dark themes)
+        -   ... _(Dark themes)_
 
 ## Installation
 
