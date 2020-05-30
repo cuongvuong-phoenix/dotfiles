@@ -132,12 +132,6 @@ POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 POWERLEVEL9K_SHORTEN_STRATEGY="truncate_beginning"
 ###
 
-#---------------------------------------- SCRIPTS ---------------------------------------- 
-# Neofetch
-if command -v neofetch > /dev/null 2>&1; then
-    neofetch
-fi
-
 #---------------------------------------- TERMINAL ----------------------------------------
 # export TERMINAL=/usr/bin/konsole
 
@@ -209,3 +203,9 @@ export TERM=xterm-256color
 #        tmux attach || break
 #    done
 # fi
+
+#---------------------------------------- SCRIPTS ---------------------------------------- 
+# Neofetch
+if command -v neofetch > /dev/null 2>&1; then
+    neofetch
+fi

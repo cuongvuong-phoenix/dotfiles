@@ -84,7 +84,8 @@ Although I tried to calculate all possible failures can happen, but you may need
 
 -   **(Solved)** Cannot find **Nerd Font** in **Gnome-Terminal**.  
     **==>** By default, **Gnome-Terminal** only shows _monospace-fonts_.  
-    To choose **Nerd Font** as the default font for **Gnome-Terminal**, you need to install `dconf-editor`, then open it, find `/org/gnome/terminal/legacy/profiles:/<profiles-id>/font` and then change **_Custom value_** to `<font-name> <font-size>` (_e.g:_ `Hack Nerd Font 14`). Or you can just run following commands:
+    To choose **Nerd Font** as the default font for **Gnome-Terminal**, you need to install `dconf-editor`, then open it, find `/org/gnome/terminal/legacy/profiles:/<profiles-id>/font` and then change **_Custom value_** to `<font-name> <font-size>` (_e.g:_ `Hack Nerd Font 14`).  
+    Or you can just run following commands:
 
     -   Find profile id:
 
