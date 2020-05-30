@@ -22,7 +22,7 @@ My personal **config files for Linux**.
 
 This installation will not just **_symbolically link all config files to the right place_** but also **_install some packages by appropriate Package Manager_** of your distros.
 
-Although I tried to calculate all possible failures can happen, but you may need to manually install packages or link config files again if something goes wrong.
+Although I tried to calculate all possible failures can happen, you still might need to manually install packages or link config files again if something goes wrong.
 
 <u>**_Note_**</u>: All configs/enviroment in `~/.zshrc` (indentified by comments `#---- XYZ ----`) is specified for my usage. You can custom to fit your needs.
 
