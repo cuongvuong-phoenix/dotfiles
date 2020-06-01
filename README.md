@@ -6,13 +6,13 @@ My personal **config files for Linux**.
 
 1. [Introduction](#introduction)
 
-2. [Requirements](#requirements)
+2. [List Distros support](#list-distros-support)
 
-3. [Installation](#installation)
+3. [Requirements](#requirements)
 
-4. [List of Packages and Configurations](#list-of-packages-and-configurations)
+4. [Installation](#installation)
 
-5. [List Distros support](#list-distros-support)
+5. [List of Packages and Configurations](#list-of-packages-and-configurations)
 
 6. [Common Issues](#common-issues)
 
@@ -25,6 +25,47 @@ This installation will not just **_symbolically link all config files to the rig
 Although I tried to calculate all possible failures could happen, you still might need to manually install packages or link config files again if something goes wrong.
 
 <u>**_Note_**</u>: All configs/enviroment in `~/.zshrc` (indentified by comments `#---- XYZ ----`) is specified for my usage. You can custom to fit your needs.
+
+## List Distros support
+
+| **Tested** | **Untested** |
+| :--------: | :----------: |
+| Arch Linux |    macOS     |
+|  Manjaro   |    Solus     |
+|   Debian   |  Slackware   |
+|   Ubuntu   |    Gentoo    |
+|   Fedora   |    CentOS    |
+|  openSUSE  |   Mandriva   |
+|  MX Linux  |  Void Linux  |
+| Kali Linux |   FreeBSD    |
+|  Pop!\_OS  |              |
+
+> _**Tested**: Battle-tested with 0 errors._
+
+> _**Untested**: Not tested yet but still support (open issues if have any errors)._
+
+<!-- #### Tested:
+
+-   [x] Arch Linux
+-   [x] Manjaro
+-   [x] Debian
+-   [x] Ubuntu
+-   [x] Fedora
+-   [x] openSUSE
+-   [x] MX Linux
+-   [x] Kali Linux
+-   [x] Pop!\_OS
+
+#### Untested but still support:
+
+-   [ ] macOS
+-   [ ] Solus
+-   [ ] Slackware
+-   [ ] Gentoo
+-   [ ] CentOS
+-   [ ] Mandriva
+-   [ ] Void Linux
+-   [ ] FreeBSD -->
 
 ## Requirements
 
@@ -96,31 +137,6 @@ Although I tried to calculate all possible failures could happen, you still migh
 -   _**OPTIONAL**_ (You may want to manually install and configs these things):
     -   **neofetch**
         -   Auto run with zsh. (configs in `~/.zshrc`).
-
-## List Distros support
-
-#### Tested:
-
--   [x] Arch Linux
--   [x] Manjaro
--   [x] Debian
--   [x] Ubuntu
--   [x] Fedora
--   [x] openSUSE
--   [x] MX Linux
--   [x] Kali Linux
--   [x] Pop!\_OS
-
-#### Untested but still support:
-
--   [ ] macOS
--   [ ] Solus
--   [ ] Slackware
--   [ ] Gentoo
--   [ ] CentOS
--   [ ] Mandriva
--   [ ] Void Linux
--   [ ] FreeBSD
 
 ## Common Issues
 

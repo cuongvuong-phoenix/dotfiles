@@ -195,7 +195,7 @@ export TERM=xterm-256color
 #    # if no session is started, start a new session
 #    test -z ${TMUX} && tmux
 #
-#    # when quitting tmux, try to attach
+#    # when quitting tmux, try to attach remaining session
 #    while test -z ${TMUX}; do
 #        tmux attach || break
 #    done
