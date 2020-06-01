@@ -28,17 +28,23 @@ Although I tried to calculate all possible failures could happen, you still migh
 
 ## List Distros support
 
-| **Tested** | **Untested** |
-| :--------: | :----------: |
-| Arch Linux |    macOS     |
-|  Manjaro   |    Solus     |
-|   Debian   |  Slackware   |
-|   Ubuntu   |    Gentoo    |
-|   Fedora   |    CentOS    |
-|  openSUSE  |   Mandriva   |
-|  MX Linux  |  Void Linux  |
-| Kali Linux |   FreeBSD    |
-|  Pop!\_OS  |              |
+<div style="width:1000px" class="distros-support">
+
+<!-- | **Tested** | **Untested** | -->
+
+| <div style="width:50vh">**Tested**</div> | <div style="width:50vh">**Untested**</div> |
+| :--------------------------------------: | :----------------------------------------: |
+|                Arch Linux                |                   macOS                    |
+|                 Manjaro                  |                   Solus                    |
+|                  Debian                  |                 Slackware                  |
+|                  Ubuntu                  |                   Gentoo                   |
+|                  Fedora                  |                   CentOS                   |
+|                 openSUSE                 |                  Mandriva                  |
+|                 MX Linux                 |                 Void Linux                 |
+|                Kali Linux                |                  FreeBSD                   |
+|                 Pop!\_OS                 |                                            |
+
+</div>
 
 > _**Tested**: Battle-tested with 0 errors._
 
