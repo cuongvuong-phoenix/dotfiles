@@ -189,20 +189,20 @@ eval $(pipenv --completion)
 # ntfs-3g nosuid,nodev,nofail,windows_names,big_writes,utf8,uid=1000,gid=1000,umask=0022,x-gvfs-show
 
 #---------------------------------------- TMUX ---------------------------------------- 
-export TERM="xterm-256color"
+# export TERM="xterm-256color"
 
-# if which tmux >/dev/null 2>&1; then
-#    # if no session is started, start a new session
-#    test -z ${TMUX} && tmux
-#
-#    # when quitting tmux, try to attach remaining session
-#    while test -z ${TMUX}; do
-#        tmux attach || break
-#    done
-# fi
+if which tmux >/dev/null 2>&1; then
+   # if no session is started, start a new session
+   test -z ${TMUX} && tmux
+
+   # when quitting tmux, try to attach remaining session
+   while test -z ${TMUX}; do
+       tmux attach || break
+   done
+fi
 
 #---------------------------------------- SCRIPTS ---------------------------------------- 
-# Neofetch
-if command -v neofetch > /dev/null 2>&1; then
-    neofetch
-fi
+# # Neofetch
+# if command -v neofetch > /dev/null 2>&1; then
+#     neofetch
+# fi
