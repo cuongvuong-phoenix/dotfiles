@@ -59,6 +59,11 @@ install_and_config "" unzip
 
 echo $SEPERATED_BAR
 
+# Install 'fzf'
+install_and_config "" fzf
+
+echo $SEPERATED_BAR
+
 # Install and configure 'tmux'
 install_and_config terminal tmux .tmux.conf
 

@@ -28,7 +28,7 @@ _k_friendly_name=KDE Daemon
 display=Display\tMeta+P,Display\tMeta+P,Switch Display
 
 [khotkeys]
-_k_friendly_name=System Settings
+_k_friendly_name=KDE Daemon
 {3c7ead73-00ad-4f90-bdba-5d15a70b8b43}=Print,none,Take full-screen screenshot and save
 {65ecb470-7d89-497a-9f9d-406b068f7207}=Ctrl+Alt+A,none,Take screenshot
 {a724b514-0cb6-40f0-bf14-c08db726b320}=Ctrl+Alt+S,none,Take full-screen screenshot and copy it to clipboard
