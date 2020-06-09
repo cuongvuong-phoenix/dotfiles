@@ -334,7 +334,7 @@ install_and_config() {
 
     shift
     if ! command -v "$package" > /dev/null 2>&1; then
-        printf "${BOLD}${YELLOW}'$package' ${NORMAL}${YELLOW}is not installed => "
+        printf "${BOLD}${YELLOW}$package ${NORMAL}${YELLOW}is not installed => "
         printf "${NORMAL}"
 
         ask_for_confirmation "${YELLOW}Would you like to install ${BOLD}${YELLOW}$package ${NORMAL}${YELLOW}now?" "y" "yes" "n" "no"

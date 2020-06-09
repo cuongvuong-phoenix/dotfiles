@@ -64,6 +64,38 @@ install_and_config "" fzf
 
 echo $SEPERATED_BAR
 
+if ! command -v "rg" > /dev/null 2>&1; then
+    printf "${BOLD}${YELLOW}ripgrep ${NORMAL}${YELLOW}is not installed => "
+    printf "${NORMAL}"
+
+    ask_for_confirmation "${YELLOW}Would you like to install ${BOLD}${YELLOW}ripgrep ${NORMAL}${YELLOW}now?" "y" "yes" "n" "no"
+
+    if [ $? -eq 0 ]; then
+        package_install "ripgrep"
+
+        if [ $? -eq 0 ]; then
+            print_wtabs 2 "${LIME_YELLOW}Installing ${BOLD}${YELLOW}ripgrep" 0 $(( ${#LIME_YELLOW} + ${#BOLD} + ${#YELLOW} )) "SUCCEED"
+        else
+            print_wtabs 2 "${LIME_YELLOW}Installing ${BLUE}ripgrep" 1 $(( ${#LIME_YELLOW} + ${#BLUE} )) "FAILED"
+        fi
+    fi
+else
+    printf "${BOLD}${YELLOW}ripgrep ${NORMAL}${YELLOW}found.\n"
+    printf "${NORMAL}"
+fi
+
+echo $SEPERATED_BAR
+
+# Install 'fd'
+install_and_config "" fd
+
+echo $SEPERATED_BAR
+
+# Install 'bat'
+install_and_config "" bat
+
+echo $SEPERATED_BAR
+
 # Install and configure 'tmux'
 install_and_config terminal tmux .tmux.conf
 

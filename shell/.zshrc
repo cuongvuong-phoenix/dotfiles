@@ -136,9 +136,6 @@ POWERLEVEL9K_SHORTEN_STRATEGY="truncate_beginning"
 alias vim=nvim
 
 #---------------------------------------- ENVIROMENTS VARIABLES ---------------------------------------- 
-# FZF
-export FZF_DEFAULT_COMMAND="rg --files --follow --hidden"
-
 # Java
 export JAVA_HOME="/usr/lib/jvm/default"
 
@@ -188,6 +185,9 @@ eval $(pipenv --completion)
 # Best options for 'ntfs-3g'
 # ntfs-3g nosuid,nodev,nofail,windows_names,big_writes,utf8,uid=1000,gid=1000,umask=0022,x-gvfs-show
 
+# Theme for 'bat'
+export BAT_THEME="TwoDark"
+
 #---------------------------------------- TMUX ---------------------------------------- 
 # export TERM="xterm-256color"
 
@@ -206,3 +206,12 @@ fi
 # if command -v neofetch > /dev/null 2>&1; then
 #     neofetch
 # fi
+
+#---------------------------------------- FZF ---------------------------------------- 
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
+
+export FZF_DEFAULT_COMMAND="fd --type f"
+export FZF_DEFAULT_OPTS="--layout=reverse --inline-info"
+
+
