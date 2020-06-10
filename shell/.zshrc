@@ -173,6 +173,9 @@ export QT4_IM_MODULE=ibus
 export CLUTTER_IM_MODULE=ibus
 
 #---------------------------------------- UTILITIES ---------------------------------------- 
+# Theme for 'bat'
+export BAT_THEME="TwoDark"
+
 # Choose Vim as default editor
 export EDITOR=vim
 
@@ -185,9 +188,6 @@ eval $(pipenv --completion)
 # Best options for 'ntfs-3g'
 # ntfs-3g nosuid,nodev,nofail,windows_names,big_writes,utf8,uid=1000,gid=1000,umask=0022,x-gvfs-show
 
-# Theme for 'bat'
-export BAT_THEME="TwoDark"
-
 #---------------------------------------- TMUX ---------------------------------------- 
 # export TERM="xterm-256color"
 
@@ -195,17 +195,11 @@ if which tmux >/dev/null 2>&1; then
    # if no session is started, start a new session
    test -z ${TMUX} && tmux
 
-   # when quitting tmux, try to attach remaining session
-   while test -z ${TMUX}; do
-       tmux attach || break
-   done
+   # # when quitting tmux, try to attach remaining session
+   # while test -z ${TMUX}; do
+   #     tmux attach || break
+   # done
 fi
-
-#---------------------------------------- SCRIPTS ---------------------------------------- 
-# # Neofetch
-# if command -v neofetch > /dev/null 2>&1; then
-#     neofetch
-# fi
 
 #---------------------------------------- FZF ---------------------------------------- 
 source /usr/share/fzf/key-bindings.zsh
@@ -214,4 +208,22 @@ source /usr/share/fzf/completion.zsh
 export FZF_DEFAULT_COMMAND="fd --type f"
 export FZF_DEFAULT_OPTS="--layout=reverse --inline-info"
 
+# Use fd (https://github.com/sharkdp/fd) instead of the default find
+# command for listing path candidates.
+# - The first argument to the function ($1) is the base path to start traversal
+# - See the source code (completion.{bash,zsh}) for the details.
+_fzf_compgen_path() {
+  fd --hidden --follow --exclude ".git" . "$1"
+}
+
+# Use fd to generate the list for directory completion
+_fzf_compgen_dir() {
+  fd --type d --hidden --follow --exclude ".git" . "$1"
+}
+
+#---------------------------------------- SCRIPTS ---------------------------------------- 
+# # Neofetch
+# if command -v neofetch > /dev/null 2>&1; then
+#     neofetch
+# fi
 
