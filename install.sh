@@ -39,6 +39,7 @@ if [ $? -eq 0 ]; then
     git config --global color.branch auto
     git config --global core.autocrlf input
     git config --global core.excludesfile "$HOME/.gitignore_global"
+    git config --global core.editor "nvim"
     git config --global apply.whitespace nowarn
 fi
 
