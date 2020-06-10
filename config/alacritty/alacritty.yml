@@ -148,7 +148,7 @@ font:
   # increasing `y` moves the glyph upwards.
   glyph_offset:
     x: 0
-    y: 0
+    y: 3
 
   # Thin stroke font rendering (macOS only)
   #
@@ -548,6 +548,7 @@ key_bindings:
   # (Windows, Linux, and BSD only)
   - { key: V,           mods: Control|Shift,    action: Paste }
   - { key: C,           mods: Control|Shift,    action: Copy }
+  - { key: F11,         mods: Super,            action: ToggleFullscreen }
   #- { key: Insert,   mods: Shift,         action: PasteSelection   }
   #- { key: Key0,     mods: Control,       action: ResetFontSize    }
   #- { key: Equals,   mods: Control,       action: IncreaseFontSize }
