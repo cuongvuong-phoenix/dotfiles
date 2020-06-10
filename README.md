@@ -98,7 +98,7 @@ Although I tried to calculate all possible failures could happen, you still migh
 
 -   **KDE** (If you are using _KDE_ desktop enviroment, install these scripts):
 
-    -   [Move Window and focust to Desktop](https://store.kde.org/p/1296654)
+    -   [Move Window and focus to Desktop](https://store.kde.org/p/1296654)
 
 -   **Terminal themes**:
     -   Breeze Theme.
