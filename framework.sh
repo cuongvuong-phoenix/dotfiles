@@ -37,7 +37,7 @@ CYAN=$(tput setaf 6)
 WHITE=$(tput setaf 7)
 
 # REPO_URL=https://github.com/vuong-cuong-phoenix/dotfiles
-MAIN_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" > /dev/null 2>&1 && pwd)"
+MAIN_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 CURRENT_TIME=$(date +"%F_%T")
 

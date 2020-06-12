@@ -23,7 +23,7 @@
 
 
 #---------------------------------------- ENVIROMENT ----------------------------------------
-MAIN_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" > /dev/null 2>&1 && pwd)"
+MAIN_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 source "${MAIN_DIR}/framework.sh"
 
@@ -94,6 +94,32 @@ echo $SEPERATED_BAR
 
 # Install 'bat'
 install_and_config "" bat
+
+echo $SEPERATED_BAR
+
+# Install 'jq'
+install_and_config "" jq
+
+echo $SEPERATED_BAR
+if ! command -v "mpstat" > /dev/null 2>&1; then
+    printf "${BOLD}${YELLOW}sysstat ${NORMAL}${YELLOW}is not installed => "
+    printf "${NORMAL}"
+
+    ask_for_confirmation "${YELLOW}Would you like to install ${BOLD}${YELLOW}ripgrep ${NORMAL}${YELLOW}now?" "y" "yes" "n" "no"
+
+    if [ $? -eq 0 ]; then
+        package_install "mpstat"
+
+        if [ $? -eq 0 ]; then
+            print_wtabs 2 "${LIME_YELLOW}Installing ${BOLD}${YELLOW}sysstat" 0 $(( ${#LIME_YELLOW} + ${#BOLD} + ${#YELLOW} )) "SUCCEED"
+        else
+            print_wtabs 2 "${LIME_YELLOW}Installing ${BLUE}sysstat" 1 $(( ${#LIME_YELLOW} + ${#BLUE} )) "FAILED"
+        fi
+    fi
+else
+    printf "${BOLD}${YELLOW}sysstat ${NORMAL}${YELLOW}found.\n"
+    printf "${NORMAL}"
+fi
 
 echo $SEPERATED_BAR
 
