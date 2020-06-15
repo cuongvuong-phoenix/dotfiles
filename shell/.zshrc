@@ -111,26 +111,53 @@ source $ZSH/oh-my-zsh.sh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 # [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
+#-------------------------------------------------------------------------------------------
 #---------------------------------------- ZSH THEME ---------------------------------------- 
+#-------------------------------------------------------------------------------------------
+
+#---------------------------------------- General Settings ---------------------------------------- 
+# Disable default context
 prompt_context() {}
 POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
 
-#                                                   1
+# Font mode
 POWERLEVEL9K_MODE="nerdfont-complete"
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir_writable dir vcs)
+
+#---------------------------------------- Prompts ---------------------------------------- 
+# Format
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(user dir_writable dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time root_indicator background_jobs time disk_usage)
-#POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
-#POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
-#POWERLEVEL9K_USER_ICON="\uF415" # 
-POWERLEVEL9K_ROOT_ICON="\uF09C"
-POWERLEVEL9K_SUDO_ICON=$'\uF09C' # 
-POWERLEVEL9K_TIME_FORMAT="%D{%H:%M}"
-POWERLEVEL9K_VCS_GIT_ICON='\uF408 '
-POWERLEVEL9K_VCS_GIT_GITHUB_ICON='\uF408 '
+
+# Style
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+# POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
+# POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX=" %F{cyan}\u2570\uF460\uF460\uF460%f "    # ╰
+
+# Separators
+POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR_ICON="\uE0B0"      # 
+POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR_ICON="\uE0B1"   # 
+POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR_ICON="\uE0B2"     # 
+POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR_ICON="\uE0B3"  # 
+
+#---------------------------------------- Segments ---------------------------------------- 
+# ~~~ user ~~~
+POWERLEVEL9K_ALWAYS_SHOW_USER=true
+POWERLEVEL9K_USER_BACKGROUND="black"
+POWERLEVEL9K_USER_FOREGROUND="yellow"
+POWERLEVEL9K_USER_TEMPLATE="%n"
+
+# ~~~ dir ~~~
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 POWERLEVEL9K_SHORTEN_STRATEGY="truncate_beginning"
-###
+
+# ~~~ vcs ~~~
+POWERLEVEL9K_VCS_GIT_ICON="\uF7A1 "             #  
+POWERLEVEL9K_VCS_GIT_GITHUB_ICON="\uF408 "      # 
+POWERLEVEL9K_VCS_GIT_GITLAB_ICON="\uF296 "      # 
+POWERLEVEL9K_VCS_GIT_BITBUCKET_ICON="\uF5A7"    # 
+
+# ~~~ time ~~~
+POWERLEVEL9K_TIME_FORMAT="%D{%H:%M}"
 
 #---------------------------------------- ALIAS ---------------------------------------- 
 alias vim=nvim
