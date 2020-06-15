@@ -5,7 +5,7 @@ switch-to-activity-5afc54db-7da3-4755-9bae-d89bb5746c0c=none,none,Switch to acti
 [Alacritty.desktop]
 New=none,none,New Terminal
 _k_friendly_name=Launch Alacritty
-_launch=Meta+Return,none,Launch Alacritty
+_launch=none,none,Launch Alacritty
 
 [KDE Keyboard Layout Switcher]
 Switch keyboard layout to English (US)=none,none,Switch keyboard layout to English (US)
@@ -28,13 +28,17 @@ _k_friendly_name=KDE Daemon
 display=Display\tMeta+P,Display\tMeta+P,Switch Display
 
 [khotkeys]
-_k_friendly_name=KDE Daemon
+_k_friendly_name=System Settings
 {3c7ead73-00ad-4f90-bdba-5d15a70b8b43}=Print,none,Take full-screen screenshot and save
 {65ecb470-7d89-497a-9f9d-406b068f7207}=Ctrl+Alt+A,none,Take screenshot
 {a724b514-0cb6-40f0-bf14-c08db726b320}=Ctrl+Alt+S,none,Take full-screen screenshot and copy it to clipboard
 {aedf71be-6bcd-4567-8283-27306044e22d}=Ctrl+Alt+T,none,Launch Konsole
 {cea82966-75d5-437d-afaf-aeba83a4abfd}=Ctrl+Print,none,Take screenshot with delay
 {d03619b6-9b3c-48cc-9d9c-a2aadb485550}=,none,Search
+
+[kitty.desktop]
+_k_friendly_name=Launch kitty
+_launch=Meta+Return,none,Launch kitty
 
 [kmix]
 _k_friendly_name=Audio Volume
