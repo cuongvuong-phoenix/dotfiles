@@ -125,7 +125,7 @@ POWERLEVEL9K_MODE="nerdfont-complete"
 
 #---------------------------------------- Prompts ---------------------------------------- 
 # Format
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(user dir_writable dir vcs)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon user dir_writable dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time root_indicator background_jobs time disk_usage)
 
 # Style
@@ -140,11 +140,16 @@ POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR_ICON="\uE0B2"     # 
 POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR_ICON="\uE0B3"  # 
 
 #---------------------------------------- Segments ---------------------------------------- 
+# ~~~ os_icon ~~~
+POWERLEVEL9K_OS_ICON_BACKGROUND="251"
+POWERLEVEL9K_OS_ICON_FOREGROUND="black"
+
 # ~~~ user ~~~
 POWERLEVEL9K_ALWAYS_SHOW_USER=true
-POWERLEVEL9K_USER_BACKGROUND="black"
-POWERLEVEL9K_USER_FOREGROUND="yellow"
 POWERLEVEL9K_USER_TEMPLATE="%n"
+POWERLEVEL9K_USER_BACKGROUND="251"
+POWERLEVEL9K_USER_FOREGROUND="black"
+POWERLEVEL9K_USER_ICON="\uF007 "    # 
 
 # ~~~ dir ~~~
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
