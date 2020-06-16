@@ -4,21 +4,21 @@ My personal **config files for Linux**.
 
 ## Table of Contents
 
-1. [Introduction](#introduction)
+1.  [Introduction](#introduction)
 
-2. [List Distros support](#list-distros-support)
+2.  [List Distros support](#list-osdistros-support)
 
-3. [Requirements](#requirements)
+3.  [Requirements](#requirements)
 
-4. [Installation](#installation)
+4.  [Installation](#installation)
 
-5. [List of Packages and Configurations](#list-of-packages-and-configurations)
+5.  [List of Packages and Configurations](#list-of-packages-and-configurations)
 
-6. [Known Issues](#known-issues)
+6.  [Known Issues](#known-issues)
 
 ## Introduction
 
-![Demo Image](https://github.com/vuong-cuong-phoenix/dotfiles/blob/master/images/demo.png)
+![Demo Image](./images/demo.png)
 
 This installation will not just **_symbolically link all config files to the right place_** but also **_install some packages by appropriate Package Manager_** of your distros.
 
@@ -26,18 +26,22 @@ Although I tried to calculate all possible failures could happen, you still migh
 
 <u>**_Note_**</u>: All configs/enviroment in `~/.zshrc` (indentified by comments `#---- XYZ ----`) is specified for my usage. You can custom to fit your needs.
 
-## List Distros support
+## List OS/Distros support
+
+> **_Tested_**: Battle-tested with no errors. Just install and it should work out of the box!
+
+> **_Untested_**: Not tested yet but still have support. If you're using one of these OS/distros, feel free to try installing and raise issues if you have any, I will try my best to fix it!
 
 | **Tested** | **Untested** |
 | :--------: | :----------: |
 | Arch Linux |    macOS     |
-|  Manjaro   |    Solus     |
-|   Debian   |  Slackware   |
-|   Ubuntu   |    Gentoo    |
-|   Fedora   |    CentOS    |
-|  openSUSE  |   Mandriva   |
-|  MX Linux  |  Void Linux  |
-| Kali Linux |   FreeBSD    |
+|  Manjaro   |   FreeBSD    |
+|   Debian   |    Solus     |
+|   Ubuntu   |  Slackware   |
+|   Fedora   |    Gentoo    |
+|  openSUSE  |    CentOS    |
+|  MX Linux  |   Mandriva   |
+| Kali Linux |  Void Linux  |
 |  Pop!\_OS  |              |
 
 ## Requirements
@@ -50,36 +54,33 @@ Although I tried to calculate all possible failures could happen, you still migh
 
 ## Installation
 
-1. Clone the repository into `~/.dotfiles/`:
+1.  Clone the repository into `~/.dotfiles/`:
 
     ```shell
     $ git clone --depth=1 https://github.com/vuong-cuong-phoenix/dotfiles.git $HOME/.dotfiles
     $ cd $HOME/.dotfiles
     ```
 
-2. Run this command:
+2.  Run this command:
 
     ```shell
     $ ./install.sh
     ```
 
--   The installation will backup config file if it is exists and is not linked to the correct place. All backup files are under `./BACKUP/<CURRENT DATE_TIME>/`.
--   If you haven't install `oh-my-zsh` before, then after the first time installation of it, you'll need to **run the command above again** to get effect of configurations.
--   Install any [Nerd Font](https://github.com/ryanoasis/nerd-fonts) and set it as default font for your Terminal.
+    -   The installation will backup config file if it is exists and is not linked to the correct place. All backup files are under `./BACKUP/<CURRENT DATE_TIME>/`.
+    -   If you haven't install `oh-my-zsh` before, then after the first time installation of it, you'll need to **run the command above again** to get effect of configurations.
+    -   Install any [Nerd Font](https://github.com/ryanoasis/nerd-fonts) and set it as default font for your Terminal (I'm using _JetBrainsMono Nerd Font_).
 
-3. **_OPTIONAL_** (You may want to manually install these things to get the best experiment):
-
--   **KDE** (If you are using _KDE_ desktop enviroment, install these scripts):
-
-    -   [Move Window and focus to Desktop](https://store.kde.org/p/1296654)
-
--   **Terminal themes**:
-    -   Breeze Theme.
-    -   Symphonic Theme.
-    -   Brogrammer Theme.
-    -   XTerm.
-    -   Obsidian Theme.
-    -   ... _(Any Dark themes)_
+3)  **_OPTIONAL_** (You may want to manually install these things to get the best experiment):
+    -   **KDE** (If you are using _KDE_ desktop enviroment, install these scripts):
+        -   [Move Window and focus to Desktop](https://store.kde.org/p/1296654)
+    -   **Terminal themes**:
+        -   Breeze Theme (currently my theme).
+        -   Symphonic Theme.
+        -   Brogrammer Theme.
+        -   XTerm.
+        -   Obsidian Theme.
+        -   ... _(Any Dark themes)_
 
 ## List of Packages and Configurations
 
@@ -87,14 +88,17 @@ Although I tried to calculate all possible failures could happen, you still migh
     -   _~~.gitconfig.static: [~/.gitconfig.static](./git/.gitconfig.static)~~ (Deprecated)_
     -   .gitignore_global: [~/.gitignore_global](./git/.gitignore_global)
 -   **curl**
+-   **wget**
 -   **unzip**
 -   **fzf**
+-   **ripgrep**
 -   **fd**
 -   **bat**
+-   **jq**
+-   **sysstat**
 -   **tmux**
     -   .tmux.conf: [~/.tmux.conf](./terminal/.tmux.conf)
--   **nvim**
-    -   Install [full config](https://github.com/vuong-cuong-phoenix/neovim-config)
+-   **neovim** _(get my full installation & configs [here](https://github.com/vuong-cuong-phoenix/neovim-config))_
 -   **bash**
     -   .bash_profile: [~/.bash_profile](./shell/.bash_profile)
     -   .bashrc: [~/.bashrc](./shell/.bashrc)
@@ -111,6 +115,8 @@ Although I tried to calculate all possible failures could happen, you still migh
 -   _**OPTIONAL**_ (You may want to manually install and configs these things):
     -   **alacritty** (_recommend_ using **alacritty-ligatures**)
         -   alacritty.yml: [~/.config/alacritty/alacritty.yml](./config/alacritty/alacritty.yml)
+    -   **kitty**
+        -   kitty.conf: [~/.config/kitty/kitty.conf](./config/kitty/kitty.conf)
     -   **neofetch**
         -   config.conf [~/.config/neofetch/config.conf](./config/neofetch/config.conf)
 
