@@ -32,9 +32,9 @@
 
 
 #---------------------------------------- ENVIROMENT ----------------------------------------
-MAIN_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-source "${MAIN_DIR}/framework.sh"
+source "${CURRENT_DIR}/framework.sh"
 
 #---------------------------------------- MAIN ----------------------------------------
 # Install 'git'
@@ -91,8 +91,9 @@ install_and_config "" fd fd
 echo $SEPERATED_BAR
 
 ################################################################
-# Install 'bat'
+# Install and configure 'bat'
 install_and_config "" bat bat
+link_file "$CURRENT_DIR/.config/bat" "config" "$HOME/.config/bat" "config"
 
 echo $SEPERATED_BAR
 
@@ -105,6 +106,13 @@ echo $SEPERATED_BAR
 ################################################################
 # # Install 'sysstat'
 install_and_config "" mpstat sysstat
+
+echo $SEPERATED_BAR
+
+################################################################
+# # Install and configure 'neofetch'
+install_and_config "" neofetch neofetch
+link_file "$CURRENT_DIR/.config/neofetch" "config.conf" "$HOME/.config/neofetch" "config.conf"
 
 echo $SEPERATED_BAR
 
@@ -130,7 +138,7 @@ echo $SEPERATED_BAR
 # Install and configure 'zsh' shell
 install_and_config "shell" zsh zsh .zprofile .zshrc .dir_colors
 if [ $? -eq 0 ]; then
-    $MAIN_DIR/post_install_zsh.sh
+    $CURRENT_DIR/post_install_zsh.sh
 fi
 
 echo $SEPERATED_BAR
