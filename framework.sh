@@ -37,12 +37,12 @@ CYAN=$(tput setaf 6)
 WHITE=$(tput setaf 7)
 
 # REPO_URL=https://github.com/vuong-cuong-phoenix/dotfiles
-MAIN_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 CURRENT_TIME=$(date +"%F_%T")
 
-mkdir -p "$MAIN_DIR/BACKUP/$CURRENT_TIME" > /dev/null 2>&1
-BACKUP_DIR="$MAIN_DIR/BACKUP/$CURRENT_TIME"
+mkdir -p "$CURRENT_DIR/BACKUP/$CURRENT_TIME" > /dev/null 2>&1
+BACKUP_DIR="$CURRENT_DIR/BACKUP/$CURRENT_TIME"
 
 declare -a ALL_PM=(
     # macOS
@@ -253,42 +253,47 @@ backup_file() {
 ################################################################################################
 #                                   link_file() $1 $2 $3
 # Desc: Link config file $2 to file $3.
-# Arguments:    $1: config's type to determine correctly source file.
+# Arguments:    $1: source's path.
 #               $2: source file to be linked from.
-#               $3: target file to link.
+#               $3: target's path.
+#               $4: target file to link.
 link_file() {
-    local config_type=$1
+    local source_path=$1
     local source_file=$2
-    local target_file=$3
+    local target_path=$3
+    local target_file=$4
 
     local return_status
     
-    # Check if $target_file exists
-    if [ -e "$target_file" ]; then
-        # Check if $target_file is already linked to $source_file
-        if [ "$(readlink "$target_file")" = "$source_file" ]; then
-            print_wtabs 2 "${BLUE}$target_file ${GREEN}is already linked correctly!"
+    # Check if $target_path/$target_file exists
+    if [ -e "$target_path/$target_file" ]; then
+        # Check if $target_path/$target_file is already linked to $source_path/$source_file
+        if [ "$(readlink "$target_path/$target_file")" = "$source_path/$source_file" ]; then
+            print_wtabs 2 "${BLUE}$target_path/$target_file ${GREEN}is already linked correctly!"
             return -1
         else
-            printf "\t\t${GREEN}FOUND ${BLUE}$target_file.\n"
+            # printf "\t\t${GREEN}FOUND ${BLUE}$target_path/$target_file.\n"
+            print_wtabs 2 "${GREEN}FOUND ${BLUE}$target_path/$target_file."
             printf "${NORMAL}"
 
-            backup_file "$target_file" "$BACKUP_DIR/$config_type"
+            backup_file "$target_path/$target_file" "$BACKUP_DIR/$source_path"
             
             if [ $? -eq 0 ]; then
-                print_wtabs 2 "${LIME_YELLOW}Backing up to ${BLUE}BACKUP/$CURRENT_TIME/$config_type/" 0 $(( ${#LIME_YELLOW} + ${#BLUE} )) "SUCCEED"
+                print_wtabs 2 "${LIME_YELLOW}Backing up to ${BLUE}BACKUP/$CURRENT_TIME/$source_path/" 0 $(( ${#LIME_YELLOW} + ${#BLUE} )) "SUCCEED"
             else
-                print_wtabs 2 "${LIME_YELLOW}Backing up to ${BLUE}BACKUP/$CURRENT_TIME/$config_type/" 1 $(( ${#LIME_YELLOW} + ${#BLUE} )) "FAILED"
+                print_wtabs 2 "${LIME_YELLOW}Backing up to ${BLUE}BACKUP/$CURRENT_TIME/$source_path/" 1 $(( ${#LIME_YELLOW} + ${#BLUE} )) "FAILED"
             fi
         fi
     fi
 
-    execute_quietly "ln -fs "$source_file" "$target_file""
+    execute_quietly "mkdir --parents "$target_path""
+    execute_quietly "ln -fs "$source_path/$source_file" "$target_path/$target_file""
+
     return_status=$?
     if [ $return_status -eq 0 ]; then
-        print_wtabs 2 "${LIME_YELLOW}Linking to ${BLUE}$target_file" 0 $(( ${#LIME_YELLOW} + ${#BLUE} )) "SUCCEED"
+        print_wtabs 2 "${LIME_YELLOW}Linking to ${BLUE}$target_path/$target_file" 0 $(( ${#LIME_YELLOW} + ${#BLUE} )) "SUCCEED"
     else
-        print_wtabs 2 "${LIME_YELLOW}Linking to ${BLUE}$target_file" 1 $(( ${#LIME_YELLOW} + ${#BLUE} )) "FAILED"
+        print_wtabs 2 "${LIME_YELLOW}Linking to ${BLUE}$target_path/$target_file" 1 $(( ${#LIME_YELLOW} + ${#BLUE} )) "FAILED"
     fi
 
     return $return_status
@@ -324,12 +329,12 @@ check_and_download() {
 #                               install_and_config $1 $2 $3 $4 $5...
 # Desc: Link all the config files ($3, $4, $5...) of package $2. 
 #       If $1 is empty, only install package $2 and doesn't configure anything.
-# Arguments:    $1: config's type to determine correctly config file.
+# Arguments:    $1: config's path to determine correctly config file.
 #               $2: package's command to check if package is already installed.
 #               $3: package's name.
 #               $4, $5, $6,...: config file's name.
 install_and_config() {
-    local config_type=$1
+    local config_path=$1
     local package_command=$2
     local package=$3
 
@@ -351,11 +356,10 @@ install_and_config() {
 
                 until [ $# = 1 ]; do
                     shift
-                    print_wtabs 2 "${BOLD}${YELLOW}$1"
-                    # printf "\t${BOLD}${YELLOW}$1\n"
+                    print_wtabs 1 "${BOLD}${YELLOW}$1"
                     printf "${NORMAL}"
                     
-                    link_file "$config_type" "$MAIN_DIR/$config_type/$1" "$HOME/$1" 
+                    link_file "$CURRENT_DIR/$config_path" "$1" "$HOME" "$1"
                 done
 
                 return_status=0
@@ -368,7 +372,7 @@ install_and_config() {
         fi
 
     else
-        if [ -z "$config_type" ]; then
+        if [ -z "$config_path" ]; then
             printf "${BOLD}${YELLOW}$package ${NORMAL}${YELLOW}found.\n"
             printf "${NORMAL}"
         
@@ -379,10 +383,10 @@ install_and_config() {
             
             until [ $# = 1 ]; do
                 shift
-                printf "\t${BOLD}${YELLOW}$1\n"
+                print_wtabs 1 "${BOLD}${YELLOW}$1"
                 printf "${NORMAL}"
                 
-                link_file "$config_type" "$MAIN_DIR/$config_type/$1" "$HOME/$1" 
+                link_file "$CURRENT_DIR/$config_path" "$1" "$HOME" "$1"
             done
 
             return_status=0
