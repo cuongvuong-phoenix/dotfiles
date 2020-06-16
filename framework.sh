@@ -325,15 +325,19 @@ check_and_download() {
 # Desc: Link all the config files ($3, $4, $5...) of package $2. 
 #       If $1 is empty, only install package $2 and doesn't configure anything.
 # Arguments:    $1: config's type to determine correctly config file.
-#               $2: package's name.
-#               $3, $4, $5,...: config file's name.
+#               $2: package's command to check if package is already installed.
+#               $3: package's name.
+#               $4, $5, $6,...: config file's name.
 install_and_config() {
     local config_type=$1
-    local package=$2
+    local package_command=$2
+    local package=$3
+
     local return_status
 
     shift
-    if ! command -v "$package" > /dev/null 2>&1; then
+    shift
+    if ! command -v "$package_command" > /dev/null 2>&1; then
         printf "${BOLD}${YELLOW}$package ${NORMAL}${YELLOW}is not installed => "
         printf "${NORMAL}"
 
@@ -347,7 +351,8 @@ install_and_config() {
 
                 until [ $# = 1 ]; do
                     shift
-                    printf "\t${BOLD}${YELLOW}$1\n"
+                    print_wtabs 2 "${BOLD}${YELLOW}$1"
+                    # printf "\t${BOLD}${YELLOW}$1\n"
                     printf "${NORMAL}"
                     
                     link_file "$config_type" "$MAIN_DIR/$config_type/$1" "$HOME/$1" 
