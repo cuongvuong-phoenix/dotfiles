@@ -19,6 +19,15 @@
 #           - MX Linux
 #           - Kali Linux
 #           - Pop!_OS
+# Untested (but still have support):
+#           - macOS
+#           - FreeBSD
+#           - Solus
+#           - Slackware
+#           - Gentoo
+#           - CentOS
+#           - Mandriva
+#           - Void Linux
 
 
 
@@ -45,26 +54,32 @@ fi
 
 echo $SEPERATED_BAR
 
+################################################################
 # Install 'cURL'
 install_and_config "" curl
 
 echo $SEPERATED_BAR
 
+################################################################
 # Install 'wget'
 install_and_config "" wget
 
 echo $SEPERATED_BAR
 
+################################################################
 # Install 'unzip'
 install_and_config "" unzip
 
 echo $SEPERATED_BAR
 
+################################################################
 # Install 'fzf'
 install_and_config "" fzf
 
 echo $SEPERATED_BAR
 
+################################################################
+# Install and config 'ripgrep'
 if ! command -v "rg" > /dev/null 2>&1; then
     printf "${BOLD}${YELLOW}ripgrep ${NORMAL}${YELLOW}is not installed => "
     printf "${NORMAL}"
@@ -87,20 +102,26 @@ fi
 
 echo $SEPERATED_BAR
 
+################################################################
 # Install 'fd'
 install_and_config "" fd
 
 echo $SEPERATED_BAR
 
+################################################################
 # Install 'bat'
 install_and_config "" bat
 
 echo $SEPERATED_BAR
 
+################################################################
 # Install 'jq'
 install_and_config "" jq
 
 echo $SEPERATED_BAR
+
+################################################################
+# Install 'sysstat'
 if ! command -v "mpstat" > /dev/null 2>&1; then
     printf "${BOLD}${YELLOW}sysstat ${NORMAL}${YELLOW}is not installed => "
     printf "${NORMAL}"
@@ -123,22 +144,26 @@ fi
 
 echo $SEPERATED_BAR
 
+################################################################
 # Install and configure 'tmux'
 install_and_config terminal tmux .tmux.conf
 
 echo $SEPERATED_BAR
 
+################################################################
 # Install and configure 'vim/neovim' editor
 install_and_config "" nvim 
 ln -fs ${HOME}/.config/nvim/configs/02.settings.vim ${HOME}/.vimrc
 
 echo $SEPERATED_BAR
 
+################################################################
 # Install and configure 'bash' shell
 install_and_config shell bash .bash_profile .bashrc
 
 echo $SEPERATED_BAR
 
+################################################################
 # Install and configure 'zsh' shell
 install_and_config shell zsh .zprofile .zshrc .dir_colors
 if [ $? -eq 0 ]; then
@@ -147,6 +172,7 @@ fi
 
 echo $SEPERATED_BAR
 
+################################################################
 # Configure Firefox to use KDE portal
 if command -v firefox > /dev/null 2>&1; then
     printf "${BOLD}${YELLOW}firefox ${NORMAL}${YELLOW}found => Start configuring now...\n"
@@ -173,6 +199,7 @@ fi
 
 echo $SEPERATED_BAR
 
+################################################################
 #---------------------------------------- END ----------------------------------------
 printf "${BOLD}${GREEN}COMPLETED dotfiles installation.\n"
 printf "${NORMAL}"
