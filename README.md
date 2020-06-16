@@ -98,7 +98,7 @@ Although I tried to calculate all possible failures could happen, you still migh
 -   **sysstat**
 -   **tmux**
     -   .tmux.conf: [~/.tmux.conf](./terminal/.tmux.conf)
--   **neovim** _(get my full installation & configs [here](https://github.com/vuong-cuong-phoenix/neovim-config))_
+-   ~~**neovim**~~ _(get my full installation & configs [here](https://github.com/vuong-cuong-phoenix/neovim-config))_
 -   **bash**
     -   .bash_profile: [~/.bash_profile](./shell/.bash_profile)
     -   .bashrc: [~/.bashrc](./shell/.bashrc)
