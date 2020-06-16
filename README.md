@@ -94,8 +94,11 @@ Although I tried to calculate all possible failures could happen, you still migh
 -   **ripgrep**
 -   **fd**
 -   **bat**
+    -   config: [~/.config/bat/config](./.config/bat/config)
 -   **jq**
 -   **sysstat**
+-   **neofetch**
+    -   config.conf [~/.config/neofetch/config.conf](./.config/neofetch/config.conf)
 -   **tmux**
     -   .tmux.conf: [~/.tmux.conf](./terminal/.tmux.conf)
 -   ~~**neovim**~~ _(get my full installation & configs [here](https://github.com/vuong-cuong-phoenix/neovim-config))_
@@ -114,11 +117,9 @@ Although I tried to calculate all possible failures could happen, you still migh
     -   `export GTK_USE_PORTAL=1` to `/etc/profile.d/mozilla-common-sh`
 -   _**OPTIONAL**_ (You may want to manually install and configs these things):
     -   **alacritty** (_recommend_ using **alacritty-ligatures**)
-        -   alacritty.yml: [~/.config/alacritty/alacritty.yml](./config/alacritty/alacritty.yml)
+        -   alacritty.yml: [~/.config/alacritty/alacritty.yml](./.config/alacritty/alacritty.yml)
     -   **kitty**
-        -   kitty.conf: [~/.config/kitty/kitty.conf](./config/kitty/kitty.conf)
-    -   **neofetch**
-        -   config.conf [~/.config/neofetch/config.conf](./config/neofetch/config.conf)
+        -   kitty.conf: [~/.config/kitty/kitty.conf](./.config/kitty/kitty.conf)
 
 ## Known Issues
 
