@@ -12,9 +12,6 @@ Thumbs.db
 .Spotlight-V100
 .Trashes
 
-# Vim swap files
-*.swp
-
 # Ctags
 tags
 tags.lock
@@ -22,6 +19,7 @@ tags.temp
 tags.temp.tmp
 tags.files
 
-# Vim's netrwhist
+# Vim's files
+*.swp
 .netrwhist
 vim-markdown-preview.html
