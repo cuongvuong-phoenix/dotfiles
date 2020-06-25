@@ -78,7 +78,12 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(archlinux git zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(
+    archlinux 
+    git 
+    zsh-autosuggestions 
+    zsh-syntax-highlighting
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -125,7 +130,7 @@ POWERLEVEL9K_MODE="nerdfont-complete"
 
 #---------------------------------------- Prompts ---------------------------------------- 
 # Format
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(user dir_writable dir vcs)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(user dir_writable dir vcs prompt_char)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time root_indicator background_jobs time disk_usage)
 
 # Style
@@ -201,6 +206,9 @@ export QT4_IM_MODULE=ibus
 export CLUTTER_IM_MODULE=ibus
 
 #---------------------------------------- UTILITIES ---------------------------------------- 
+# Use vi keymap
+bindkey -v
+
 # Theme for 'bat'
 export BAT_THEME="TwoDark"
 
