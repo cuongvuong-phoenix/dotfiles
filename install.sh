@@ -43,13 +43,20 @@ install_and_config "git" git git ".gitignore_global"
 # Configure '.gitconfig'
 execute_quietly "command -v git"
 if [ $? -eq 0 ]; then
+    # Auto coloring
     git config --global color.diff auto
     git config --global color.status auto
     git config --global color.branch auto
+    # Auto change into CRLF
     git config --global core.autocrlf input
+    # Excluse files globally
     git config --global core.excludesfile "$HOME/.gitignore_global"
+    # Nvim as default edittor
     git config --global core.editor "nvim"
+    # Disable warning when have 'whitespace'
     git config --global apply.whitespace nowarn
+    # 'git pull' command now always use '--rebase' strategy
+    git config --global branch.autosetuprebase always
 fi
 
 echo $SEPERATED_BAR
