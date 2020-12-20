@@ -180,21 +180,24 @@ export PATH="${PATH}:${FLUTTER_HOME}/bin"
 export GOPATH="${HOME}/go"
 export PATH="${PATH}:${GOPATH//://bin:}/bin"
 
-# Hadoop
-export HADOOP_HOME="/usr/local/hadoop"
-export HADOOP_COMMON_HOME="${HADOOP_HOME}"
-export HADOOP_CONF_DIR="${HADOOP_HOME}/etc/hadoop/"
-export HADOOP_HDFS_HOME="${HADOOP_HOME}"
-export HADOOP_YARN_HOME="${HADOOP_HOME}"
-export HADOOP_MAPRED_HOME="${HADOOP_HOME}"
+# Yarn
+# export PATH="$(yarn global bin):${PATH}"
 
-export PATH="${HADOOP_HOME}/bin:${HADOOP_HOME}/sbin:${PATH}"
+# Hadoop
+# export HADOOP_HOME="/usr/local/hadoop"
+# export HADOOP_COMMON_HOME="${HADOOP_HOME}"
+# export HADOOP_CONF_DIR="${HADOOP_HOME}/etc/hadoop/"
+# export HADOOP_HDFS_HOME="${HADOOP_HOME}"
+# export HADOOP_YARN_HOME="${HADOOP_HOME}"
+# export HADOOP_MAPRED_HOME="${HADOOP_HOME}"
+#
+# export PATH="${HADOOP_HOME}/bin:${HADOOP_HOME}/sbin:${PATH}"
 
 # Anaconda
 export PATH="${PATH}:${HOME}/Developments/miniconda3/bin"
 
-# Yarn
-export PATH="$(yarn global bin):${PATH}"
+# texlive-full
+# export PATH="${PATH}:/opt/texlive/2020/bin/x86_64-linux"
 
 # IBus
 export GTK_IM_MODULE=ibus
