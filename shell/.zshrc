@@ -176,6 +176,9 @@ export JAVA_HOME="/usr/lib/jvm/default"
 export FLUTTER_HOME="${HOME}/Developments/flutter"
 export PATH="${PATH}:${FLUTTER_HOME}/bin"
 
+# Rust
+source "$HOME/.cargo/env"
+
 # Golang
 export GOPATH="${HOME}/go"
 export PATH="${PATH}:${GOPATH//://bin:}/bin"
