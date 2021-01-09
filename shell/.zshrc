@@ -181,7 +181,7 @@ export GOPATH="${HOME}/go"
 export PATH="${PATH}:${GOPATH//://bin:}/bin"
 
 # Yarn
-# export PATH="$(yarn global bin):${PATH}"
+export PATH="$(yarn global bin):${PATH}"
 
 # Hadoop
 # export HADOOP_HOME="/usr/local/hadoop"
