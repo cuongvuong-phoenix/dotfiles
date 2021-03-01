@@ -58,7 +58,7 @@ if [ $? -eq 0 ]; then
     # 'git pull' command now always use '--rebase' strategy
     git config --global branch.autosetuprebase always
     # 'log' Aliases
-    git config --global alias.lg "lg1"
+    git config --global alias.lg "lg2"
     git config --global alias.lg1 "lg1-specific --all"
     git config --global alias.lg2 "lg2-specific --all"
 	git config --global alias.lg1-specific "log --color --graph --decorate --abbrev-commit --pretty=format:'%C(auto)%h%C(reset) -%C(auto)%d%C(reset) %C(white)%s%C(reset) %C(dim cyan)- (%cr) %C(dim white)<%ae>%C(reset)%n'"
