@@ -157,33 +157,6 @@ fi
 echo $SEPERATED_BAR
 
 ################################################################
-# Configure Firefox to use KDE portal
-if command -v firefox > /dev/null 2>&1; then
-    printf "${BOLD}${YELLOW}firefox ${NORMAL}${YELLOW}found => Start configuring now...\n"
-    printf "${NORMAL}"
-
-    FIREFOX_SCRIPT="/etc/profile.d/mozilla-common.sh"
-    if [ -f ${FIREFOX_SCRIPT} ]; then
-        if ! grep -q "GTK_USE_PORTAL=1" ${FIREFOX_SCRIPT}; then
-            echo "export GTK_USE_PORTAL=1" >> ${FIREFOX_SCRIPT}
-
-            print_wtabs 1 "${GREEN}Successfully add ${BOLD}${BLUE}GTK_USE_PORTAL=1 into ${NORMAL}${BLUE}${FIREFOX_SCRIPT}." 0 $(( ${#GREEN} + ${#BOLD} + ${#BLUE} + ${#NORMAL} + ${#BLUE} )) "SUCCEED"
-        else
-            print_wtabs 1 "${BOLD}${BLUE}GTK_USE_PORTAL=1 ${NORMAL}${GREEN}already inside ${BLUE}${FIREFOX_SCRIPT}" 
-        fi
-    else
-        print_wtabs 1 "${RED}Cannot find ${BOLD}${FIREFOX_SCRIPT}." 1 $(( ${#RED} + ${#BOLD} )) "FAILED"
-    fi
-
-    printf "${NORMAL}"
-
-else
-    printf "${BOLD}${YELLOW}firefox ${NORMAL} not found."
-fi
-
-echo $SEPERATED_BAR
-
-################################################################
 #---------------------------------------- END ----------------------------------------
 printf "${BOLD}${GREEN}COMPLETED dotfiles installation.\n"
 printf "${NORMAL}"
