@@ -168,9 +168,21 @@ POWERLEVEL9K_TIME_FORMAT="%D{%H:%M}"
 #---------------------------------------- ALIAS ---------------------------------------- 
 alias vim=nvim
 
-#---------------------------------------- ENVIROMENTS VARIABLES ---------------------------------------- 
+#---------------------------------------- ENVIROMENT ---------------------------------------- 
 # Java
 export JAVA_HOME="/usr/lib/jvm/default"
+
+# NodeJS
+source /usr/share/nvm/init-nvm.sh
+
+# Yarn
+export PATH="$(yarn global bin):${PATH}"
+
+# PNPM
+# tabtab source for packages
+# uninstall by removing these lines
+[[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
+
 
 # Flutter
 export FLUTTER_HOME="${HOME}/Developments/flutter"
@@ -183,9 +195,6 @@ source "$HOME/.cargo/env"
 export GOPATH="${HOME}/go"
 export PATH="${PATH}:${GOPATH//://bin:}/bin"
 
-# Yarn
-export PATH="$(yarn global bin):${PATH}"
-
 # Hadoop
 # export HADOOP_HOME="/usr/local/hadoop"
 # export HADOOP_COMMON_HOME="${HADOOP_HOME}"
@@ -193,14 +202,10 @@ export PATH="$(yarn global bin):${PATH}"
 # export HADOOP_HDFS_HOME="${HADOOP_HOME}"
 # export HADOOP_YARN_HOME="${HADOOP_HOME}"
 # export HADOOP_MAPRED_HOME="${HADOOP_HOME}"
-#
 # export PATH="${HADOOP_HOME}/bin:${HADOOP_HOME}/sbin:${PATH}"
 
 # Anaconda
 export PATH="${PATH}:${HOME}/Developments/miniconda3/bin"
-
-# texlive-full
-# export PATH="${PATH}:/opt/texlive/2020/bin/x86_64-linux"
 
 # IBus
 export GTK_IM_MODULE=ibus
