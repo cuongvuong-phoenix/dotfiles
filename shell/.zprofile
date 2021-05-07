@@ -8,9 +8,8 @@ if [ -z "$SSH_AUTH_SOCK" ]; then
    if [ "$RUNNING_AGENT" = "0" ]; then
         # Launch a new instance of the agent
         ssh-agent -s &> .ssh/ssh-agent
+        eval `cat .ssh/ssh-agent`
    fi
-   eval `cat .ssh/ssh-agent`
 fi
 
-source "$HOME/.cargo/env"
 
