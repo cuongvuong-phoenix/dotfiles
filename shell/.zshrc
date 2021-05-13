@@ -67,6 +67,17 @@ POWERLEVEL9K_VCS_GIT_BITBUCKET_ICON="\uF5A7"    # 
 POWERLEVEL9K_TIME_FORMAT="%D{%H:%M}"
 
 #----------------------------------------------------------------------------------------
+#---------------------------------------- HELPERS ---------------------------------------- 
+#----------------------------------------------------------------------------------------
+# Avoid duplicating entry "$1" whenever add to "$PATH"
+function add_to_PATH {
+  case ":$PATH:" in
+    *":$1:"*) :;;           # already there.
+    *) PATH="$1:$PATH";;    # prefer custom $1 first.
+  esac
+}
+
+#----------------------------------------------------------------------------------------
 #---------------------------------------- ALIAS ---------------------------------------- 
 #----------------------------------------------------------------------------------------
 alias vim=nvim
@@ -81,26 +92,22 @@ export JAVA_HOME="/usr/lib/jvm/default"
 source /usr/share/nvm/init-nvm.sh
 
 # Yarn.
-export PATH="$(yarn global bin):${PATH}"
+add_to_PATH "$(yarn global bin)"
 
 # PNPM.
 # tabtab source for packages. Uninstall by removing these lines.
 # [[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
 
-
 # Flutter.
 # export FLUTTER_HOME="${HOME}/Developments/flutter"
-# export PATH="${PATH}:${FLUTTER_HOME}/bin"
+# add_to_PATH "${FLUTTER_HOME}/bin"
 
 # Rust.
 source "$HOME/.cargo/env"
 
 # Golang.
 export GOPATH="${HOME}/go"
-export PATH="${PATH}:${GOPATH//://bin:}/bin"
-
-# Anaconda.
-# export PATH="${PATH}:${HOME}/Developments/miniconda3/bin"
+add_to_PATH "${GOPATH//://bin:}/bin"
 
 # IBus.
 export GTK_IM_MODULE=ibus
