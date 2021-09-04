@@ -69,7 +69,7 @@ POWERLEVEL9K_TIME_FORMAT="%D{%H:%M}"
 #----------------------------------------------------------------------------------------
 #---------------------------------------- HELPERS ---------------------------------------- 
 #----------------------------------------------------------------------------------------
-# Avoid duplicating entry "$1" whenever add to "$PATH"
+# Avoid duplicating entry "$1" whenever add it to "$PATH"
 function add_to_PATH {
   case ":$PATH:" in
     *":$1:"*) :;;           # already there.
@@ -98,26 +98,6 @@ add_to_PATH "$(yarn global bin)"
 # tabtab source for packages. Uninstall by removing these lines.
 # [[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
 
-# Flutter.
-# export FLUTTER_HOME="${HOME}/Developments/flutter"
-# add_to_PATH "${FLUTTER_HOME}/bin"
-
-# Rust.
-source "$HOME/.cargo/env"
-
-# Golang.
-export GOPATH="${HOME}/go"
-add_to_PATH "${GOPATH//://bin:}/bin"
-
-# IBus.
-export GTK_IM_MODULE=ibus
-export QT_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
-# Dành cho những phần mềm dựa trên qt4.
-export QT4_IM_MODULE=ibus
-# Dành cho những phần mềm dùng thư viện đồ họa clutter.
-export CLUTTER_IM_MODULE=ibus
-
 #----------------------------------------------------------------------------------------
 #---------------------------------------- UTILITIES ---------------------------------------- 
 #----------------------------------------------------------------------------------------
@@ -141,6 +121,7 @@ eval $(pipenv --completion)
 #----------------------------------------------------------------------------------------
 # export TERM="xterm-256color"
 
+# Auto start.
 if which tmux >/dev/null 2>&1; then
    # if no session is started, start a new session
    test -z ${TMUX} && tmux
