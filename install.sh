@@ -37,10 +37,10 @@ CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "${CURRENT_DIR}/framework.sh"
 
 #---------------------------------------- MAIN ----------------------------------------
-# Install 'git'
+# Install 'git'.
 install_and_config "git" git git ".gitignore_global"
  
-# Configure '.gitconfig'
+# Configure '.gitconfig'.
 execute_quietly "command -v git"
 if [ $? -eq 0 ]; then
     # Auto coloring
@@ -68,87 +68,110 @@ fi
 echo $SEPERATED_BAR
 
 ################################################################
-# Install 'cURL'
+# Install 'cURL'.
 install_and_config "" curl curl
 
 echo $SEPERATED_BAR
 
 ################################################################
-# Install 'wget'
+# Install 'wget'.
 install_and_config "" wget wget
 
 echo $SEPERATED_BAR
 
 ################################################################
-# Install 'unzip'
+# Install 'unzip'.
 install_and_config "" unzip unzip
 
 echo $SEPERATED_BAR
 
 ################################################################
-# Install 'fzf'
+# Install 'fzf'.
 install_and_config "" fzf fzf
 
 echo $SEPERATED_BAR
 
 ################################################################
-# Install and config 'ripgrep'
+# Install and config 'ripgrep'.
 install_and_config "" rg ripgrep
 
 echo $SEPERATED_BAR
 
 ################################################################
-# Install 'fd'
+# Install 'fd'.
 install_and_config "" fd fd
 
 echo $SEPERATED_BAR
 
 ################################################################
-# Install and configure 'bat'
+# Install and configure 'bat'.
 install_and_config "" bat bat
 link_file "$CURRENT_DIR/.config/bat" "config" "$HOME/.config/bat" "config"
 
 echo $SEPERATED_BAR
 
 ################################################################
-# Install 'jq'
+# Install 'jq'.
 install_and_config "" jq jq
 
 echo $SEPERATED_BAR
 
 ################################################################
-# # Install 'sysstat'
+# # Install 'sysstat'.
 install_and_config "" mpstat sysstat
 
 echo $SEPERATED_BAR
 
 ################################################################
-# # Install and configure 'neofetch'
+# # Install and configure 'neofetch'.
 install_and_config "" neofetch neofetch
 link_file "$CURRENT_DIR/.config/neofetch" "config.conf" "$HOME/.config/neofetch" "config.conf"
 
 echo $SEPERATED_BAR
 
 ################################################################
-# Install and configure 'tmux'
+# Install and configure 'alacritty'.
+install_and_config "" alacritty alacritty
+link_file "$CURRENT_DIR/.config/alacritty" "alacritty.yml" "$HOME/.config/alacritty" "alacritty.yml"
+
+echo $SEPERATED_BAR
+
+################################################################
+# Install and configure 'tmux'.
 install_and_config "terminal" tmux tmux .tmux.conf
 
 echo $SEPERATED_BAR
 
 ################################################################
-# Install and configure 'vim/neovim' editor
+# Install and configure 'vim/neovim'.
 install_and_config "" nvim neovim
 
 echo $SEPERATED_BAR
 
 ################################################################
-# Install and configure 'bash' shell
+# Install and configure 'ibus'.
+install_and_config "" ibus ibus
+if [ $? -eq 0]; then
+    echo "# IBus.
+export GTK_IM_MODULE=ibus
+export QT_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT4_IM_MODULE=ibus
+export CLUTTER_IM_MODULE=ibus
+
+ibus-daemon -drx" >> $HOME/.xinitrc
+fi
+
+echo $SEPERATED_BAR
+
+################################################################
+# Install and configure 'bash'.
 install_and_config "shell" bash bash .bash_profile .bashrc
 
 echo $SEPERATED_BAR
 
 ################################################################
-# Install and configure 'zsh' shell
+# Install and configure 'zsh'.
 install_and_config "shell" zsh zsh .zprofile .zshrc .dir_colors
 if [ $? -eq 0 ]; then
     $CURRENT_DIR/post_install_zsh.sh
@@ -157,6 +180,16 @@ fi
 echo $SEPERATED_BAR
 
 ################################################################
+# Install and configure 'openssh'.
+install_and_config "shell" ssh-keygen openssh
+if [ $? -eq 0]; then
+    ssh-keygen -t ed25519
+    eval "$(ssh-agent -s)"
+    ssh-add ~/.ssh/id_ed25519
+fi
+
+echo $SEPERATED_BAR
+
 #---------------------------------------- END ----------------------------------------
 printf "${BOLD}${GREEN}COMPLETED dotfiles installation.\n"
 printf "${NORMAL}"
