@@ -177,7 +177,7 @@ echo $SEPERATED_BAR
 # Install and configure 'zsh'.
 install_and_config "shell" zsh zsh .zprofile .zshrc .dir_colors
 if [ $? -eq 0 ]; then
-    $CURRENT_DIR/post_install_zsh.sh
+    $CURRENT_DIR/zsh-post-install.sh
 fi
 
 echo $SEPERATED_BAR
