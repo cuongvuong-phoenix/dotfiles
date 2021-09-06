@@ -139,6 +139,9 @@ echo $SEPERATED_BAR
 ################################################################
 # Install and configure 'tmux'.
 install_and_config "terminal" tmux tmux .tmux.conf
+if [ $? -eq 0]; then
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
 
 echo $SEPERATED_BAR
 
