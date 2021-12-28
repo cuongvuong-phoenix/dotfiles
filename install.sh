@@ -139,9 +139,6 @@ echo $SEPERATED_BAR
 ################################################################
 # Install and configure 'tmux'.
 install_and_config "terminal" tmux tmux .tmux.conf
-if [ $? -eq 0]; then
-    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-fi
 
 echo $SEPERATED_BAR
 
@@ -152,18 +149,8 @@ install_and_config "" nvim neovim
 echo $SEPERATED_BAR
 
 ################################################################
-# Install and configure 'ibus'.
+# Install 'ibus'.
 install_and_config "" ibus ibus
-if [ $? -eq 0]; then
-    echo "# IBus.
-export GTK_IM_MODULE=ibus
-export QT_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
-export QT4_IM_MODULE=ibus
-export CLUTTER_IM_MODULE=ibus
-
-ibus-daemon -drx" >> $HOME/.xinitrc
-fi
 
 echo $SEPERATED_BAR
 
@@ -183,8 +170,14 @@ fi
 echo $SEPERATED_BAR
 
 ################################################################
+# Configure others.
+link_file "$CURRENT_DIR/others" ".xprofile" "$HOME" ".xprofile"
+
+echo $SEPERATED_BAR
+
+################################################################
 # Install and configure 'openssh'.
-install_and_config "shell" ssh-keygen openssh
+install_and_config "" ssh-keygen openssh
 if [ $? -eq 0]; then
     ssh-keygen -t ed25519
     eval "$(ssh-agent -s)"
