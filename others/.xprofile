@@ -1,3 +1,6 @@
+# libinput-multiplier.
+echo 2.5 > /tmp/libinput_discrete_deltay_multiplier
+
 # IBus.
 export GTK_IM_MODULE=ibus
 export QT_IM_MODULE=ibus
