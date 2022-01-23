@@ -98,6 +98,9 @@ add_to_PATH "$(yarn global bin)"
 # tabtab source for packages. Uninstall by removing these lines.
 # [[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
 
+# Rust.
+add_to_PATH "$HOME/.cargo/bin"
+
 #----------------------------------------------------------------------------------------
 #---------------------------------------- UTILITIES ---------------------------------------- 
 #----------------------------------------------------------------------------------------
