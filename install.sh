@@ -162,7 +162,7 @@ echo $SEPERATED_BAR
 
 ################################################################
 # Install and configure 'zsh'.
-install_and_config "shell" zsh zsh .zprofile .zshrc .dir_colors
+install_and_config "shell" zsh zsh .zprofile .zshrc .zshenv .dir_colors
 if [ $? -eq 0 ]; then
     $CURRENT_DIR/zsh-post-install.sh
 fi
@@ -178,7 +178,7 @@ echo $SEPERATED_BAR
 ################################################################
 # Install and configure 'openssh'.
 install_and_config "" ssh-keygen openssh
-if [ $? -eq 0]; then
+if [ $? -eq 0 ]; then
     ssh-keygen -t ed25519
     eval "$(ssh-agent -s)"
     ssh-add ~/.ssh/id_ed25519
