@@ -178,10 +178,10 @@ echo $SEPERATED_BAR
 ################################################################
 # Install and configure 'openssh'.
 install_and_config "" ssh-keygen openssh
-if [ $? -eq 0 ]; then
+if [ ! -f "$HOME/.ssh/id_ed25519" ]; then
     ssh-keygen -t ed25519
     eval "$(ssh-agent -s)"
-    ssh-add ~/.ssh/id_ed25519
+    ssh-add $HOME/.ssh/id_ed25519
 fi
 
 echo $SEPERATED_BAR
