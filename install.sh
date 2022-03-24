@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# @author: Vuong Chi Cuong
-# @email: vuongcuong.phoenix@gmail.com
-# @github: https://github.com/vuong-cuong-phoenix/
-# @repo: https://github.com/vuong-cuong-phoenix/dotfiles
+# @author: Cuong Vuong Chi
+# @email: cuongvuong.phoenix@gmail.com
+# @github: https://github.com/cuongvuong-phoenix/
+# @repo: https://github.com/cuongvuong-phoenix/dotfiles
 #   Feel free to open issues on my github repo.
 #
 #
@@ -11,6 +11,7 @@
 #
 # Tested on:
 #           - Arch Linux
+#           - EndeavourOS
 #           - Manjaro
 #           - Debian
 #           - Ubuntu

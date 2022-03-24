@@ -15,20 +15,20 @@ Although I tried to calculate all possible failures could happen, you might stil
 ## List OS/Distros support
 
 > **_Tested_**: Battle-tested with no errors. Just install and it should work out of the box!
-
 > **_Untested_**: Not tested yet but still have support. If you're using one of these OS/distros, feel free to try installing and raise issues if you have any, I will try my best to fix it!
 
-| **Tested** | **Untested** |
-| :--------: | :----------: |
-| Arch Linux |    macOS     |
-|  Manjaro   |   FreeBSD    |
-|   Debian   |    Solus     |
-|   Ubuntu   |  Slackware   |
-|   Fedora   |    Gentoo    |
-|  openSUSE  |    CentOS    |
-|  MX Linux  |   Mandriva   |
-| Kali Linux |  Void Linux  |
-|  Pop!\_OS  |              |
+| **Tested**  | **Untested** |
+| :---------: | :----------: |
+| Arch Linux  |    macOS     |
+|   Manjaro   |   FreeBSD    |
+| EndeavourOS |    Solus     |
+|   Debian    |  Slackware   |
+|   Ubuntu    |    Gentoo    |
+|   Fedora    |    CentOS    |
+|  openSUSE   |   Mandriva   |
+|  MX Linux   |  Void Linux  |
+| Kali Linux  |              |
+|  Pop!\_OS   |              |
 
 ## Requirements
 
@@ -40,22 +40,22 @@ Although I tried to calculate all possible failures could happen, you might stil
 
 ## Installation
 
-1.  Clone the repository into `~/.dotfiles/`:
+1. Clone the repository into `~/.dotfiles/`:
 
-    ```shell
-    $ git clone --depth=1 https://github.com/vuong-cuong-phoenix/dotfiles.git $HOME/.dotfiles
-    $ cd $HOME/.dotfiles
-    ```
+   ```shell
+   git clone --depth=1 https://github.com/cuongvuong-phoenix/dotfiles.git $HOME/.dotfiles
+   cd $HOME/.dotfiles
+   ```
 
-2.  Run this command:
+2. Run the installation script:
 
-    ```shell
-    $ ./install.sh
-    ```
+   ```shell
+   ./install.sh
+   ```
 
-    - The installation will backup config file if it exists and is not linked to the correct place. All backup files are under `./BACKUP/<CURRENT DATE_TIME>/`.
-    - If you haven't install `oh-my-zsh` before, then after installing it, you'll need to run `$ exit` to continue _dotfiles_ installation.
-    - Install any [Nerd Font](https://github.com/ryanoasis/nerd-fonts) and set it as default font for your _Terminal_ (I'm using _JetBrainsMono Nerd Font_).
+   - The installation will backup config file if it exists and is not linked to the correct place. All backup files are under `./BACKUP/<CURRENT DATE_TIME>/`.
+   - If you haven't install `oh-my-zsh` before, then after installing it, you'll need to run `$ exit` to continue _dotfiles_ installation.
+   - Install any [Nerd Font](https://github.com/ryanoasis/nerd-fonts) and set it as default font for your _Terminal_ (I'm using _JetBrainsMono Nerd Font_).
 
 ## List of Packages
 
@@ -76,7 +76,7 @@ Although I tried to calculate all possible failures could happen, you might stil
   - [`~/.config/alacritty/alacritty.yml`](./.config/alacritty/alacritty.yml): configs for: theme, font, shortcuts, settings.
 - **tmux**
   - [`~/.tmux.conf`](./terminal/.tmux.conf): configs for: theme, shortcuts (bindings), settings,...
-- **neovim** _(get my configs [here](https://github.com/vuong-cuong-phoenix/neovim-config))_
+- **neovim** _(get my configs [here](https://github.com/cuongvuong-phoenix/neovim-config))_
 - **ibus**
   - Configs in `~/.xinitrc`.
 - **bash**
@@ -85,10 +85,12 @@ Although I tried to calculate all possible failures could happen, you might stil
 - **zsh**
   - [`~/.zprofile`](./shell/.zprofile)
   - [`~/.zshrc`](./shell/.zshrc)
+  - [`~/.zshenv`](./shell/.zshenv)
   - **oh-my-zsh**
-    - [**zsh-autosuggestions**](https://github.com/zsh-users/zsh-autosuggestions)
-    - [**zsh-syntax-highlighting**](https://github.com/zsh-users/zsh-syntax-highlighting)
-    - [**powerlevel10k**](https://github.com/romkatv/powerlevel10k)
+    - [autoupdate-zsh-plugin](https://github.com/TamCore/autoupdate-oh-my-zsh-plugins)
+    - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
+    - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
+    - [powerlevel10k](https://github.com/romkatv/powerlevel10k)
   - [`~/.dir_colors`](./shell/.dir_colors)
 - **openssh**
   - Generate new SSH key using `Ed25519` algorithm.

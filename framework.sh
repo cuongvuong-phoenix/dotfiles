@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# @author: Vuong Chi Cuong
-# @email: vuongcuong.phoenix@gmail.com
-# @github: https://github.com/vuong-cuong-phoenix/
-# @repo: https://github.com/vuong-cuong-phoenix/dotfiles
+# @author: Cuong Vuong Chi
+# @email: cuongvuong.phoenix@gmail.com
+# @github: https://github.com/cuongvuong-phoenix/
+# @repo: https://github.com/cuongvuong-phoenix/dotfiles
 #   Feel free to open an issue on my github repo.
 
 
@@ -36,7 +36,7 @@ MAGENTA=$(tput setaf 5)
 CYAN=$(tput setaf 6)
 WHITE=$(tput setaf 7)
 
-# REPO_URL=https://github.com/vuong-cuong-phoenix/dotfiles
+# REPO_URL=https://github.com/cuongvuong-phoenix/dotfiles
 CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 CURRENT_TIME=$(date +"%F_%T")
