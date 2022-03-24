@@ -16,17 +16,19 @@ else
         sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     fi
 
-    execute_quietly "command -v wget"
-    if [ $? -eq 0 ]; then
-        sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
-    fi
-
     if [ -d "$HOME/.oh-my-zsh" ]; then
         print_wtabs 2 "${LIME_YELLOW}Installing ${BLUE}oh-my-zsh" 0 $(( ${#LIME_YELLOW} + ${#BLUE} )) "SUCCESS"
     else
         print_wtabs 2 "${LIME_YELLOW}Installing ${BLUE}oh-my-zsh" 1 $(( ${#LIME_YELLOW} + ${#BLUE} )) "FAILED"
         exit 1
     fi
+fi
+
+printf "\t${BOLD}${YELLOW}autoupdate-zsh-plugin\n"
+printf "${NORMAL}"
+check_and_download "autoupdate-zsh-plugin" "$HOME/.oh-my-zsh/custom/plugins/autoupdate" "git clone "https://github.com/TamCore/autoupdate-oh-my-zsh-plugins" "$HOME/.oh-my-zsh/custom/plugins/autoupdate""
+if [ $? -eq 1 ]; then
+    exit 1
 fi
 
 printf "\t${BOLD}${YELLOW}zsh-autosuggestions\n"
@@ -45,8 +47,6 @@ fi
 
 printf "\t${BOLD}${YELLOW}powerlevel10k\n"
 printf "${NORMAL}"
-
-# Install 'Powerlevel10k' for 'oh-my-zsh'
 check_and_download "powerlevel10k" "$HOME/.oh-my-zsh/custom/themes/powerlevel10k" "git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$HOME/.oh-my-zsh/custom/themes/powerlevel10k""
 if [ $? -eq 1 ]; then
     exit 1
