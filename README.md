@@ -32,9 +32,9 @@ Although I tried to calculate all possible failures could happen, you might stil
 
 ## Prerequisties
 
-**IMPORTANT**: If you come from a fresh distro, you might need to **update** (_e.g:_ `sudo apt update`,...) and **upgrade** (_e.g:_ `sudo apt upgrade`,...) all the packages first, then install following requirements.
+**IMPORTANT**: If you come from a fresh distro, you might need to **update** (_e.g:_ `sudo apt update`,...) and **upgrade** (_e.g:_ `sudo apt upgrade`,...) all packages first, then install following packages if not exists:
 
-- **bash shell**.
+- **bash** shell.
 - [**tput**](https://command-not-found.com/tput).
 - **git**. (You can download this repo as a _**zip**_ and then the installation will install **git** for you).
 - [**asdf-vm**](https://asdf-vm.com/guide/getting-started.html).
@@ -55,7 +55,6 @@ Although I tried to calculate all possible failures could happen, you might stil
    ```
 
    - The installation will backup config file if it exists and is not linked to the correct place. All backup files are under `./BACKUP/<CURRENT DATE_TIME>/`.
-   - If you haven't install `oh-my-zsh` before, then after installing it, you'll need to run `$ exit` to continue _dotfiles_ installation.
    - Install any [Nerd Font](https://github.com/ryanoasis/nerd-fonts) and set it as default font for your _Terminal_ (I'm using _JetBrainsMono Nerd Font_).
 
 ## List of Packages
@@ -79,7 +78,7 @@ Although I tried to calculate all possible failures could happen, you might stil
   - [`~/.tmux.conf`](./terminal/.tmux.conf): configs for: theme, shortcuts (bindings), settings,...
 - **neovim** _(get my configs [here](https://github.com/cuongvuong-phoenix/neovim-config))_
 - **ibus**
-  - Configs in `~/.xinitrc`.
+  - Configs in [`~/.xprofile`](./others/.xprofile).
 - **bash**
   - [`~/.bash_profile`](./shell/.bash_profile)
   - [`~/.bashrc`](./shell/.bashrc)
@@ -96,3 +95,5 @@ Although I tried to calculate all possible failures could happen, you might stil
 - **openssh**
   - Generate new SSH key using `Ed25519` algorithm.
   - Add newly created key to the `ssh-agent`.
+- **asdf-vm**
+  - Install development tools specified in [`~/.tool-versions`](./others/.tool-versions)
