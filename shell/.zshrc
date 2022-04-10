@@ -14,6 +14,7 @@ plugins=(
     git 
     zsh-autosuggestions 
     zsh-syntax-highlighting
+    asdf
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -162,3 +163,8 @@ musl-build() {
     -e SQLX_OFFLINE=true \
     --rm -it clux/muslrust:nightly sh -c "cargo build --release && chown -R $(id -u):$(id -g) ./target"
 }
+
+# ----------------------------------------------------------------
+# asdf-vm
+# ----------------------------------------------------------------
+source /opt/asdf-vm/asdf.sh

@@ -173,6 +173,7 @@ echo $SEPERATED_BAR
 ################################################################
 # Configure others.
 link_file "$CURRENT_DIR/others" ".xprofile" "$HOME" ".xprofile"
+link_file "$CURRENT_DIR/others" ".tool-versions" "$HOME" ".tool-versions"
 
 echo $SEPERATED_BAR
 
@@ -186,6 +187,10 @@ if [ ! -f "$HOME/.ssh/id_ed25519" ]; then
 fi
 
 echo $SEPERATED_BAR
+
+################################################################
+# Install development tools using 'asdf-vm'.
+asdf install
 
 #---------------------------------------- END ----------------------------------------
 printf "${BOLD}${GREEN}COMPLETED dotfiles installation.\n"

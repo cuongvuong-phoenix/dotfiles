@@ -30,13 +30,14 @@ Although I tried to calculate all possible failures could happen, you might stil
 | Kali Linux  |              |
 |  Pop!\_OS   |              |
 
-## Requirements
+## Prerequisties
 
 **IMPORTANT**: If you come from a fresh distro, you might need to **update** (_e.g:_ `sudo apt update`,...) and **upgrade** (_e.g:_ `sudo apt upgrade`,...) all the packages first, then install following requirements.
 
 - **bash shell**.
 - [**tput**](https://command-not-found.com/tput).
 - **git**. (You can download this repo as a _**zip**_ and then the installation will install **git** for you).
+- [**asdf-vm**](https://asdf-vm.com/guide/getting-started.html).
 
 ## Installation
 
