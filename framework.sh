@@ -40,8 +40,6 @@ WHITE=$(tput setaf 7)
 CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 CURRENT_TIME=$(date +"%F_%T")
-
-mkdir -p "$CURRENT_DIR/BACKUP/$CURRENT_TIME" > /dev/null 2>&1
 BACKUP_DIR="$CURRENT_DIR/BACKUP/$CURRENT_TIME"
 
 declare -a ALL_PM=(
@@ -239,15 +237,17 @@ ask_for_confirmation() {
 
 ################################################################################################
 #                                   backup_file() $1 $2
-# Desc: Backup file $1 to directory $2.
+# Desc: Backup file $1 to $BACKUP_DIR.
 # Arguments:    $1: file to be backed up.
-#               $2: destination directory.
 backup_file() {
-    local source_file=$1
-    local target_dir=$2
+    local file=$1
 
-    execute_quietly "mkdir "$target_dir""
-    execute_quietly "cp "$source_file" "$target_dir""
+    if [ ! -d $BACKUP_DIR  ]; then
+        execute_quietly "mkdir -p $BACKUP_DIR"
+    fi
+
+    execute_quietly "cp "$file" "$BACKUP_DIR""
+
     return $?
 }
 ################################################################################################
@@ -269,19 +269,18 @@ link_file() {
     if [ -e "$target_path/$target_file" ]; then
         # Check if $target_path/$target_file is already linked to $source_path/$source_file
         if [ "$(readlink "$target_path/$target_file")" = "$source_path/$source_file" ]; then
-            print_wtabs 2 "${BLUE}$target_path/$target_file ${GREEN}is already linked correctly!"
+            print_wtabs 2 "${BLUE}$target_path/$target_file ${GREEN}has already been linked!"
             return -1
         else
-            # printf "\t\t${GREEN}FOUND ${BLUE}$target_path/$target_file.\n"
             print_wtabs 2 "${GREEN}FOUND ${BLUE}$target_path/$target_file."
             printf "${NORMAL}"
 
-            backup_file "$target_path/$target_file" "$BACKUP_DIR/$source_path"
+            backup_file "$target_path/$target_file"
             
             if [ $? -eq 0 ]; then
-                print_wtabs 2 "${LIME_YELLOW}Backing up to ${BLUE}BACKUP/$CURRENT_TIME/$source_path/" 0 $(( ${#LIME_YELLOW} + ${#BLUE} )) "SUCCEED"
+                print_wtabs 2 "${LIME_YELLOW}Backing up to ${BLUE}$BACKUP_DIR" 0 $(( ${#LIME_YELLOW} + ${#BLUE} )) "SUCCEED"
             else
-                print_wtabs 2 "${LIME_YELLOW}Backing up to ${BLUE}BACKUP/$CURRENT_TIME/$source_path/" 1 $(( ${#LIME_YELLOW} + ${#BLUE} )) "FAILED"
+                print_wtabs 2 "${LIME_YELLOW}Backing up to ${BLUE}$BACKUP_DIR" 1 $(( ${#LIME_YELLOW} + ${#BLUE} )) "FAILED"
             fi
         fi
     fi
