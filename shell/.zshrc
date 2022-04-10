@@ -14,7 +14,6 @@ plugins=(
     git 
     zsh-autosuggestions 
     zsh-syntax-highlighting
-    asdf
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -23,7 +22,7 @@ source $ZSH/oh-my-zsh.sh
 # ZSH THEME
 # ----------------------------------------------------------------
 
-#---------------------------------------- General Settings ---------------------------------------- 
+# ---------------- General Settings ---------------- 
 # Disable default context.
 prompt_context() {}
 POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
@@ -31,7 +30,7 @@ POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
 # Font mode.
 POWERLEVEL9K_MODE="nerdfont-complete"
 
-#---------------------------------------- Prompts ---------------------------------------- 
+# ---------------- Prompts ---------------- 
 # Format.
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(user dir_writable dir vcs prompt_char)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time root_indicator background_jobs time disk_usage)
@@ -47,7 +46,7 @@ POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR_ICON="\uE0B1"   # 
 POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR_ICON="\uE0B2"     # 
 POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR_ICON="\uE0B3"  # 
 
-#---------------------------------------- Segments ---------------------------------------- 
+# ---------------- Segments ---------------- 
 # User.
 POWERLEVEL9K_ALWAYS_SHOW_USER=true
 POWERLEVEL9K_USER_TEMPLATE="%n"
@@ -165,6 +164,6 @@ musl-build() {
 }
 
 # ----------------------------------------------------------------
-# asdf-vm
+# Run last
 # ----------------------------------------------------------------
 source /opt/asdf-vm/asdf.sh
