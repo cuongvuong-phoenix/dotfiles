@@ -1,6 +1,5 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -15,6 +14,9 @@ plugins=(
     zsh-autosuggestions 
     zsh-syntax-highlighting
 )
+
+autoload -Uz compinit
+compinit
 
 source $ZSH/oh-my-zsh.sh
 
@@ -93,11 +95,20 @@ export UPDATE_ZSH_DAYS=1
 # Java.
 export JAVA_HOME="/usr/lib/jvm/default"
 
+# PNPM.
+export PNPM_HOME="/home/bimbal/.local/share/pnpm"
+add_to_PATH "$PNPM_HOME"
+
 # Yarn.
 add_to_PATH "$(yarn global bin)"
 
 # Rust.
 add_to_PATH "$HOME/.cargo/bin"
+
+# Oracle Instant Client.
+export ORACLE_HOME=/opt/oracle
+# Ruby (`ruby-oci8`).
+export LD_LIBRARY_PATH=/opt/oracle/instantclient
 
 # ----------------------------------------------------------------
 # UTILITIES
@@ -167,3 +178,4 @@ musl-build() {
 # Run last
 # ----------------------------------------------------------------
 source /opt/asdf-vm/asdf.sh
+
