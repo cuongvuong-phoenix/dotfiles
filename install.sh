@@ -182,9 +182,9 @@ echo $SEPERATED_BAR
 install_and_config "" ssh-keygen openssh
 compgen -G "$HOME/.ssh/*.pub" > /dev/null
 if [ $? -eq 1 ]; then
-    ssh-keygen -t ed25519
+    ssh-keygen -t ecdsa -b 521
     eval "$(ssh-agent -s)"
-    ssh-add $HOME/.ssh/id_ed25519
+    ssh-add $HOME/.ssh/id_ecdsa
 fi
 
 echo $SEPERATED_BAR
