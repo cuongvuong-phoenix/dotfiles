@@ -96,4 +96,5 @@ Although I tried to calculate all possible failures could happen, you might stil
   - Generate new SSH key using `Ed25519` algorithm.
   - Add newly created key to the `ssh-agent`.
 - **asdf-vm**
-  - Install development tools specified in [`~/.tool-versions`](./others/.tool-versions)
+  - Configuration file [`~/.asdfrc`](./others/.asdfrc)
+  - Set default development tools specified in [`~/.tool-versions`](./others/.tool-versions)
