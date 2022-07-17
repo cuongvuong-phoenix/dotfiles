@@ -98,7 +98,7 @@ export UPDATE_ZSH_DAYS=1
 export JAVA_HOME="/usr/lib/jvm/default"
 
 # PNPM.
-export PNPM_HOME="/home/bimbal/.local/share/pnpm"
+export PNPM_HOME="$HOME/.local/share/pnpm"
 add_to_PATH "$PNPM_HOME"
 
 # Yarn.
