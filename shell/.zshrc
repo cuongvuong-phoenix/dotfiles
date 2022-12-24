@@ -121,8 +121,8 @@ bindkey -v
 # Theme for `bat`.
 export BAT_THEME="TwoDark"
 
-# Choose `Vim` as default editor.
-export EDITOR=vim
+# Choose `NVim` as default editor.
+export EDITOR=nvim
 
 # Use `.dir_colors` as default.
 eval "$(dircolors -b ~/.dir_colors)"
