@@ -16,8 +16,25 @@ plugins=(
     zsh-syntax-highlighting
 )
 
-autoload -Uz compinit
-compinit
+# ----------------------------------------------------------------
+# Zplug
+# ----------------------------------------------------------------
+source /usr/share/zsh/scripts/zplug/init.zsh
+
+zplug "changyuheng/fz", defer:1
+zplug "rupa/z", use:z.sh
+
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+# Then, source plugins and add commands to $PATH.
+# This command also run `compinit`.
+zplug load
 
 source $ZSH/oh-my-zsh.sh
 
