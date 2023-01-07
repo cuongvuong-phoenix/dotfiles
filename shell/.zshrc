@@ -11,6 +11,7 @@ plugins=(
     autoupdate
     archlinux 
     git 
+    tmux
     zsh-autosuggestions 
     zsh-syntax-highlighting
 )
