@@ -1,48 +1,19 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+export ZSH="$HOME/.local/share/sheldon/repos/github.com/ohmyzsh/ohmyzsh"
 
 export DEFAULT_USER="$USER"
 
-ZSH_THEME="powerlevel10k/powerlevel10k"
+export HISTSIZE=250000
+export SAVESIZE=25000
 
-plugins=(
-    colored-man-pages
-    autoupdate
-    archlinux 
-    git 
-    tmux
-    zsh-autosuggestions 
-    fast-syntax-highlighting
-)
+eval "$(sheldon source)"
 
-# ----------------------------------------------------------------
-# Zplug
-# ----------------------------------------------------------------
-source /usr/share/zsh/scripts/zplug/init.zsh
-
-zplug "changyuheng/fz", defer:1
-zplug "rupa/z", use:z.sh
-
-# Install plugins if there are plugins that have not been installed
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
-
-# Then, source plugins and add commands to $PATH.
-# This command also run `compinit`.
-zplug load
-
-source $ZSH/oh-my-zsh.sh
+# Integrate `fz` with `z.lua`
+# Ref: https://github.com/skywind3000/z.lua/wiki/FAQ#fzsh-for-better-completion
+function _z() { _zlua "$@"; }
 
 # ----------------------------------------------------------------
 # ZSH THEME
 # ----------------------------------------------------------------
-
 # ---------------- General Settings ---------------- 
 # Disable default context.
 prompt_context() {}
@@ -110,9 +81,6 @@ alias vim=nvim
 # ----------------------------------------------------------------
 # ENVIRONMENTS
 # ----------------------------------------------------------------
-# autoupdate-zsh-plugin
-export UPDATE_ZSH_DAYS=1
-
 # Java.
 export JAVA_HOME="/usr/lib/jvm/default"
 
@@ -199,4 +167,3 @@ musl-build() {
 # Run last
 # ----------------------------------------------------------------
 source /opt/asdf-vm/asdf.sh
-

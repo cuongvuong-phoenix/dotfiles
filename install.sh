@@ -156,6 +156,11 @@ install_and_config "" ibus ibus
 echo $SEPERATED_BAR
 
 ################################################################
+# Install and configure 'sheldon'.
+install_and_config "" sheldon sheldon
+link_file "$CURRENT_DIR/.config/sheldon" "plugins.toml" "$HOME/.config/sheldon" "plugins.toml"
+
+################################################################
 # Install and configure 'bash'.
 install_and_config "shell" bash bash .bash_profile .bashrc
 
@@ -164,9 +169,6 @@ echo $SEPERATED_BAR
 ################################################################
 # Install and configure 'zsh'.
 install_and_config "shell" zsh zsh .zprofile .zshrc .zshenv .dir_colors
-if [ $? -eq 0 ]; then
-    $CURRENT_DIR/zsh-post-install.sh
-fi
 
 echo $SEPERATED_BAR
 
