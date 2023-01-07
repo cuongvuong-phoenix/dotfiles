@@ -8,12 +8,13 @@ export DEFAULT_USER="$USER"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 plugins=(
+    colored-man-pages
     autoupdate
     archlinux 
     git 
     tmux
     zsh-autosuggestions 
-    zsh-syntax-highlighting
+    fast-syntax-highlighting
 )
 
 # ----------------------------------------------------------------
