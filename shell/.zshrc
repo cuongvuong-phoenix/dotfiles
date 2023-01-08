@@ -136,8 +136,10 @@ fi
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 
+# Ref: https://github.com/junegunn/fzf#settings
+
 export FZF_DEFAULT_COMMAND="fd --type f"
-export FZF_DEFAULT_OPTS="--layout=reverse --inline-info"
+export FZF_DEFAULT_OPTS="--layout=reverse"
 
 # Use fd (https://github.com/sharkdp/fd) instead of the default find
 # command for listing path candidates.
@@ -151,6 +153,9 @@ _fzf_compgen_path() {
 _fzf_compgen_dir() {
   fd --type d --hidden --follow --exclude ".git" . "$1"
 }
+
+# Enhancd
+export ENHANCD_FILTER="fzf:fzf-tmux:fzy:peco:percol:gof:pick:icepick:sentaku:selecta"
 
 # ----------------------------------------------------------------
 # COMMANDS
