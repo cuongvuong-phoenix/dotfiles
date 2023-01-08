@@ -26,6 +26,9 @@ github = "ohmyzsh/ohmyzsh"
 [plugins.powerlevel10k]
 github = "romkatv/powerlevel10k"
 
+[plugins.base16]
+github = "chriskempson/base16-shell"
+
 # IMPORTANT: the `zsh-defer` plugin definition should be placed before any plugins
 # that will use the defer template. Sheldon always processes plugins in the order
 # they are defined in the config file.
