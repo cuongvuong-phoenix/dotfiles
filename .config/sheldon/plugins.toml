@@ -41,7 +41,7 @@ github = "romkatv/zsh-defer"
 [plugins.oh-my-zsh-plugins]
 github = "ohmyzsh/ohmyzsh"
 dir = "plugins"
-use = ["{archlinux,git,tmux,colored-man-pages}/*.plugin.zsh"]
+use = ["{archlinux,git,tmux,colored-man-pages,bundler}/*.plugin.zsh"]
 apply = ["defer"]
 
 [plugins.zsh-you-should-use]
