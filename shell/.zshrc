@@ -81,6 +81,8 @@ alias vim=nvim
 # ----------------------------------------------------------------
 # ENVIRONMENTS
 # ----------------------------------------------------------------
+add_to_PATH "$HOME/.local/bin"
+
 # Java.
 export JAVA_HOME="/usr/lib/jvm/default"
 
@@ -166,6 +168,22 @@ musl-build() {
     -v "$PWD:/volume" \
     -e SQLX_OFFLINE=true \
     --rm -it clux/muslrust sh -c "cargo build --release && chown -R $(id -u):$(id -g) ./target"
+}
+
+ipv6() {
+  case ${1:-check} in
+    check)
+      sudo sysctl -a | grep -ie "disable_ipv6"
+      ;;
+    on|enable)
+      sudo sysctl -w net.ipv6.conf.all.disable_ipv6=0
+      sudo sysctl -w net.ipv6.conf.default.disable_ipv6=0
+      ;;
+    off|disable)
+      sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1
+      sudo sysctl -w net.ipv6.conf.default.disable_ipv6=1
+      ;;
+  esac
 }
 
 # ----------------------------------------------------------------
