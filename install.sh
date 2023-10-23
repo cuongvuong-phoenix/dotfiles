@@ -112,75 +112,68 @@ link_file "$CURRENT_DIR/.config/bat" "config" "$HOME/.config/bat" "config"
 echo $SEPERATED_BAR
 
 ################################################################
-# Install 'jq'.
+# Install `jq`.
 install_and_config "" jq jq
 
 echo $SEPERATED_BAR
 
 ################################################################
-# # Install 'sysstat'.
+# # Install `sysstat`.
 install_and_config "" mpstat sysstat
 
 echo $SEPERATED_BAR
 
 ################################################################
-# # Install and configure 'neofetch'.
+# # Install and configure `neofetch`.
 install_and_config "" neofetch neofetch
 link_file "$CURRENT_DIR/.config/neofetch" "config.conf" "$HOME/.config/neofetch" "config.conf"
 
 echo $SEPERATED_BAR
 
 ################################################################
-# Install and configure 'alacritty'.
+# Install and configure `alacritty`.
 install_and_config "" alacritty alacritty
 link_file "$CURRENT_DIR/.config/alacritty" "alacritty.yml" "$HOME/.config/alacritty" "alacritty.yml"
 
 echo $SEPERATED_BAR
 
 ################################################################
-# Install and configure 'tmux'.
+# Install and configure `tmux`.
 install_and_config "terminal" tmux tmux .tmux.conf
 
 echo $SEPERATED_BAR
 
 ################################################################
-# Install and configure 'vim/neovim'.
+# Install and configure `vim/neovim`.
 install_and_config "" nvim neovim
 
 echo $SEPERATED_BAR
 
 ################################################################
-# Install 'ibus'.
+# Install `ibus`.
 install_and_config "" ibus ibus
 
 echo $SEPERATED_BAR
 
 ################################################################
-# Install and configure 'sheldon'.
+# Install and configure `sheldon`.
 install_and_config "" sheldon sheldon
 link_file "$CURRENT_DIR/.config/sheldon" "plugins.toml" "$HOME/.config/sheldon" "plugins.toml"
 
 ################################################################
-# Install and configure 'bash'.
+# Install and configure `bash`.
 install_and_config "shell" bash bash .bash_profile .bashrc
 
 echo $SEPERATED_BAR
 
 ################################################################
-# Install and configure 'zsh'.
+# Install and configure `zsh`.
 install_and_config "shell" zsh zsh .zprofile .zshrc .zshenv .dir_colors
 
 echo $SEPERATED_BAR
 
 ################################################################
-# Configure others.
-link_file "$CURRENT_DIR/others" ".xprofile" "$HOME" ".xprofile"
-link_file "$CURRENT_DIR/others" ".tool-versions" "$HOME" ".tool-versions"
-
-echo $SEPERATED_BAR
-
-################################################################
-# Install and configure 'openssh'.
+# Install and configure `openssh`.
 install_and_config "" ssh-keygen openssh
 compgen -G "$HOME/.ssh/*.pub" > /dev/null
 if [ $? -eq 1 ]; then
@@ -192,8 +185,22 @@ fi
 echo $SEPERATED_BAR
 
 ################################################################
-# Install development tools using 'asdf-vm'.
-asdf install
+# Configure `rtx`
+link_file "$CURRENT_DIR/.config/rtx" "config.toml" "$HOME/.config/rtx" "config.toml"
+
+echo $SEPERATED_BAR
+
+################################################################
+# Configure others.
+link_file "$CURRENT_DIR/others" ".xprofile" "$HOME" ".xprofile"
+
+echo $SEPERATED_BAR
+
+################################################################
+# Install development tools using `rtx`.
+rtx install
+
+echo $SEPERATED_BAR
 
 #---------------------------------------- END ----------------------------------------
 printf "${BOLD}${GREEN}COMPLETED dotfiles installation.\n"

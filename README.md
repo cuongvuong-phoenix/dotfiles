@@ -37,7 +37,7 @@ Although I tried to calculate all possible failures could happen, you might stil
 - **bash** shell.
 - [**tput**](https://command-not-found.com/tput).
 - **git**. (You can download this repo as a _**zip**_ and then the installation will install **git** for you).
-- [**asdf-vm**](https://asdf-vm.com/guide/getting-started.html).
+- [**rtx**](https://github.com/jdx/rtx#quickstart).
 
 ## Installation
 
@@ -95,6 +95,6 @@ Although I tried to calculate all possible failures could happen, you might stil
 - **openssh**
   - Generate new SSH key using `Ed25519` algorithm.
   - Add newly created key to the `ssh-agent`.
-- **asdf-vm**
-  - Configuration file [`~/.asdfrc`](./others/.asdfrc)
-  - Set default development tools specified in [`~/.tool-versions`](./others/.tool-versions)
+- **rtx**
+  - Configuration file [`~/.config/rtx/config.toml`](./config/rtx/config.toml)
+  - Install all development tools specified in the config file
