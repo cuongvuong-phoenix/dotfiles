@@ -134,6 +134,7 @@ echo $SEPERATED_BAR
 # Install and configure `alacritty`.
 install_and_config "" alacritty alacritty
 link_file "$CURRENT_DIR/.config/alacritty" "alacritty.yml" "$HOME/.config/alacritty" "alacritty.yml"
+link_file "$CURRENT_DIR/.config/alacritty" "alacritty.toml" "$HOME/.config/alacritty" "alacritty.toml"
 
 echo $SEPERATED_BAR
 
