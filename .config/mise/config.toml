@@ -1,7 +1,7 @@
 [tools]
 node = 'lts'
 bun = "latest"
-ruby = '3.3.0'
+ruby = "latest"
 
 [settings]
 plugin_autoupdate_last_check_duration = '1 week' # set to 0 to disable updates
