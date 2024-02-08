@@ -1,5 +1,6 @@
 [tools]
 node = 'lts'
+bun = "latest"
 ruby = '3.3.0'
 
 [settings]
