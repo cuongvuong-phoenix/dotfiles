@@ -37,7 +37,7 @@ Although I tried to calculate all possible failures could happen, you might stil
 - **bash** shell.
 - [**tput**](https://command-not-found.com/tput).
 - **git**. (You can download this repo as a _**zip**_ and then the installation will install **git** for you).
-- [**rtx**](https://github.com/jdx/rtx#quickstart).
+- [**mise**](https://github.com/jdx/mise) binary.
 
 ## Installation
 
@@ -95,6 +95,6 @@ Although I tried to calculate all possible failures could happen, you might stil
 - **openssh**
   - Generate new SSH key using `Ed25519` algorithm.
   - Add newly created key to the `ssh-agent`.
-- **rtx**
-  - Configuration file [`~/.config/rtx/config.toml`](./config/rtx/config.toml)
+- **mise**
+  - Configuration file [`~/.config/mise/config.toml`](./.config/mise/config.toml)
   - Install all development tools specified in the config file

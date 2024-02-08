@@ -186,8 +186,8 @@ fi
 echo $SEPERATED_BAR
 
 ################################################################
-# Configure `rtx`
-link_file "$CURRENT_DIR/.config/rtx" "config.toml" "$HOME/.config/rtx" "config.toml"
+# Configure `mise`
+link_file "$CURRENT_DIR/.config/mise" "config.toml" "$HOME/.config/mise" "config.toml"
 
 echo $SEPERATED_BAR
 
@@ -198,8 +198,8 @@ link_file "$CURRENT_DIR/others" ".xprofile" "$HOME" ".xprofile"
 echo $SEPERATED_BAR
 
 ################################################################
-# Install development tools using `rtx`.
-rtx install
+# Install development tools using `mise`.
+mise install
 
 echo $SEPERATED_BAR
 
