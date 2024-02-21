@@ -158,6 +158,15 @@ export ENHANCD_FILTER="fzf:fzf-tmux:fzy:peco:percol:gof:pick:icepick:sentaku:sel
 # ----------------------------------------------------------------
 # COMMANDS
 # ----------------------------------------------------------------
+function ya() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+
 musl-build() {
   docker run \
     -v cargo-cache:/root/.cargo/registry \
