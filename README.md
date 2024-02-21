@@ -38,6 +38,7 @@ Although I tried to calculate all possible failures could happen, you might stil
 - [**tput**](https://command-not-found.com/tput).
 - **git**. (You can download this repo as a _**zip**_ and then the installation will install **git** for you).
 - [**mise**](https://github.com/jdx/mise) binary.
+- [**oxide**](https://github.com/ajeetdsouza/zoxide) binary.
 
 ## Installation
 

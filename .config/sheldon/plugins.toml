@@ -48,12 +48,8 @@ apply = ["defer"]
 github = "MichaelAquilina/zsh-you-should-use"
 apply = ["defer"]
 
-[plugins."z.lua"]
-github = "skywind3000/z.lua"
-apply = ["defer"]
-
-[plugins.fz]
-github = "changyuheng/fz"
+[plugins.zoxide]
+github = "ajeetdsouza/zoxide"
 apply = ["defer"]
 
 [plugins.enhancd]
@@ -72,4 +68,3 @@ apply = ["defer"]
 [plugins.fast-syntax-highlighting]
 github = "zdharma-continuum/fast-syntax-highlighting"
 apply = ["defer"]
-

@@ -7,10 +7,6 @@ export SAVESIZE=25000
 
 eval "$(sheldon source)"
 
-# Integrate `fz` with `z.lua`
-# Ref: https://github.com/skywind3000/z.lua/wiki/FAQ#fzsh-for-better-completion
-function _z() { _zlua "$@"; }
-
 # ----------------------------------------------------------------
 # ZSH THEME
 # ----------------------------------------------------------------
