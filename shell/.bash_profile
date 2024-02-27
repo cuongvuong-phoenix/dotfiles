@@ -3,3 +3,5 @@
 #
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
+
+. ~/.config/broot/launcher/bash/br

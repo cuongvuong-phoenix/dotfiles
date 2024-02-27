@@ -78,8 +78,8 @@ Although I tried to calculate all possible failures could happen, you might stil
 - **tmux**
   - [`~/.tmux.conf`](./terminal/.tmux.conf): configs for: theme, shortcuts (bindings), settings,...
 - **neovim** _(get my configs [here](https://github.com/cuongvuong-phoenix/neovim-config))_
-- **ibus**
-  - Configs in [`~/.xprofile`](./others/.xprofile).
+- **sheldon**
+  - [`~/.config/sheldon/plugins.toml`](./.config/sheldon/plugins.toml)
 - **bash**
   - [`~/.bash_profile`](./shell/.bash_profile)
   - [`~/.bashrc`](./shell/.bashrc)
@@ -87,11 +87,6 @@ Although I tried to calculate all possible failures could happen, you might stil
   - [`~/.zprofile`](./shell/.zprofile)
   - [`~/.zshrc`](./shell/.zshrc)
   - [`~/.zshenv`](./shell/.zshenv)
-  - **oh-my-zsh**
-    - [autoupdate-zsh-plugin](https://github.com/TamCore/autoupdate-oh-my-zsh-plugins)
-    - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
-    - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
-    - [powerlevel10k](https://github.com/romkatv/powerlevel10k)
   - [`~/.dir_colors`](./shell/.dir_colors)
 - **openssh**
   - Generate new SSH key using `Ed25519` algorithm.
@@ -99,3 +94,9 @@ Although I tried to calculate all possible failures could happen, you might stil
 - **mise**
   - Configuration file [`~/.config/mise/config.toml`](./.config/mise/config.toml)
   - Install all development tools specified in the config file
+- **broot**
+  - [`~/.config/broot/launcher/bash/br`](./.config/broot/launcher/bash/br)
+  - [`~/.config/broot/conf.hjson`](./.config/broot/conf.hjson)
+  - [`~/.config/broot/verbs.hjson`](./.config/broot/verbs.hjson)
+- **ibus**
+  - Configs in [`~/.xprofile`](./others/.xprofile).

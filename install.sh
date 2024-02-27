@@ -118,13 +118,13 @@ install_and_config "" jq jq
 echo $SEPERATED_BAR
 
 ################################################################
-# # Install `sysstat`.
+# Install `sysstat`.
 install_and_config "" mpstat sysstat
 
 echo $SEPERATED_BAR
 
 ################################################################
-# # Install and configure `neofetch`.
+# Install and configure `neofetch`.
 install_and_config "" neofetch neofetch
 link_file "$CURRENT_DIR/.config/neofetch" "config.conf" "$HOME/.config/neofetch" "config.conf"
 
@@ -147,12 +147,6 @@ echo $SEPERATED_BAR
 ################################################################
 # Install and configure `vim/neovim`.
 install_and_config "" nvim neovim
-
-echo $SEPERATED_BAR
-
-################################################################
-# Install `ibus`.
-install_and_config "" ibus ibus
 
 echo $SEPERATED_BAR
 
@@ -188,6 +182,19 @@ echo $SEPERATED_BAR
 ################################################################
 # Configure `mise`
 link_file "$CURRENT_DIR/.config/mise" "config.toml" "$HOME/.config/mise" "config.toml"
+
+echo $SEPERATED_BAR
+
+################################################################
+# Install and configure `broot`
+install_and_config "" broot broot
+link_file "$CURRENT_DIR/.config/broot/launcher/bash" "br" "$HOME/.config/broot/launcher/bash" "br"
+link_file "$CURRENT_DIR/.config/broot" "conf.hjson" "$HOME/.config/broot" "conf.hjson"
+link_file "$CURRENT_DIR/.config/broot" "verbs.hjson" "$HOME/.config/broot" "verbs.hjson"
+
+################################################################
+# Install `ibus`.
+install_and_config "" ibus ibus
 
 echo $SEPERATED_BAR
 
