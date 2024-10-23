@@ -92,6 +92,10 @@ add_to_PATH "$(yarn global bin)"
 # Rust.
 add_to_PATH "$HOME/.cargo/bin"
 
+# Go.
+export GOPATH=$HOME/go
+add_to_PATH "$GOPATH/bin"
+
 # Oracle Instant Client.
 export ORACLE_HOME=/opt/oracle
 # Ruby (`ruby-oci8`).
@@ -165,6 +169,10 @@ function ya() {
 		cd -- "$cwd"
 	fi
 	rm -f -- "$tmp"
+}
+
+tks() {
+  tmux kill-session
 }
 
 musl-build() {
