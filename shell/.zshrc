@@ -72,6 +72,8 @@ function add_to_PATH {
 alias ls=lsd
 alias grep=rg
 alias find=fd
+alias diff=delta
+alias gui=gitui
 alias vim=nvim
 
 # ----------------------------------------------------------------

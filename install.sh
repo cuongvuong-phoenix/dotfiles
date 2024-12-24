@@ -40,6 +40,9 @@ source "${CURRENT_DIR}/framework.sh"
 #---------------------------------------- MAIN ----------------------------------------
 # Install 'git'.
 install_and_config "git" git git ".gitignore_global"
+install_and_config "" delta git-delta
+install_and_config "" gitui gitui
+link_file "$CURRENT_DIR/.config/gitui" "key_bindings.conf" "$HOME/.config/gitui" "key_bindings.conf"
  
 # Configure '.gitconfig'.
 execute_quietly "command -v git"
@@ -64,6 +67,12 @@ if [ $? -eq 0 ]; then
     git config --global alias.lg2 "lg2-specific --all"
 	git config --global alias.lg1-specific "log --color --graph --decorate --abbrev-commit --pretty=format:'%C(auto)%h%C(reset) -%C(auto)%d%C(reset) %C(white)%s%C(reset) %C(dim cyan)- (%cr) %C(dim white)<%ae>%C(reset)%n'"
     git config --global alias.lg2-specific "log --color --graph --decorate --abbrev-commit --pretty=format:'%C(auto)%h%C(reset) - %C(magenta)%cD%C(reset) %C(dim cyan)(%cr)%C(reset) %C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- <%ae>%C(reset)%n'"
+    # `delta`
+    git config --global core.pager delta
+    git config --global interactive.diffFilter 'delta --color-only'
+    git config --global delta.navigate true
+    git config --global delta.side-by-side true
+    git config --global merge.conflictStyle zdiff3
 fi
 
 echo $SEPERATED_BAR
