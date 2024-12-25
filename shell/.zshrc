@@ -158,9 +158,6 @@ _fzf_compgen_dir() {
   fd --type d --hidden --follow --exclude ".git" . "$1"
 }
 
-# Enhancd
-export ENHANCD_FILTER="fzf:fzf-tmux:fzy:peco:percol:gof:pick:icepick:sentaku:selecta"
-
 # ----------------------------------------------------------------
 # COMMANDS
 # ----------------------------------------------------------------

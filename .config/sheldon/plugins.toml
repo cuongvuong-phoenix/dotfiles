@@ -52,10 +52,6 @@ apply = ["defer"]
 github = "ajeetdsouza/zoxide"
 apply = ["defer"]
 
-[plugins.enhancd]
-github = "b4b4r07/enhancd"
-apply = ["defer"]
-
 [plugins.fzf-tab]
 github = "Aloxaf/fzf-tab"
 apply = ["defer"]
