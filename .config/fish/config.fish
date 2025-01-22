@@ -30,6 +30,9 @@ set fish_cursor_visual block
 set -gx EDITOR nvim
 set -gx BAT_THEME TwoDark
 
+set -gx PNPM_HOME "/home/bimbal/.local/share/pnpm"
+fish_add_path $PNPM_HOME
+
 fish_add_path ~/.cargo/bin
 
 set -gx GOPATH ~/go
@@ -47,3 +50,4 @@ fzf_configure_bindings --directory=\ct --processes=\cp
 mise activate fish | source
 starship init fish | source
 zoxide init fish | source
+
