@@ -73,6 +73,7 @@ if [ $? -eq 0 ]; then
     git config --global delta.navigate true
     git config --global delta.side-by-side true
     git config --global merge.conflictStyle zdiff3
+  git config --global include.path "$CURRENT_DIR/git/delta--one-dark-pro.gitconfig"
 fi
 
 echo $SEPERATED_BAR

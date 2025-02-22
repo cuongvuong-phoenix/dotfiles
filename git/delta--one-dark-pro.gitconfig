@@ -1,0 +1,52 @@
+[delta "one-dark-pro"]
+    # Author: https://github.com/cuongvuong-phoenix - derived from VSCode's One Dark Pro - Darker
+    # NOTE: Terminals typically doesn't support alpha colors so I used color picker to transform them into regular HEX.
+
+    # General appearance
+    dark = true
+    syntax-theme = TwoDark
+    # File
+    file-decoration-style = "#abb2bf" box ul    # editor.foreGround
+    file-style = "#abb2bf" bold
+    file-added-label = []
+    file-copied-label = [=]
+    file-modified-label = []
+    file-removed-label = [✘]
+    file-renamed-label = []
+    # Hunk headers
+    hunk-header-decoration-style = "#9da5b4" box
+    hunk-header-file-style = "#9da5b4" bold
+    hunk-header-line-number-style = "#a6adc8" bold
+    hunk-header-style = line-number syntax
+    # Line numbers
+    line-numbers = true
+    line-numbers-left-style = "#495162"         # editorLineNumber.foreground
+    line-numbers-right-style = "#495162"
+    line-numbers-zero-style = "#495162"
+    line-numbers-minus-style = "#9A353D"   # editorGutter.deletedBackground
+    line-numbers-plus-style = "#109868"    # editorGutter.addedBackground
+    line-numbers-left-format = " {nm:>3} │"
+    line-numbers-right-format = " {np:>3} │"
+    # Diff contents
+    inline-hint-style = syntax
+    minus-style = syntax "#4F1F25"              # diffEditor.removedLineBackground
+    minus-emph-style = syntax "#71181E"         # diffEditor.removedTextBackground
+    minus-non-emph-style = syntax auto
+    plus-style = syntax "#22392F"
+    plus-emph-style = syntax "#22404F"
+    plus-non-emph-style = syntax auto
+    whitespace-error-style = "#c24038" reverse  # editorError.foreground
+    # Commit hash
+    commit-decoration-style = "#abb2bf" normal box
+    commit-style = "#d18f52" bold               # terminal.ansiYellow
+    # Blame
+    blame-code-style = syntax
+    blame-format = "{author:>18} ({commit:>8}) {timestamp:<13} "
+    blame-palette = "#1e1e2e #181825 #11111b #313244 #45475a" # Catppuccin Mocha
+    # Merge conflicts
+    # merge-conflict-begin-symbol = ⌃
+    # merge-conflict-end-symbol = ⌄
+    merge-conflict-ours-diff-header-style = "#d18f52" bold            # terminal.ansiYellow
+    merge-conflict-theirs-diff-header-style = "#d18f52" bold overline # terminal.ansiYellow
+    # merge-conflict-ours-diff-header-decoration-style = ''
+    # merge-conflict-theirs-diff-header-decoration-style = ''
