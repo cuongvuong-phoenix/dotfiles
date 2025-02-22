@@ -1,0 +1,32 @@
+gui:
+  expandFocusedSidePanel: true
+  nerdFontsVersion: "3"
+  mainPanelSplitMode: "vertical"
+  scrollHeight: 5
+  # Catppuccin Mocha (Peach accent)
+  theme:
+    activeBorderColor:
+      - "#fab387"
+      - bold
+    inactiveBorderColor:
+      - "#4f5666" # VSCode's One Dark Pro - Darker (terminal.ansiBrightBlack)
+    optionsTextColor:
+      - "#89b4fa"
+    selectedLineBgColor:
+      - "#313244"
+    cherryPickedCommitBgColor:
+      - "#45475a"
+    cherryPickedCommitFgColor:
+      - "#fab387"
+    unstagedChangesColor:
+      - "#f38ba8"
+    defaultFgColor:
+      - "#cdd6f4"
+    searchingActiveBorderColor:
+      - "#f9e2af"
+
+git:
+  paging:
+    colorArg: always
+    pager: delta --dark --paging=never
+    useConfig: false

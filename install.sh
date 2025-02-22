@@ -41,39 +41,39 @@ source "${CURRENT_DIR}/framework.sh"
 # Install 'git'.
 install_and_config "git" git git ".gitignore_global"
 install_and_config "" delta git-delta
-install_and_config "" gitui gitui
-link_file "$CURRENT_DIR/.config/gitui" "key_bindings.conf" "$HOME/.config/gitui" "key_bindings.conf"
- 
+install_and_config "" lazygit lazygit
+link_dir "$CURRENT_DIR/.config/lazygit" "$HOME/.config/lazygit"
+
 # Configure '.gitconfig'.
 execute_quietly "command -v git"
 if [ $? -eq 0 ]; then
-    # Auto coloring
-    git config --global color.diff auto
-    git config --global color.status auto
-    git config --global color.branch auto
-    # Auto change into CRLF
-    git config --global core.autocrlf input
-    # Excluse files globally
-    git config --global core.excludesfile "$HOME/.gitignore_global"
-    # Nvim as default edittor
-    git config --global core.editor "nvim"
-    # Disable warning when have 'whitespace'
-    git config --global apply.whitespace nowarn
-    # 'git pull' command now always use '--rebase' strategy
-    git config --global branch.autosetuprebase always
-    # 'log' Aliases
-    git config --global alias.lg "lg2"
-    git config --global alias.lg1 "lg1-specific --all"
-    git config --global alias.lg2 "lg2-specific --all"
-	git config --global alias.lg1-specific "log --color --graph --decorate --abbrev-commit --pretty=format:'%C(auto)%h%C(reset) -%C(auto)%d%C(reset) %C(white)%s%C(reset) %C(dim cyan)- (%cr) %C(dim white)<%ae>%C(reset)%n'"
-    git config --global alias.lg2-specific "log --color --graph --decorate --abbrev-commit --pretty=format:'%C(auto)%h%C(reset) - %C(magenta)%cD%C(reset) %C(dim cyan)(%cr)%C(reset) %C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- <%ae>%C(reset)%n'"
-    # `delta`
-    git config --global core.pager delta
-    git config --global interactive.diffFilter 'delta --color-only'
-    git config --global delta.navigate true
-    git config --global delta.side-by-side true
-    git config --global merge.conflictStyle zdiff3
+  # Auto coloring
+  git config --global color.diff auto
+  git config --global color.status auto
+  git config --global color.branch auto
+  # Auto change into CRLF
+  git config --global core.autocrlf input
+  # Excluse files globally
+  git config --global core.excludesfile "$HOME/.gitignore_global"
+  # Nvim as default edittor
+  git config --global core.editor "nvim"
+  # Disable warning when have 'whitespace'
+  git config --global apply.whitespace nowarn
+  # 'git pull' command now always use '--rebase' strategy
+  git config --global branch.autosetuprebase always
+  # 'log' Aliases
+  git config --global alias.lg "lg2"
+  git config --global alias.lg1 "lg1-specific --all"
+  git config --global alias.lg2 "lg2-specific --all"
+  git config --global alias.lg1-specific "log --color --graph --decorate --abbrev-commit --pretty=format:'%C(auto)%h%C(reset) -%C(auto)%d%C(reset) %C(white)%s%C(reset) %C(dim cyan)- (%cr) %C(dim white)<%ae>%C(reset)%n'"
+  git config --global alias.lg2-specific "log --color --graph --decorate --abbrev-commit --pretty=format:'%C(auto)%h%C(reset) - %C(magenta)%cD%C(reset) %C(dim cyan)(%cr)%C(reset) %C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- <%ae>%C(reset)%n'"
+  # Pager
   git config --global include.path "$CURRENT_DIR/git/delta--one-dark-pro.gitconfig"
+  git config --global core.pager delta
+  git config --global interactive.diffFilter 'delta --color-only'
+  git config --global delta.navigate true
+  git config --global delta.side-by-side true
+  git config --global merge.conflictStyle zdiff3
 fi
 
 echo $SEPERATED_BAR
