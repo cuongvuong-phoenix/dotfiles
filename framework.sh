@@ -94,7 +94,7 @@ PROGRESS_BAR=$(printf "%*s" "$NUM_COLUMNS" "" | tr " " ".")
 # Arguments:    $1: command.
 execute_quietly() {
     $1 > /dev/null 2>&1
-    return $?    
+    return $?
 }
 ################################################################################################
 #                                   system_execute() $1
@@ -115,7 +115,7 @@ system_execute() {
 # Arguments:    $1: package's name.
 package_install() {
     local package_name=$1
-    
+
     local install_command
 
     case $CURRENT_PM in
@@ -167,7 +167,7 @@ package_install() {
 
 ################################################################################################
 #                                   print_wtabs() $1 $2 $3
-# Desc: Print $2 on the most-left of screen and $3 on the most-right of screen with $1 of tabs. 
+# Desc: Print $2 on the most-left of screen and $3 on the most-right of screen with $1 of tabs.
 #       If $3 is empty then print only $2 with $1 of tabs.
 # Arguments:    $1: number of tabs.
 #               $2: left string to print at left-justified of the screen.
@@ -236,7 +236,7 @@ ask_for_confirmation() {
 
 
 ################################################################################################
-#                                   backup_file() $1 $2
+#                                   backup_file() $1
 # Desc: Backup file $1 to $BACKUP_DIR.
 # Arguments:    $1: file to be backed up.
 backup_file() {
@@ -246,13 +246,13 @@ backup_file() {
         execute_quietly "mkdir -p $BACKUP_DIR"
     fi
 
-    execute_quietly "cp "$file" "$BACKUP_DIR""
+    execute_quietly "cp -r "$file" "$BACKUP_DIR""
 
     return $?
 }
 ################################################################################################
-#                                   link_file() $1 $2 $3
-# Desc: Link config file $2 to file $3.
+#                                   link_file() $1 $2 $3 $4
+# Desc: Link config file $2 to file $4.
 # Arguments:    $1: source's path.
 #               $2: source file to be linked from.
 #               $3: target's path.
@@ -264,7 +264,7 @@ link_file() {
     local target_file=$4
 
     local return_status
-    
+
     # Check if $target_path/$target_file exists
     if [ -e "$target_path/$target_file" ]; then
         # Check if $target_path/$target_file is already linked to $source_path/$source_file
@@ -276,7 +276,7 @@ link_file() {
             printf "${NORMAL}"
 
             backup_file "$target_path/$target_file"
-            
+
             if [ $? -eq 0 ]; then
                 print_wtabs 2 "${LIME_YELLOW}Backing up to ${BLUE}$BACKUP_DIR" 0 $(( ${#LIME_YELLOW} + ${#BLUE} )) "SUCCEED"
             else
@@ -297,6 +297,51 @@ link_file() {
 
     return $return_status
 }
+################################################################################################
+#                                   link_dir() $1 $2
+# Desc: Link config file $2 to file $3.
+# Arguments:    $1: source's path.
+#               $2: target's path.
+link_dir() {
+    local source_path=$1
+    local target_path=$2
+
+    local return_status
+
+    # Check if $target_path exists
+    if [ -d "$target_path" ]; then
+        # Check if $target_path is already linked to $source_path/$source_file
+        if [ "$(readlink "$target_path")" = "$source_path" ]; then
+            print_wtabs 2 "${BLUE}$target_path ${GREEN}has already been linked!"
+            return -1
+        else
+            print_wtabs 2 "${GREEN}FOUND ${BLUE}$target_path."
+            printf "${NORMAL}"
+
+            backup_file "$target_path"
+
+            if [ $? -eq 0 ]; then
+                print_wtabs 2 "${LIME_YELLOW}Backing up to ${BLUE}$BACKUP_DIR" 0 $(( ${#LIME_YELLOW} + ${#BLUE} )) "SUCCEED"
+            else
+                print_wtabs 2 "${LIME_YELLOW}Backing up to ${BLUE}$BACKUP_DIR" 1 $(( ${#LIME_YELLOW} + ${#BLUE} )) "FAILED"
+            fi
+        fi
+    fi
+
+    execute_quietly "rm -rf "$target_path""
+    execute_quietly "ln -fs "$source_path" "$target_path""
+
+    return_status=$?
+    if [ $return_status -eq 0 ]; then
+        print_wtabs 2 "${LIME_YELLOW}Linking to ${BLUE}$target_path" 0 $(( ${#LIME_YELLOW} + ${#BLUE} )) "SUCCEED"
+    else
+        print_wtabs 2 "${LIME_YELLOW}Linking to ${BLUE}$target_path" 1 $(( ${#LIME_YELLOW} + ${#BLUE} )) "FAILED"
+    fi
+
+    return $return_status
+}
+#
+
 ################################################################################################
 #                                   check_and_download() $1 $2 $3
 # Desc: Check if package/config $1 is already installed by checking if directory $2 exists.
@@ -326,7 +371,7 @@ check_and_download() {
 }
 ################################################################################################
 #                               install_and_config $1 $2 $3 $4 $5...
-# Desc: Link all the config files ($3, $4, $5...) of package $2. 
+# Desc: Link all the config files ($3, $4, $5...) of package $2.
 #       If $1 is empty, only install package $2 and doesn't configure anything.
 # Arguments:    $1: config's path to determine correctly config file.
 #               $2: package's command to check if package is already installed.
@@ -357,7 +402,7 @@ install_and_config() {
                     shift
                     print_wtabs 1 "${BOLD}${YELLOW}$1"
                     printf "${NORMAL}"
-                    
+
                     link_file "$CURRENT_DIR/$config_path" "$1" "$HOME" "$1"
                 done
 
@@ -374,17 +419,17 @@ install_and_config() {
         if [ -z "$config_path" ]; then
             printf "${BOLD}${YELLOW}$package ${NORMAL}${YELLOW}found.\n"
             printf "${NORMAL}"
-        
+
             return 0
         else
             printf "${BOLD}${YELLOW}$package ${NORMAL}${YELLOW}found => Start configuring now...\n"
             printf "${NORMAL}"
-            
+
             until [ $# = 1 ]; do
                 shift
                 print_wtabs 1 "${BOLD}${YELLOW}$1"
                 printf "${NORMAL}"
-                
+
                 link_file "$CURRENT_DIR/$config_path" "$1" "$HOME" "$1"
             done
 
