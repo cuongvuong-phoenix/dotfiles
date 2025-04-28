@@ -42,6 +42,8 @@ fish_add_path $GOPATH/bin
 set -gx ORACLE_HOME /opt/oracle
 set -gx LD_LIBRARY_PATH /usr/lib:/usr/local/lib:/opt/oracle/instantclient
 
+set -gx RUBY_YJIT_ENABLE 1
+
 ################################################################
 # Tools
 ################################################################
