@@ -44,6 +44,11 @@ set -gx LD_LIBRARY_PATH /usr/lib:/usr/local/lib:/opt/oracle/instantclient
 
 set -gx RUBY_YJIT_ENABLE 1
 
+# Android
+set -gx JAVA_HOME /opt/android-studio/jbr
+set -gx ANDROID_HOME ~/Android/Sdk
+set -gx NDK_HOME $ANDROID_HOME/ndk/$(ls -1 $ANDROID_HOME/ndk)
+
 ################################################################
 # Tools
 ################################################################
