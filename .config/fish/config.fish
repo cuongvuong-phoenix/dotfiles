@@ -40,7 +40,7 @@ fish_add_path $GOPATH/bin
 
 # ruby-oci
 set -gx ORACLE_HOME /opt/oracle
-set -gx LD_LIBRARY_PATH /opt/oracle/instantclient
+set -gx LD_LIBRARY_PATH /usr/lib:/usr/local/lib:/opt/oracle/instantclient
 
 ################################################################
 # Tools
