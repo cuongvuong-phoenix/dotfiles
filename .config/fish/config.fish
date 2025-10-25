@@ -27,6 +27,9 @@ set fish_cursor_visual block
 ################################################################
 # Environment
 ################################################################
+# Explicitly set `truecolor` as somehow, `tmux` doesn't set it making `delta` not displaying the correct colors
+set -gx COLORTERM truecolor
+
 set -gx EDITOR nvim
 set -gx BAT_THEME TwoDark
 
