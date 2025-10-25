@@ -1,0 +1,232 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+$username\
+($directory)\
+(\
+[](fg:prev_bg bg:17)\ 
+$git_branch\
+$git_commit\
+$git_status\
+$git_state\
+)\
+(\
+[](fg:prev_bg bg:black)\
+[](fg:prev_bg bg:236)\
+$docker_context\
+)\
+(\
+[](fg:prev_bg bg:black)\
+[](fg:prev_bg bg:236)\
+$package\
+)\
+[](fg:prev_bg)\
+(\
+$rust\
+$golang\
+$c\
+$java\
+$kotlin\
+$gradle\
+$nodejs\
+$deno\
+$bun\
+$python\
+$conda\
+$elixir\
+$ruby\
+$lua\
+$typst\
+$terraform\
+$aws\
+$gcloud\
+$openstack\
+$azure\
+)\
+$fill\
+(\
+[](bg:black fg:9)\
+$status\
+)\
+[](bg:prev_bg fg:250)\
+$time\
+$line_break\
+$character"""
+
+[username]
+show_always = true
+style_user = "bg:250 fg:black"
+style_root = "bg:250 fg:black"
+format = '[  $user ]($style)'
+
+[directory]
+style = "bg:blue fg:black"
+read_only_style = "bg:9 fg:226"
+format = "([](fg:prev_bg bg:9)[ $read_only ]($read_only_style))[](fg:prev_bg bg:blue)[   $path ]($style)"
+truncation_length = 0
+truncation_symbol = "…/"
+fish_style_pwd_dir_length = 0
+read_only = ""
+
+[git_branch]
+symbol = ""
+style = "bg:232 fg:169"
+format = '[ $symbol $branch]($style)'
+
+[git_commit]
+style = "bg:232 fg:169"
+format = '[   $hash ]($style)'
+
+[git_status]
+style = "bg:232 fg:169"
+# Different colors for `stashed` & the rest
+# format = '[($stashed )([( $conflicted)( $deleted)( $renamed)( $modified)( $typechanged)( $staged)( $untracked)( $ahead_behind)](bg:148 fg:124))]($style)'
+format = '[(( $ahead_behind)([ $stashed](bg:prev_bg fg:244))[( $conflicted)( $deleted)( $renamed)( $modified)( $typechanged)( $staged)( $untracked)](bg:prev_bg fg:11)) ]($style)'
+conflicted = ' '
+untracked = ''
+modified = ''
+renamed = ''
+deleted = '✘'
+staged = ''
+ahead = ' ${count}'
+diverged = ' ${ahead_count}  ${behind_count}'
+behind = ' ${count}'
+stashed = ' ${count}'
+
+[git_state]
+rebase = "rebase"
+merge = "merge"
+revert = "revert"
+cherry_pick = "cherry-pick"
+bisect = "bisect"
+am_or_rebase = "AM/rebase"
+style = "bold bg:232 fg:9"
+format = '[| [$state( $progress_current/$progress_total)](bold italic fg:prev_fg bg:prev_bg) ]($style)'
+
+[docker_context]
+symbol = "󰡨"
+style = "bold bg:236 fg:31"
+format = '[ $symbol( $context) ]($style)'
+
+[package]
+symbol = "📦️"
+style = "bg:236 fg:182"
+format = '[ $symbol $version ]($style)'
+
+[rust]
+symbol = "🦀"
+style = "fg:yellow"
+format = '[ $symbol( $version) ]($style)'
+
+[golang]
+symbol = "󰟓"
+style = "fg:blue"
+format = '[ $symbol( $version) ]($style)'
+
+[c]
+symbol = ""
+style = "fg:69"
+format = '[ $symbol( $version) ]($style)'
+
+[java]
+symbol = ""
+style = "fg:208"
+format = '[ $symbol( $version) ]($style)'
+
+[kotlin]
+symbol = "󱈙"
+style = "fg:purple"
+format = '[ $symbol( $version) ]($style)'
+
+[gradle]
+symbol = ""
+style = "fg:30"
+format = '[ $symbol( $version) ]($style)'
+
+[nodejs]
+symbol = "󰎙"
+style = "fg:green"
+format = '[ $symbol( $version) ]($style)'
+
+[deno]
+symbol = ""
+style = "fg:green"
+format = '[ $symbol( $version) ]($style)'
+
+[bun]
+symbol = ""
+style = "fg:green"
+format = '[ $symbol( $version) ]($style)'
+
+[python]
+symbol = "󰌠"
+style = "fg:178"
+format = '[ $symbol( $version) ]($style)'
+
+[conda]
+symbol = ""
+style = "fg:148"
+format = '[ $symbol( $environment) ]($style)'
+
+[elixir]
+symbol = ""
+style = "fg:purple"
+format = '[ $symbol( $version) ]($style)'
+
+[ruby]
+symbol = "󰴭"
+style = "fg:9"
+format = '[ $symbol( $version) ]($style)'
+
+[php]
+symbol = " "
+style = "fg:69"
+format = '[ $symbol( $version) ]($style)'
+
+[lua]
+symbol = "󰢱"
+style = "fg:69"
+format = '[ $symbol( $version) ]($style)'
+
+[typst]
+symbol = ""
+style = "fg:cyan"
+format = '[ $symbol( $version) ]($style)'
+
+[terraform]
+symbol = "󱁢"
+style = "fg:purple"
+format = '[ $symbol( $version) ]($style)'
+
+[fill]
+symbol = " "
+
+[status]
+disabled = false
+style = "bold bg:9 fg:184"
+format = '[ $common_meaning$signal_name$maybe_int $symbol ]($style)'
+map_symbol = true
+symbol = "❌"
+not_executable_symbol = "🚫"
+not_found_symbol = "🔍"
+sigint_symbol = "󰟾 "
+signal_symbol = "⚡"
+
+[time]
+disabled = false
+time_format = "%T"
+style = "bg:250 fg:black"
+format = '[ $time   ]($style)'
+
+[line_break]
+disabled = false
+
+[character]
+disabled = false
+success_symbol = '[](bold fg:green)'
+error_symbol = '[](bold fg:red)'
+vimcmd_symbol = '[](bold fg:green)'
+vimcmd_replace_one_symbol = '[](bold fg:purple)'
+vimcmd_replace_symbol = '[](bold fg:purple)'
+vimcmd_visual_symbol = '[](bold fg:yellow)'
+
