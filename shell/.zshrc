@@ -69,11 +69,11 @@ function add_to_PATH {
 # ----------------------------------------------------------------
 # ALIASES
 # ----------------------------------------------------------------
-alias ls=lsd
-alias grep=rg
-alias find=fd
-alias diff=delta
-alias lazygit=lg
+# alias ls=lsd
+# alias grep=rg
+# alias find=fd
+# alias diff=delta
+alias lg=lazygit
 alias vim=nvim
 
 # ----------------------------------------------------------------
