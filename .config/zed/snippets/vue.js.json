@@ -1,0 +1,26 @@
+{
+  "<template> tag": {
+    "prefix": ["tem", "template"],
+    "body": ["<template>", "\t$1", "</template>"]
+  },
+
+  "<script setup> tag with TypeScript support": {
+    "prefix": ["setup", "scriptsetup"],
+    "body": ["<script setup lang=\"ts\">", "$1", "</script>"]
+  },
+
+  "<script> tag with TypeScript support": {
+    "prefix": "script",
+    "body": ["<script lang=\"ts\">", "$1", "</script>"]
+  },
+
+  "<style scoped> tag": {
+    "prefix": ["stylescoped", "scoped"],
+    "body": ["<style scoped>", "$1", "</style>"]
+  },
+
+  "<style scoped> tag with PostCSS support": {
+    "prefix": "postcssscoped",
+    "body": ["<style lang=\"postcss\" scoped>", "$1", "</style>"]
+  }
+}

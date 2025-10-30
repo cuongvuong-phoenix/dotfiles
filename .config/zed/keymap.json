@@ -1,0 +1,115 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  //--------------------------------  📋️ Copy/Paste clipboard (require `use_system_clipboard = "on_yank"`) --------------------------------
+  {
+    "context": "Editor && !menu",
+    "bindings": {
+      "ctrl-c": "editor::Copy", // vim default: return to normal mode
+      "ctrl-x": "editor::Cut", // vim default: decrement
+      "ctrl-v": "editor::Paste" // vim default: visual block mode
+    }
+  },
+  {
+    "context": "vim_mode == visual",
+    "bindings": {
+      "shift-s": "vim::PushAddSurrounds",
+      "ctrl-c": "vim::VisualYank"
+      // "ctrl-v": "vim::Paste" // Don't know why using this make deletions become normal yanks!?
+    }
+  },
+  //-------------------------------- 🪟 Windows --------------------------------
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown",
+      "ctrl-shift-h": "workspace::SwapPaneLeft",
+      "ctrl-shift-l": "workspace::SwapPaneRight",
+      "ctrl-shift-k": "workspace::SwapPaneUp",
+      "ctrl-shift-j": "workspace::SwapPaneDown",
+      "space -": "pane::SplitDown",
+      "space _": "pane::SplitRight",
+      "ctrl-b": "workspace::ToggleLeftDock"
+    }
+  },
+  {
+    "context": "Dock",
+    "bindings": {
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown"
+    }
+  },
+  //-------------------------------- 📚️ Menu navigations --------------------------------
+  {
+    "bindings": {
+      "ctrl-j": "menu::SelectNext",
+      "ctrl-k": "menu::SelectPrevious"
+    }
+  },
+  {
+    "context": "Editor && (showing_code_actions || showing_completions)",
+    "bindings": {
+      "ctrl-j": "editor::ContextMenuNext",
+      "ctrl-k": "editor::ContextMenuPrevious"
+    }
+  },
+  //-------------------------------- 📂 File Explorer --------------------------------
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      "r": "project_panel::Rename",
+      "d": "project_panel::Delete",
+      "y": "project_panel::Copy",
+      "x": "project_panel::Cut",
+      "p": "project_panel::Paste",
+      "a": "project_panel::NewFile",
+      "shift-a": "project_panel::NewDirectory"
+    }
+  },
+  //-------------------------------- Others --------------------------------
+  {
+    "bindings": {
+      "ctrl-q": "pane::CloseActiveItem",
+      "ctrl-alt-s": "workspace::SaveWithoutFormat",
+      "ctrl-shift-w": "workspace::CloseWindow"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "alt-j": "editor::MoveLineDown",
+      "alt-k": "editor::MoveLineUp",
+      "alt-d": "vim::SelectNext",
+      "shift-alt-k": "editor::AddSelectionAbove",
+      "shift-alt-j": "editor::AddSelectionBelow"
+    }
+  },
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      "t l": "pane::ActivateNextItem",
+      "t h": "pane::ActivatePreviousItem",
+      "t [": "pane::SwapItemLeft",
+      "t ]": "pane::SwapItemRight",
+      "space z": "workspace::ToggleZoom",
+      "ctrl-shift-[": "editor::Fold", // Currently, this doesn't work (hope it will work in the future tho)
+      "ctrl-shift-]": "editor::UnfoldLines" // Currently, this doesn't work (hope it will work in the future tho)
+    }
+  },
+  {
+    "context": "BufferSearchBar",
+    "bindings": {
+      "ctrl-[": "buffer_search::Dismiss" // Currently, this doesn't work (hope it will work in the future tho)
+    }
+  }
+]

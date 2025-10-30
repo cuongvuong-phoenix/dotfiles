@@ -1,0 +1,38 @@
+{
+  "Log to the console": {
+    "prefix": "lg",
+    "body": ["console.log('${1:🚀} ~ ${2:name}')"],
+    "description": "Log to the console"
+  },
+  "Log 1 var to the console": {
+    "prefix": ["lgg", "lg1"],
+    "body": ["console.log('${1:🚀} ~ ${2:variable} ~', ${2:variable})"],
+    "description": "Log to the console"
+  },
+  "Log 2 vars to the console": {
+    "prefix": ["lggg", "lg2"],
+    "body": ["console.log('${1:🚀} ~ ${2:variable} ~', ${2:variable}, '~ ${3:variable} ~', ${3:variable})"],
+    "description": "Log to the console"
+  },
+  "Log 3 vars to the console": {
+    "prefix": ["lgggg", "lg3"],
+    "body": [
+      "console.log(",
+      "  '${1:🚀}',",
+      "  '~ ${2:variable} ~', ${2:variable},",
+      "  '~ ${3:variable} ~', ${3:variable},",
+      "  '~ ${4:variable} ~', ${4:variable},",
+      ")"
+    ],
+    "description": "Log to the console"
+  },
+  "Comment seciton": {
+    "prefix": "cmtsec",
+    "body": [
+      "/* ----------------------------------------------------------------",
+      "$1",
+      "---------------------------------------------------------------- */"
+    ],
+    "description": "Add a comment section"
+  }
+}

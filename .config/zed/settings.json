@@ -1,0 +1,243 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette
+{
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "disable_ai": true,
+  "restore_on_startup": "last_session",
+  //-------------------------------- 🎨 UI --------------------------------
+  "ui_font_size": 16,
+  "theme": {
+    "mode": "system",
+    "light": "One Dark Pro",
+    "dark": "One Dark Pro"
+  },
+  "experimental.theme_overrides": {
+    "search.match_background": "#d19a6620"
+  },
+  "icon_theme": "Material Icon Theme",
+  "project_panel": {
+    "auto_fold_dirs": false
+  },
+  "tabs": {
+    "file_icons": true,
+    "git_status": true,
+    "show_diagnostics": "all"
+  },
+  "buffer_font_size": null,
+  "buffer_font_family": "JetBrainsMono Nerd Font",
+  "preferred_line_length": 120,
+  "indent_guides": {
+    "enabled": true,
+    "coloring": "indent_aware",
+    "active_line_width": 2
+  },
+  "wrap_guides": [120],
+  //-------------------------------- 🤖 AI --------------------------------
+  // Disable everything: https://github.com/zed-industries/zed/discussions/16750#discussioncomment-13518876
+  "features": {
+    "edit_prediction_provider": "none"
+  },
+  "agent": {
+    "enabled": false
+  },
+  "language_models": {
+    "anthropic": { "api_url": "" },
+    "google": { "api_url": "" },
+    "ollama": { "api_url": "" },
+    "openai": { "api_url": "" },
+    "open_router": { "api_url": "" },
+    "lmstudio": { "api_url": "" },
+    "deepseek": { "api_url": "" },
+    "mistral": { "api_url": "" }
+  },
+  //-------------------------------- 🚀 Vim --------------------------------
+  "vim_mode": true,
+  "vim": {
+    "use_system_clipboard": "on_yank"
+  },
+  "relative_line_numbers": true,
+  //-------------------------------- 🌎️ Languages --------------------------------
+  "file_types": {
+    "Ruby": ["rbi"]
+  },
+  "tab_size": 2,
+
+  "languages": {
+    "Rust": {
+      "tab_size": 4,
+      "inlay_hints": {
+        "enabled": true
+      }
+    },
+    "Ruby": {
+      "language_servers": ["ruby-lsp", "rubocop", "sorbet", "!solargraph", "!steep", "..."]
+    },
+    "JavaScript": {
+      // Use ESLint as the only formatter
+      "formatter": { "language_server": { "name": "" } },
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true
+      }
+    },
+    "TypeScript": {
+      // Use ESLint as the only formatter
+      "formatter": { "language_server": { "name": "" } },
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true
+      }
+    },
+    "Vue.js": {
+      // Use ESLint as the only formatter
+      "formatter": { "language_server": { "name": "" } },
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true
+      },
+      "language_servers": [
+        // Hybrid Mode
+        "vtsls",
+        // Disable UnoCSS by default, need to explicitly enable per project
+        "!unocss-language-server",
+        "..."
+      ]
+    },
+    "SQL": {
+      "formatter": {
+        "external": {
+          "command": "sql-formatter",
+          "arguments": ["--language", "postgresql", "--config", "/home/bimbal/Development/.sql-formatter.json"]
+        }
+      }
+    },
+
+    // ESLint for extra languages
+    "JSON": {
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true
+      },
+      "language_servers": ["eslint", "..."]
+    },
+    "JSONC": {
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true
+      },
+      "language_servers": ["eslint", "..."]
+    },
+    "CSS": {
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true
+      },
+      "language_servers": ["eslint", "..."]
+    },
+    "YAML": {
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true
+      },
+      "language_servers": ["eslint", "..."]
+    }
+  },
+
+  "lsp": {
+    // Rust
+    "rust-analyzer": {
+      "initialization_options": {
+        "checkOnSave": true,
+        "check": {
+          "command": "clippy"
+        },
+        "inlayHints": {
+          "maxLength": null,
+          "lifetimeElisionHints": {
+            "useParameterNames": true,
+            "enable": "skip_trivial"
+          },
+          "closureReturnTypeHints": {
+            "enable": "always"
+          }
+        }
+      }
+    },
+
+    // TypeScript + Vue
+    "vtsls": {
+      "settings": {
+        "vtsls": {
+          "tsserver": {
+            "globalPlugins": [
+              {
+                "name": "@vue/typescript-plugin",
+                "location": "/home/bimbal/.local/share/zed/extensions/work/vue/node_modules/@vue/language-server",
+                "languages": ["vue.js"],
+                "configNamespace": "typescript",
+                "enableForWorkspaceTypeScriptVersions": true
+              }
+            ]
+          }
+        }
+      }
+    },
+    // Vue
+    "vue-language-server": {
+      "initialization_options": {
+        "vue": {
+          "hybridMode": true
+        }
+      }
+    },
+
+    // Linter & Formatter
+    "eslint": {
+      "settings": {
+        "rulesCustomizations": [
+          // Do not show in editor while still auto-fixing on save
+          { "rule": "style/*", "severity": "off", "fixable": true },
+          { "rule": "format/*", "severity": "off", "fixable": true },
+          { "rule": "*-indent", "severity": "off", "fixable": true },
+          { "rule": "*-spacing", "severity": "off", "fixable": true },
+          { "rule": "*-spaces", "severity": "off", "fixable": true },
+          { "rule": "*-order", "severity": "off", "fixable": true },
+          { "rule": "*-dangle", "severity": "off", "fixable": true },
+          { "rule": "*-newline", "severity": "off", "fixable": true },
+          { "rule": "*quotes", "severity": "off", "fixable": true },
+          { "rule": "*semi", "severity": "off", "fixable": true },
+          { "rule": "*semi", "severity": "off", "fixable": true },
+          // Vue
+          {
+            "rule": "vue/max-attributes-per-line",
+            "severity": "off",
+            "fixable": true
+          },
+          // UnoCSS
+          { "rule": "unocss/order", "severity": "off", "fixable": true },
+          {
+            "rule": "unocss/order-attributify",
+            "severity": "off",
+            "fixable": true
+          }
+        ]
+      }
+    },
+    "biome": {
+      "settings": {
+        "require_config_file": true
+      }
+    },
+
+    // Ruby
+    "ruby-lsp": {
+      "initialization_options": {
+        "enabledFeatures": {
+          "diagnostics": false
+        }
+      }
+    }
+  }
+}
