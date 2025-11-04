@@ -71,6 +71,7 @@ if [ $? -eq 0 ]; then
   git config --global include.path "$CURRENT_DIR/git/delta--one-dark-pro.gitconfig"
   git config --global core.pager delta
   git config --global interactive.diffFilter 'delta --color-only'
+  git config --global delta.features one-dark-pro
   git config --global delta.navigate true
   git config --global delta.side-by-side true
   git config --global merge.conflictStyle zdiff3
