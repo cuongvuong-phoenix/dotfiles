@@ -41,16 +41,18 @@ fish_add_path ~/.cargo/bin
 set -gx GOPATH ~/go
 fish_add_path $GOPATH/bin
 
-# ruby-oci
+# Ruby
 set -gx ORACLE_HOME /opt/oracle
-set -gx LD_LIBRARY_PATH /usr/lib:/usr/local/lib:/opt/oracle/instantclient
+set -gx LD_LIBRARY_PATH /opt/oracle/instantclient /usr/local/lib $LD_LIBRARY_PATH 
+set -gx PKG_CONFIG_PATH /usr/local/lib/pkgconfig $PKG_CONFIG_PATH
+set -gx GI_TYPELIB_PATH /usr/local/lib/girepository-1.0 $GI_TYPELIB_PATH
 
 set -gx RUBY_YJIT_ENABLE 1
 
 # Android
-set -gx JAVA_HOME /opt/android-studio/jbr
-set -gx ANDROID_HOME ~/Android/Sdk
-set -gx NDK_HOME $ANDROID_HOME/ndk/$(ls -1 $ANDROID_HOME/ndk)
+#set -gx JAVA_HOME /opt/android-studio/jbr
+#set -gx ANDROID_HOME ~/Android/Sdk
+#set -gx NDK_HOME $ANDROID_HOME/ndk/$(ls -1 $ANDROID_HOME/ndk)
 
 ################################################################
 # Tools
