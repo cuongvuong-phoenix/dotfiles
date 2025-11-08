@@ -33,17 +33,20 @@ set -gx COLORTERM truecolor
 set -gx EDITOR nvim
 set -gx BAT_THEME TwoDark
 
+# PNPM
 set -gx PNPM_HOME "/home/bimbal/.local/share/pnpm"
 fish_add_path $PNPM_HOME
 
+# Rust
 fish_add_path ~/.cargo/bin
 
+# Go
 set -gx GOPATH ~/go
 fish_add_path $GOPATH/bin
 
-# Ruby
+# C/C++ & Ruby
 set -gx ORACLE_HOME /opt/oracle
-set -gx LD_LIBRARY_PATH /opt/oracle/instantclient /usr/local/lib $LD_LIBRARY_PATH 
+set -gx LD_LIBRARY_PATH /opt/oracle/instantclient /usr/local/lib $LD_LIBRARY_PATH
 set -gx PKG_CONFIG_PATH /usr/local/lib/pkgconfig $PKG_CONFIG_PATH
 set -gx GI_TYPELIB_PATH /usr/local/lib/girepository-1.0 $GI_TYPELIB_PATH
 
@@ -62,4 +65,3 @@ fzf_configure_bindings --directory=\ct --processes=\cp
 mise activate fish | source
 starship init fish | source
 zoxide init fish | source
-
